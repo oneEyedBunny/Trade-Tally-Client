@@ -3,7 +3,7 @@ import React from "react";
 export class OptionBoxes extends React.Component {
   render() {
     return (
-      <div>
+      <React.Fragment>
         <section className="options-container">
           <div className="option-box">
             <p>How it works</p>
@@ -15,7 +15,7 @@ export class OptionBoxes extends React.Component {
             <p>See Trade History</p>
           </div>
         </section>
-      </div>
+      </React.Fragment>
     );
   }
 }

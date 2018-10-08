@@ -1,27 +1,21 @@
-import React from "react";
+import React from 'react';
 
-export class TradeSummary extends React.Component {
-  render() {
-    return (
-      <div>
-        <h2>Trade Summary</h2>
-        <table>
-          <tr>
-            <th>Date</th>
-            <th>Description</th>
-            <th>Amount</th>
-          </tr>
-          <tr>
-            <td>10/1/18</td>
-            <td>Lorem ipsum</td>
-            <td>$100</td>
-          </tr>
-        </table>
-        <div>
-          <p>Balance</p>
-          <div>$125</div>
-        </div>
-      </div>
-    );
-  }
+export function TradeSummary(props) {
+  return (
+    <div>
+      <h2>My Active Trades</h2>
+      <table>
+        <tr>
+          <th>Trade Partner</th>
+          <th>Profession</th>
+          <th>Trade Balance</th>
+        </tr>
+        <tr>
+          <td>{props.tradePartner}</td>
+          <td>{props.profession}</td>
+          <td>{props.sumAmount}</td>
+        </tr>
+      </table>
+    </div>
+  );
 }
