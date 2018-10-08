@@ -1,8 +1,13 @@
 import React from "react";
 
-export function NewTrade(props) {
+export class NewTrade extends React.Component {
+  submitTrade(event) {
+    event.preventDefault();
+    console.log("I'm working");
+  }
+  render() {
     return (
-      <form id="new-trade-form">
+      <form id="new-trade-form" onSubmit={this.submitTrade}>
         <fieldset id="new-trade-fieldset">
           <legend>Trade Info</legend>
           <div className="new-user-div">
@@ -44,4 +49,5 @@ export function NewTrade(props) {
         </fieldset>
       </form>
     );
+  }
 }
