@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function CreateAccount(props) {
+export function CreateAccount(props) {
   return (
     <form id="new-user-form">
       <fieldset id="new-user-fieldset">
