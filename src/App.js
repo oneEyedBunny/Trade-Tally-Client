@@ -1,10 +1,13 @@
-import React from "react";
-import { Link } from 'react-router-dom'; //allows you to link
-import "./App.css";
+import React from 'react';
+import { Link } from 'react-router-dom'; //allows you to link to different routes
+import { connect } from 'react-redux'; //allows you to ??
+import { bindActionCreators } from 'redux'; //allows you to ??
+import * as actionCreators from './actions/trades';
+import './App.css';
 
 //import components
-import { Navigation } from "./components/navigation";
-import { CreateAccount } from "./components/create-account";
+import { Navigation } from './components/navigation';
+import { CreateAccount } from './components/create-account';
 
 
 export default class App extends React.Component {
@@ -35,7 +38,7 @@ export default class App extends React.Component {
           <div className="left-box" />
           <div className="right-box" />
         </section>
-        {/*{React.cloneElement(this.props.children, this.props)} */}
+        {/*{React.cloneElement(this.props.children, this.props)} passes props from parent to child*/}
         <section className="options-container">
           <div className="option-box">
             <p>How it works</p>
@@ -60,4 +63,18 @@ export default class App extends React.Component {
       </div>
     );
   }
-}
+};
+
+// const mapStateToProps = state => ({
+//   tradePartnerId: state.tradePartnerId,
+//   tradeId: state.tradeId,
+//   date: state.date,
+//   serviceDescription: state.serviceDescription,
+//   amount: state.amount
+// });
+
+// const mapDispatchToProps = dispatch => ({
+//   bindActionCreators(actionCreators, dispatch);
+// })
+//
+// export default connect(mapStateToProps)(mapDispatchToProps)(??);

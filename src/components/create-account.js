@@ -10,6 +10,7 @@ export function CreateAccount(props) {
           <label>First Name: </label>
           <input
             className="new-form-fields"
+            type="text"
             id="firstName"
             name="firstName"
             required
@@ -17,6 +18,7 @@ export function CreateAccount(props) {
           <label>Last Name: </label>
           <input
             className="new-form-fields"
+            type="text"
             id="lastName"
             name="lastName"
             required
@@ -24,14 +26,15 @@ export function CreateAccount(props) {
           <label>Email: </label>
           <input
             className="new-form-fields"
-            id="email"
             type="email"
+            id="email"
             name="email"
             required
           />
           <label>Profession: </label>
           <input
             className="new-form-fields"
+            type="text"
             id="profession"
             name="profession"
             required
@@ -39,6 +42,7 @@ export function CreateAccount(props) {
           <label>Username: </label>
           <input
             className="new-form-fields"
+            type="text"
             id="username"
             name="username"
             required
@@ -46,13 +50,16 @@ export function CreateAccount(props) {
           <label>Password: </label>
           <input
             className="new-form-fields"
+            type="password"
             id="password"
             name="password"
-            type="password"
             required
           />
-          <button role="button" type="submit" id="create-profile-button">
-            Create Profile
+          <button
+            role="button"
+            type="submit"
+            id="create-profile-button"
+            onClick={() => this.setEditing(false)}>Create Profile
           </button>
         </div>
       </fieldset>
