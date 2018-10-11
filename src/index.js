@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 import { store, history } from './store';
 
 render(
-  <Provider store={store}>
-    <Router  history= {history}/>,
+  <Provider store={ store }>
+    <Router />
   </Provider>,
   document.getElementById("root"));

@@ -4,16 +4,9 @@ import { ADD_NEW_USER_SUCCESS, ADD_NEW_USER_FAIL, LOADING, LOGIN_LOADING,
   LOGIN_FAIL, SET_AUTH_TOKEN, LOGOUT_SUCCESS} from "../actions/auth-users";
 
 const initialState = {
-  trades: [
-    {
-    tradeId: "",
-    tradePartnerFullName: "",
-    tradePartnerProfession: "",
-    date: "",
-    serviceDescription: "",
-    amount: ""
-    }
-  ]
+  trades: [],
+  errorMessage: "",
+  isLoggedin: false
 }
 
 export const authUserReducer = (state = initialState, action) => {
@@ -39,7 +32,8 @@ export const authUserReducer = (state = initialState, action) => {
 
   if (action.type === LOGIN_FAIL) {
     return Object.assign({}, state, {
-      loginFail: true
+      loginFail: true,
+      errorMessage: action.error
     });
   }
 

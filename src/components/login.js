@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { login } from '../actions/auth-users';
 
-export class Login extends React.Compomnent {
+export class Login extends React.Component {
   constructor(props) {
       super(props)
         this.state = {
@@ -42,7 +42,7 @@ export class Login extends React.Compomnent {
             name="username"
             required
             value={this.state.username}
-            onChange={e => this.setInput(e.target.value)}
+            onChange={e => this.setInput(e.target.value, "username")}
             />
         <label>Password:</label>
           <input
@@ -52,17 +52,23 @@ export class Login extends React.Compomnent {
             name="password"
             required
             value={this.state.password}
-            onChange={e => this.setInput(e.target.value)}
+            onChange={e => this.setInput(e.target.value, "password")}
             />
         <button role="button" id="login-user-button" type="submit" />
         <div id="demo-container">
-          <h7 class="demo-info"> For demo account use:</h7>
-          <h7 class="demo-info login"> u: demoDanny</h7>
-          <h7 class="demo-info login"> p: demoFun1</h7>
+          <h7 className="demo-info"> For demo account use:</h7>
+          <h7 className="demo-info login"> u: demoDanny</h7>
+          <h7 className="demo-info login"> p: demoFun1</h7>
         </div>
-        <div class="error-message-container" />
+        <div className="error-message-container">{this.props.errorMessage}</div>
       </fieldset>
     </form>
   );
  }
 }
+
+const mapStateToProps = (state, props) => ({
+    errorMessage: state.user.errorMessage
+});
+
+export default connect(mapStateToProps)(Login);

@@ -1,5 +1,5 @@
 import React from "react";
-//import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
 import { addNewUser } from '../actions/auth-users';
 
@@ -78,7 +78,7 @@ export class CreateAccount extends React.Component {
             name="firstName"
             required
             value={this.state.firstName}
-            onChange={e => this.setInput(e.target.value)}
+            onChange={e => this.setInput(e.target.value, "firstName")}
           />
           <label>Last Name: </label>
           <input
@@ -88,7 +88,7 @@ export class CreateAccount extends React.Component {
             name="lastName"
             required
             value={this.state.lastName}
-            onChange={e => this.setInput(e.target.value)}
+            onChange={e => this.setInput(e.target.value, "lastName")}
           />
           <label>Email: </label>
           <input
@@ -98,7 +98,7 @@ export class CreateAccount extends React.Component {
             name="email"
             required
             value={this.state.email}
-            onChange={e => this.setInput(e.target.value)}
+            onChange={e => this.setInput(e.target.value, "email")}
           />
           <label>Profession: </label>
           <input
@@ -108,7 +108,7 @@ export class CreateAccount extends React.Component {
             name="profession"
             required
             value={this.state.profession}
-            onChange={e => this.setInput(e.target.value)}
+            onChange={e => this.setInput(e.target.value, "profession")}
           />
           <label>Username: </label>
           <input
@@ -118,7 +118,7 @@ export class CreateAccount extends React.Component {
             name="username"
             required
             value={this.state.username}
-            onChange={e => this.setInput(e.target.value)}
+            onChange={e => this.setInput(e.target.value, "username")}
           />
           <label>Password: </label>
           <input
@@ -128,6 +128,7 @@ export class CreateAccount extends React.Component {
             name="password"
             required
             value={this.state.password}
+            onChange={e => this.setInput(e.target.value, "password")}
           />
           <button role="button" type="submit" id="create-profile-button">
             Create Profile
@@ -138,3 +139,5 @@ export class CreateAccount extends React.Component {
   );
  }
 }
+
+export default connect()(CreateAccount);

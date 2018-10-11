@@ -36,7 +36,7 @@ export const addNewUser = userInfo => {
     .then(data => {
         dispatch(addNewUserSuccess(data))
         dispatch(loading(false))
-        //dispatch(login(credentials)) //should this go here?
+        dispatch(login(userInfo))
     })
     .catch((err) => {
       console.log(err)
@@ -60,8 +60,9 @@ export const loginLoading = value => ({
 })
 
 export const LOGIN_FAIL = "LOGIN_FAIL";
-export const loginFail = () => ({
-  type: LOGIN_FAIL
+export const loginFail = (error) => ({
+  type: LOGIN_FAIL,
+  error
 })
 
 export const login = credentials => {
@@ -83,9 +84,9 @@ export const login = credentials => {
     }
     )
     .then(({authToken}) => storeAuthInfo(authToken, dispatch))
-    .catch(err => {
-      console.log(err)
-      dispatch(loginFail())
+    .catch(error => {
+      console.log(error)
+      dispatch(loginFail(error))
       dispatch(loginLoading(false))
     })
   }
