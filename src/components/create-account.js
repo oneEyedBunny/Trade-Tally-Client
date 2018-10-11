@@ -51,7 +51,10 @@ export class CreateAccount extends React.Component {
       else {
         this.props.dispatch(addNewUser(userInfo))
         this.setState({
-          houseName: "",
+          firstName: "",
+          lastName: "",
+          email: "",
+          profession: "",
           username: "",
           password: "",
           passwordValidate: "",
@@ -64,8 +67,10 @@ export class CreateAccount extends React.Component {
  render() {
    //need to add some message handling. Server error, server success
 
+
+                            //onSubmit={(e) => this.handleSubmit(e)}
   return (
-    <form id="new-user-form" onSubmit={(e) => this.handleSubmit(e)}>
+    <form id="new-user-form" onSubmit={this.handleSubmit}>
       <fieldset id="new-user-fieldset">
         <legend>Profile Info</legend>
         <div className="error-message-container" />
@@ -78,7 +83,7 @@ export class CreateAccount extends React.Component {
             name="firstName"
             required
             value={this.state.firstName}
-            onChange={e => this.setInput(e.target.value, "firstName")}
+            onChange={e => this.setInput(e, "firstName")}
           />
           <label>Last Name: </label>
           <input
@@ -88,7 +93,7 @@ export class CreateAccount extends React.Component {
             name="lastName"
             required
             value={this.state.lastName}
-            onChange={e => this.setInput(e.target.value, "lastName")}
+            onChange={e => this.setInput(e, "lastName")}
           />
           <label>Email: </label>
           <input
@@ -98,7 +103,7 @@ export class CreateAccount extends React.Component {
             name="email"
             required
             value={this.state.email}
-            onChange={e => this.setInput(e.target.value, "email")}
+            onChange={e => this.setInput(e, "email")}
           />
           <label>Profession: </label>
           <input
@@ -108,7 +113,7 @@ export class CreateAccount extends React.Component {
             name="profession"
             required
             value={this.state.profession}
-            onChange={e => this.setInput(e.target.value, "profession")}
+            onChange={e => this.setInput(e, "profession")}
           />
           <label>Username: </label>
           <input
@@ -118,7 +123,7 @@ export class CreateAccount extends React.Component {
             name="username"
             required
             value={this.state.username}
-            onChange={e => this.setInput(e.target.value, "username")}
+            onChange={e => this.setInput(e, "username")}
           />
           <label>Password: </label>
           <input
@@ -128,7 +133,7 @@ export class CreateAccount extends React.Component {
             name="password"
             required
             value={this.state.password}
-            onChange={e => this.setInput(e.target.value, "password")}
+            onChange={e => this.setInput(e, "password")}
           />
           <button role="button" type="submit" id="create-profile-button">
             Create Profile
@@ -139,5 +144,17 @@ export class CreateAccount extends React.Component {
   );
  }
 }
+
+const mapStateToProps = (state, props) => ({
+    firstName: state.firstName,
+    lastName: state.lastName,
+    email: state.email,
+    profession: state.profession,
+    username: state.username,
+    password: state.password,
+    // passwordValidate: state.passwordValidate,
+    // usernameValidate: state.usernameValidate,
+    // loading: state.loading,
+});
 
 export default connect()(CreateAccount);
