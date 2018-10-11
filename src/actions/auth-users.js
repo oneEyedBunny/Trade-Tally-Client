@@ -1,4 +1,5 @@
 //ajax calls for posting a new user and passing responses onto the reducer
+//actions signal that we want the state to change, reducer actually executes changes to state
 
 import {saveAuthToken, clearAuthToken} from '../local-storage';
 const {API_BASE_URL} = require("../config")
@@ -17,9 +18,9 @@ export const addNewUserFail = () => ({
 
 export const addNewUser = userInfo => {
   return (dispatch) => {
-    dispatch(loading(true))
+    dispatch(loginLoading(true))
     fetch(`${API_BASE_URL}/users`, {
-      method: "post",
+      method: "POST",
       body: JSON.stringify(userInfo),
       headers: {
         "Content-Type": "application/json"
@@ -33,18 +34,25 @@ export const addNewUser = userInfo => {
     }
     )
     .then(data => {
-        dispatch(postNewUserSuccess(data))
+        dispatch(addNewUserSuccess(data))
         dispatch(loading(false))
+        //dispatch(login(credentials)) //should this go here?
     })
     .catch((err) => {
       console.log(err)
-      dispatch(postNewUserFail())
+      dispatch(addNewUserFail())
       dispatch(loading(false))
     })
   }
 }
 
 // Items related to Login/Logout of a user
+export const LOADING = "LOADING"
+export const loading = value => ({
+  type: LOADING,
+  value
+})
+
 export const LOGIN_LOADING = "LOGIN_LOADING"
 export const loginLoading = value => ({
   type: LOGIN_LOADING,
@@ -60,7 +68,7 @@ export const login = credentials => {
   return (dispatch) => {
     dispatch(loginLoading(true))
     fetch(`${API_BASE_URL}/auth/login`, {
-      method: "post",
+      method: "POST",
       body: JSON.stringify(credentials),
       headers: {
         "Content-Type": "application/json"

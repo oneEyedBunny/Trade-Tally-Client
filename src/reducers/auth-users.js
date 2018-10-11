@@ -1,17 +1,33 @@
-import {
-  ADD_NEW_USER_SUCCESS,
-  ADD_NEW_USER_FAIL,
-  LOGIN_LOADING,
-  LOGIN_FAIL,
-  SET_AUTH_TOKEN,
-  LOGOUT_SUCCESS
-} from "./actions/auth-users";
+//actions signal that we want the state to change, reducer actually executes changes to state
 
-export const authUserReducer = (state = [], action) => {
+import { ADD_NEW_USER_SUCCESS, ADD_NEW_USER_FAIL, LOADING, LOGIN_LOADING,
+  LOGIN_FAIL, SET_AUTH_TOKEN, LOGOUT_SUCCESS} from "../actions/auth-users";
+
+const initialState = {
+  trades: [
+    {
+    tradeId: "",
+    tradePartnerFullName: "",
+    tradePartnerProfession: "",
+    date: "",
+    serviceDescription: "",
+    amount: ""
+    }
+  ],
+  firstName: "",
+  lastName: "",
+  email: "",
+  profession: "",
+  username: "",
+  password: ""
+}
+
+export const authUserReducer = (state = initialState, action) => {
   if (action.type === ADD_NEW_USER_SUCCESS) {
     return Object.assign({}, state, {
       successMessage: true,
-      userName: action.values.username
+      //firstName: action.values.firstName
+
     });
   }
 
