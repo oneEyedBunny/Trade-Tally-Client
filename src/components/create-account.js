@@ -47,7 +47,7 @@ export class CreateAccount extends React.Component {
           passwordValidate: "Password must be at least 8 characters"
         })
       }
-      //if all inputs valid, dispatch add new user with userInfo from the state (set by change in inputs)
+      //if all inputs are valid, dispatch addNewUser action creator w/userInfo from state (set by onChange in inputs)
       else {
         this.props.dispatch(addNewUser(userInfo))
         this.setState({
@@ -145,16 +145,29 @@ export class CreateAccount extends React.Component {
  }
 }
 
-const mapStateToProps = (state, props) => ({
-    firstName: state.firstName,
-    lastName: state.lastName,
-    email: state.email,
-    profession: state.profession,
-    username: state.username,
-    password: state.password,
-    // passwordValidate: state.passwordValidate,
-    // usernameValidate: state.usernameValidate,
-    // loading: state.loading,
-});
+// const mapStateToProps = (state, props) => ({
+//     firstName: state.firstName,
+//     lastName: state.lastName,
+//     email: state.email,
+//     profession: state.profession,
+//     username: state.username,
+//     password: state.password,
+//     // passwordValidate: state.passwordValidate,
+//     // usernameValidate: state.usernameValidate,
+//     // loading: state.loading,
+// });
 
+// Object of action creators
+// const mapDispatchToProps = {
+//   firstName: addNewUser,
+//   lastName: addNewUser,
+//   email: addNewUser,
+//   profession: addNewUser,
+//   username: addNewUser,
+//   password: addNewUser
+// }
+
+
+//provides access to action creators
 export default connect()(CreateAccount);
+//export default connect(mapDispatchToProps)(CreateAccount);

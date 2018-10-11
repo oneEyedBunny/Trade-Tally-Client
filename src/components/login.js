@@ -32,7 +32,7 @@ export class Login extends React.Component {
     //need to add some message handling. Server error, server success
 
   return (
-    <form role="form" id="login-user" name="loginUser" onSubmit={(e) => this.handleSubmit(e)}>
+    <form role="form" id="login-user" name="loginUser" onSubmit={this.handleSubmit}>
       <fieldset name="user-info" id="user-info">
         <label>Username:</label>
           <input
@@ -42,7 +42,7 @@ export class Login extends React.Component {
             name="username"
             required
             value={this.state.username}
-            onChange={e => this.setInput(e.target.value, "username")}
+            onChange={e => this.setInput(e, "username")}
             />
         <label>Password:</label>
           <input
@@ -52,7 +52,7 @@ export class Login extends React.Component {
             name="password"
             required
             value={this.state.password}
-            onChange={e => this.setInput(e.target.value, "password")}
+            onChange={e => this.setInput(e, "password")}
             />
         <button role="button" id="login-user-button" type="submit" />
         <div id="demo-container">
@@ -67,8 +67,8 @@ export class Login extends React.Component {
  }
 }
 
-const mapStateToProps = (state, props) => ({
-    errorMessage: state.user.errorMessage
-});
+// const mapStateToProps = (state, props) => ({
+//     errorMessage: state.user.errorMessage
+// });
 
-export default connect(mapStateToProps)(Login);
+export default connect()(Login);
