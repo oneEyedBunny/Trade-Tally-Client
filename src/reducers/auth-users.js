@@ -13,13 +13,7 @@ const initialState = {
     serviceDescription: "",
     amount: ""
     }
-  ],
-  firstName: "",
-  lastName: "",
-  email: "",
-  profession: "",
-  username: "",
-  password: ""
+  ]
 }
 
 export const authUserReducer = (state = initialState, action) => {
