@@ -168,6 +168,6 @@ export class CreateAccount extends React.Component {
 // }
 
 
-//provides access to action creators
-export default connect()(CreateAccount);
-//export default connect(mapDispatchToProps)(CreateAccount);
+//provides component access to action creator addNewUser
+const mapDispatchToProps = {addNewUser};
+export default connect(undefined, mapDispatchToProps)(CreateAccount);

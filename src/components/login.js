@@ -54,11 +54,11 @@ export class Login extends React.Component {
             value={this.state.password}
             onChange={e => this.setInput(e, "password")}
             />
-        <button role="button" id="login-user-button" type="submit" />
+          <button role="button" id="login-user-button" type="submit">Login</button>
         <div id="demo-container">
-          <h7 className="demo-info"> For demo account use:</h7>
-          <h7 className="demo-info login"> u: demoDanny</h7>
-          <h7 className="demo-info login"> p: demoFun1</h7>
+          <h5 className="demo-info"> For demo account use:</h5>
+          <h5 className="demo-info login"> u: demoDanny</h5>
+          <h5 className="demo-info login"> p: demoFun1</h5>
         </div>
         <div className="error-message-container">{this.props.errorMessage}</div>
       </fieldset>
@@ -71,4 +71,5 @@ export class Login extends React.Component {
 //     errorMessage: state.user.errorMessage
 // });
 
-export default connect()(Login);
+export default connect(undefined, mapDispatchToProps)(Login);
+export const mapDispatchToProps = {login};
