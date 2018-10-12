@@ -7,7 +7,7 @@ function hasWhiteSpace(string) {
   return string.indexOf(" ") >= 0;
 }
 
-export class CreateAccount extends React.Component {
+class CreateAccount extends React.Component {
   constructor(props) {
       super(props)
         this.state = {
@@ -49,7 +49,7 @@ export class CreateAccount extends React.Component {
       }
       //if all inputs are valid, dispatch addNewUser action creator w/userInfo from state (set by onChange in inputs)
       else {
-        this.props.dispatch(addNewUser(userInfo))
+        this.props.addNewUser(userInfo)
         this.setState({
           firstName: "",
           lastName: "",

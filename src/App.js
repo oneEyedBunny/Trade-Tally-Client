@@ -2,12 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom'; //allows you to link to different routes
 import { connect } from 'react-redux'; //allows you to ??
 import { bindActionCreators } from 'redux'; //allows you to ??
-import * as actionCreators from './actions/trades';
+
 import './App.css';
 
 //import components
+import * as actionCreators from './actions/trades';
 import { Navigation } from './components/navigation';
-import { CreateAccount } from './components/create-account';
+import CreateAccount  from './components/create-account';
+import Login  from './components/login';
 
 
 export default class App extends React.Component {

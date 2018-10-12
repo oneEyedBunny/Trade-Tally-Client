@@ -25,7 +25,7 @@ export class Login extends React.Component {
     handleSubmit(event) {
       event.preventDefault()
       let credentials = this.state
-      this.props.dispatch(login(credentials))
+      this.props.login(credentials)
     }
 
   render() {
@@ -71,5 +71,5 @@ export class Login extends React.Component {
 //     errorMessage: state.user.errorMessage
 // });
 
-export default connect(undefined, mapDispatchToProps)(Login);
 export const mapDispatchToProps = {login};
+export default connect(undefined, mapDispatchToProps)(Login);
