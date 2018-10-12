@@ -2,8 +2,9 @@ import React from "react";
 import { connect } from 'react-redux';
 
 import { login } from '../actions/auth-users';
+import { saveAuthToken } from '../local-storage';
 
-export class Login extends React.Component {
+class Login extends React.Component {
   constructor(props) {
       super(props)
         this.state = {
@@ -11,7 +12,6 @@ export class Login extends React.Component {
           password: "",
           passwordValidate: "",
           usernameValidate: "",
-          loading: true
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -26,6 +26,9 @@ export class Login extends React.Component {
       event.preventDefault()
       let credentials = this.state
       this.props.login(credentials)
+      console.log("log in success");
+      //dispatch saveAuthToken
+      //remove login form and display nav with logout button instead
     }
 
   render() {

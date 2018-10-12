@@ -2,7 +2,7 @@
 //actions signal that we want the state to change, reducer actually executes changes to state
 
 import {saveAuthToken, clearAuthToken} from '../local-storage';
-const {API_BASE_URL} = require("../config")
+const {API_BASE_URL} = require("../config");
 
 //Items related to creating a new user account
 export const ADD_NEW_USER_SUCCESS = "ADD_NEW_USER_SUCCESS";

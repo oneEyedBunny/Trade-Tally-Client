@@ -3,6 +3,7 @@ import { createStore, compose, applyMiddleware } from 'redux';
 //import { browserHistory } from 'react-router';
 import thunk from 'redux-thunk';
 
+
 import rootReducer from './reducers/index';
 
 import { setAuthToken } from './actions/auth-users';
@@ -12,13 +13,12 @@ import { loadAuthToken } from './local-storage';
 import { tradeId, tradePartnerFullName, tradePartnerProfession,
   date, serviceDescription, amount } from './data/trades';
 
-const authToken = loadAuthToken();
-if (authToken) {
-  const token = authToken;
-  store.dispatch(setAuthToken(token));
-}
+// const authToken = loadAuthToken();
+// if (authToken) {
+//   const token = authToken;
+//   store.dispatch(setAuthToken(token));
+// }
 
-//export default const store = createStore(rootReducer, initialState);
-export const store = createStore(rootReducer, applyMiddleware(thunk));
+export const store = createStore(rootReducer, (applyMiddleware(thunk)));
 
 //export const history = syncHistoryWithStore(browserHistory, store);

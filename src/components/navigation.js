@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from 'react-router-dom'; //allows you to link
-import { Login } from "./login";
+import { Link } from 'react-router-dom';
+import Login from "./login";
 
 export class Navigation extends React.Component {
 constructor(props) {

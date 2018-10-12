@@ -19,7 +19,6 @@ export default class App extends React.Component {
   }
 
   newAccountForm() {
-    console.log("I'm working");
     this.setState({ isLoggedIn: true });
   }
 
@@ -49,7 +48,7 @@ export default class App extends React.Component {
             <Link to="/new-trade">Enter a Trade</Link>
           </div>
           <div className="option-box">
-            <Link to="/trade-history/12334">See Trade History</Link>
+            <Link to="/trade-summary">See All Trades</Link>
           </div>
         </section>
         <section className="how-it-works">
