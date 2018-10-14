@@ -1,34 +1,36 @@
 import React from "react";
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import { login } from '../actions/auth-users';
-import { saveAuthToken } from '../local-storage';
 
 class Login extends React.Component {
-  constructor(props) {
-      super(props)
-        this.state = {
+      state = {
           username: "",
           password: "",
           passwordValidate: "",
           usernameValidate: "",
-        }
-        this.handleSubmit = this.handleSubmit.bind(this)
-    }
+          loading: false,
+        };
 
-    setInput(event, key) {
+    setInput = (event, key) => {
       this.setState({
         [key]: event.target.value
       })
     }
 
-    handleSubmit(event) {
+    handleSubmit = async (event) => {
       event.preventDefault()
       let credentials = this.state
-      this.props.login(credentials)
+      this.setState({ loading: true })
+      try {
+        await this.props.login(credentials)
+      } catch (e) {
+        //finish error handling
+        console.log(e);
+        this.setState({ loading: false })
+      }
       console.log("log in success");
-      //dispatch saveAuthToken
-      //remove login form and display nav with logout button instead
     }
 
   render() {
@@ -70,9 +72,5 @@ class Login extends React.Component {
  }
 }
 
-// const mapStateToProps = (state, props) => ({
-//     errorMessage: state.user.errorMessage
-// });
-
-export const mapDispatchToProps = {login};
-export default connect(undefined, mapDispatchToProps)(Login);
+const mapDispatchToProps = {login};
+export default withRouter(connect(undefined, mapDispatchToProps)(Login));

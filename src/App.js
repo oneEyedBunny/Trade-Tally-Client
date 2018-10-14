@@ -7,7 +7,7 @@ import './App.css';
 
 //import components
 import * as actionCreators from './actions/trades';
-import { Navigation } from './components/navigation';
+import Navigation from './components/navigation';
 import CreateAccount  from './components/create-account';
 import Login  from './components/login';
 

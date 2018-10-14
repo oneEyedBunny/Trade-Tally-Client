@@ -85,7 +85,7 @@ export const getTradesSuccess = values => ({
 
 export const getTrades = (userId) => {
   return (dispatch, getState) => {
-    let authToken = getState().authToken
+    let authToken = getState().user.authToken
     fetch(`${API_BASE_URL}/trades/user/${userId}`, {
       method: "GET",
       headers: {

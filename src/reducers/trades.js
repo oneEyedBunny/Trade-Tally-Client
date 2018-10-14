@@ -4,9 +4,6 @@ import {ADD_NEW_TRADE_SUCCESS, DELETE_TRADE_SUCCESS, EDIT_TRADE_SUCCESS, GET_TRA
 
 const initialState = {
   trades: [],
-  errorMessage: "",
-  isLoggedin: false,
-  authToken: ""
 };
 
 export function tradesReducer(state = initialState, action) {
