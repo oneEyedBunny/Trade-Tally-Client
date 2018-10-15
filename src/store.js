@@ -3,11 +3,7 @@ import { createStore, compose, applyMiddleware } from 'redux';
 //import { browserHistory } from 'react-router';
 import thunk from 'redux-thunk';
 
-
 import rootReducer from './reducers/index';
-
-import { setAuthToken } from './actions/auth-users';
-import { loadAuthToken } from './local-storage';
 
 //fake data for now
 import { tradeId, tradePartnerFullName, tradePartnerProfession,
