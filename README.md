@@ -18,8 +18,7 @@ Currently I'm a hairstylist. I trade services with a variety of people: Chiropra
 - CSS
 
 # Pending items
-1. For GET trades, discuss if I should always get all trades for summary page and then those are available in state for drill in requests or should I make another action for GET trade by ID. I have an endpoint for this already.
-1. Logout button isn't working. onSubmit is not be in the rendered comp
+1. Redirect after Login & CreateAccount aren't working
 1. CSS
 1. Test cases for all
 1. add in images
