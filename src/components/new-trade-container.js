@@ -1,9 +1,10 @@
 import React from "react";
+import { connect } from 'react-redux';
 
 import NewTrade from './new-trade';
 import Navigation from './navigation';
 
-export class NewTradeContainer extends React.Component {
+class NewTradeContainer extends React.Component {
   render() {
     return (
       <div>
@@ -13,3 +14,11 @@ export class NewTradeContainer extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  };
+};
+
+export default connect(mapStateToProps)(NewTradeContainer);

@@ -7,7 +7,7 @@ import { addTrade } from "../actions/trades";
 class NewTrade extends React.Component {
   state = {
     user: this.props.user.userId,
-    tradePartner: "",
+    tradePartnerId: "",
     date: "",
     description: "",
     amount: ""
