@@ -5,6 +5,6 @@ import { tradesReducer } from './trades';
 import { authUserReducer } from './auth-users';
 
 //export const default rootReducer = combineReducers ( => { tradesReducer, authUserReducer, routing } )
-const rootReducer = combineReducers({ tradesReducer, authUserReducer, routing });
+const rootReducer = combineReducers({ trades: tradesReducer, user: authUserReducer, routing });
 
 export default rootReducer;

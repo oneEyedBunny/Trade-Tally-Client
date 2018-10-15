@@ -1,10 +1,36 @@
 import React from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
-export class NewTrade extends React.Component {
-  submitTrade(event) {
+import { addTrade } from "../actions/trades";
+
+class NewTrade extends React.Component {
+  state = {
+    user: this.props.user.userId,
+    tradePartnerId: "",
+    date: "",
+    description: "",
+    amount: ""
+  };
+
+  setInput = (event, key) => {
+    this.setState({
+      [key]: event.target.value
+    });
+  };
+
+  submitTrade = async event => {
     event.preventDefault();
-    console.log("I'm working");
-  }
+    let newTrade = this.state;
+    console.log("im the new trade data", newTrade);
+    try {
+      await this.props.addTrade(newTrade);
+      console.log("new trade form working");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   render() {
     return (
       <form id="new-trade-form" onSubmit={this.submitTrade}>
@@ -26,7 +52,7 @@ export class NewTrade extends React.Component {
               name="date"
               required
             />
-           <label>Description: </label>
+            <label>Description: </label>
             <input
               className="new-trade-fields"
               type="text area"
@@ -41,7 +67,7 @@ export class NewTrade extends React.Component {
               name="amount"
               required
             />
-          <button role="button" type="submit" id="create-trade-button">
+            <button role="button" type="submit" id="create-trade-button">
               Create Trade
             </button>
           </div>
@@ -51,3 +77,12 @@ export class NewTrade extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  };
+};
+
+const mapDispatchToProps = { addTrade };
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(NewTrade));

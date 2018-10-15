@@ -1,25 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; //allows you to link to different routes
-import { connect } from 'react-redux'; //allows you to ??
-import { bindActionCreators } from 'redux'; //allows you to ??
+import { connect } from 'react-redux';
+//import { bindActionCreators } from 'redux'; //allows you to ??
 
 import './App.css';
 
 //import components
 import * as actionCreators from './actions/trades';
-import { Navigation } from './components/navigation';
+import Navigation from './components/navigation';
 import CreateAccount  from './components/create-account';
 import Login  from './components/login';
 
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { isLoggedIn: false };
-  }
+class App extends React.Component {
+  state = {
+    createAccountDisplay: false
+  };
 
   newAccountForm() {
-    this.setState({ isLoggedIn: true });
+    this.setState({ createAccountDisplay: true });
   }
 
   render() {
@@ -39,7 +38,6 @@ export default class App extends React.Component {
           <div className="left-box" />
           <div className="right-box" />
         </section>
-        {/*{React.cloneElement(this.props.children, this.props)} passes props from parent to child*/}
         <section className="options-container">
           <div className="option-box">
             <p>How it works</p>
@@ -57,7 +55,8 @@ export default class App extends React.Component {
             {" "}
             Create an Account
           </p>
-          {this.state.isLoggedIn && <CreateAccount />}
+          {this.state.createAccountDisplay && <CreateAccount />}
+          {/*checks if both are true, if they are, render them. CreateAccount will always true */}
           <p className=""> Then find the people you trade with and enter your trades when they happen</p>
           <p className=""> Then you can see your trade history with all your partners as well as the details of the individual trades </p>
         </section>
@@ -66,16 +65,9 @@ export default class App extends React.Component {
   }
 };
 
-// const mapStateToProps = state => ({
-//   tradePartnerId: state.tradePartnerId,
-//   tradeId: state.tradeId,
-//   date: state.date,
-//   serviceDescription: state.serviceDescription,
-//   amount: state.amount
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   bindActionCreators(actionCreators, dispatch);
-// })
-//
-// export default connect(mapStateToProps)(mapDispatchToProps)(??);
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  };
+};
+export default connect(mapStateToProps)(App);

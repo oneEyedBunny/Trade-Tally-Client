@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import { addNewUser } from '../actions/auth-users';
 
@@ -8,9 +9,7 @@ function hasWhiteSpace(string) {
 }
 
 class CreateAccount extends React.Component {
-  constructor(props) {
-      super(props)
-        this.state = {
+  state = {
           firstName: "",
           lastName: "",
           email: "",
@@ -19,10 +18,9 @@ class CreateAccount extends React.Component {
           password: "",
           passwordValidate: "",
           usernameValidate: "",
-          loading: true
-        }
-        this.handleSubmit = this.handleSubmit.bind(this)
-    }
+          loginDisplay: false,
+          errorSummaryMessage: "",
+        };
 
     setInput(event, key) {
       this.setState({
@@ -30,47 +28,53 @@ class CreateAccount extends React.Component {
       })
     }
 
-    handleSubmit(event) {
-      event.preventDefault()
-      let userInfo = this.state
+    handleSubmit = async (event) => {
+      event.preventDefault();
+      let userInfo = this.state;
+      try {
       //frontend validation
-      if (hasWhiteSpace(userInfo.username)) {
-        this.setState({
-          usernameValidate: "Username cannot contain spaces"
-        })
-      } else if (hasWhiteSpace(userInfo.password)) {
-        this.setState({
-          passwordValidate: "Password cannot contain spaces"
-        })
-      } else if (userInfo.password.length < 8) {
-        this.setState({
-          passwordValidate: "Password must be at least 8 characters"
-        })
-      }
-      //if all inputs are valid, dispatch addNewUser action creator w/userInfo from state (set by onChange in inputs)
-      else {
-        this.props.addNewUser(userInfo)
-        this.setState({
-          firstName: "",
-          lastName: "",
-          email: "",
-          profession: "",
-          username: "",
-          password: "",
-          passwordValidate: "",
-          usernameValidate: "",
-          loading: true
-        })
-      }
-    }
+      //   if (hasWhiteSpace(userInfo.username)) {
+      //     this.setState({
+      //       usernameValidate: "Username cannot contain spaces"
+      //     })
+      //   } else if (hasWhiteSpace(userInfo.password)) {
+      //     this.setState({
+      //       passwordValidate: "Password cannot contain spaces"
+      //     })
+      //   } else if (userInfo.password.length < 8) {
+      //     this.setState({
+      //       passwordValidate: "Password must be at least 8 characters"
+      //     })
+      //   }
+      // //if all inputs are valid, dispatch addNewUser action creator w/userInfo from state (set by onChange in inputs)
+      //   else {
+          await this.props.addNewUser(userInfo);
+          //this.props.history.push("/trade-summary");
+          this.setState({
+            firstName: "",
+            lastName: "",
+            email: "",
+            profession: "",
+            username: "",
+            password: "",
+            passwordValidate: "",
+            usernameValidate: "",
+            loginDisplay: false,
+            errorSummaryMessage: "",
+
+          })
+        } catch (error) {
+          console.log(error);
+          this.setState({
+            errorSummaryMessage: `Error with your ${error.location}. ${error.message}`,
+          })
+        }
+    };
 
  render() {
-   //need to add some message handling. Server error, server success
-
-
-                            //onSubmit={(e) => this.handleSubmit(e)}
   return (
     <form id="new-user-form" onSubmit={this.handleSubmit}>
+      {!this.props.user.isLoggedin && (
       <fieldset id="new-user-fieldset">
         <legend>Profile Info</legend>
         <div className="error-message-container" />
@@ -139,35 +143,21 @@ class CreateAccount extends React.Component {
             Create Profile
           </button>
         </div>
+       <div className="error-message-container"> {this.state.errorSummaryMessage} </div>
       </fieldset>
+    )} {/*closes ternary*/}
     </form>
   );
  }
 }
 
-// const mapStateToProps = (state, props) => ({
-//     firstName: state.firstName,
-//     lastName: state.lastName,
-//     email: state.email,
-//     profession: state.profession,
-//     username: state.username,
-//     password: state.password,
-//     // passwordValidate: state.passwordValidate,
-//     // usernameValidate: state.usernameValidate,
-//     // loading: state.loading,
-// });
+//maps redux state into props
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  };
+};
 
-// Object of action creators
-// const mapDispatchToProps = {
-//   firstName: addNewUser,
-//   lastName: addNewUser,
-//   email: addNewUser,
-//   profession: addNewUser,
-//   username: addNewUser,
-//   password: addNewUser
-// }
-
-
-//provides component access to action creator addNewUser
+//provides component access to action creator addNewUser, connects CreateAccount in with react router history
 const mapDispatchToProps = {addNewUser};
-export default connect(undefined, mapDispatchToProps)(CreateAccount);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CreateAccount));

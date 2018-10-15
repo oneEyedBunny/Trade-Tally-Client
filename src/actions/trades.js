@@ -1,108 +1,99 @@
-const {API_BASE_URL} = require('../config');
+const { API_BASE_URL } = require("../config");
 
-export const ADD_NEW_TRADE_SUCCESS = "ADD_NEW_TRADE_SUCCESS";
-export const addNewTradeSuccess = (values) => ({
-  type: ADD_NEW_TRADE_SUCCESS,
+export const ADD_TRADE_SUCCESS = "ADD_TRADE_SUCCESS";
+export const addTradeSuccess = values => ({
+  type: ADD_TRADE_SUCCESS,
   values
 });
 
 export const addTrade = values => {
-  return (dispatch, getState) => {
-    let authToken = getState().authToken
-    fetch(`${API_BASE_URL}/trades`, {
+  return async dispatch => {
+    let authToken = localStorage.getItem("authToken");
+    const res = await fetch(`${API_BASE_URL}/trades`, {
       method: "POST",
       body: JSON.stringify(values),
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${authToken}`
+        Authorization: `Bearer ${authToken}`
       }
-    })
-    .then(res => {
-      return res.json()
+    });
+    if (!res.ok) {
+      throw new Error(res.statusText);
     }
-    )
-    .then(data => {
-      dispatch(addNewTradeSuccess(data))
-    })
-    .catch(err => console.log(err))
-  }
-}
+    const trades = await res.json();
+    dispatch(addTradeSuccess(trades));
+  };
+};
 
 export const DELETE_TRADE_SUCCESS = "DELETE_TRADE_SUCCESS";
-export const deleteTradeSuccess = (tradeId) => ({
+export const deleteTradeSuccess = tradeId => ({
   type: DELETE_TRADE_SUCCESS,
   tradeId
 });
 
 export const deleteTrade = tradeId => {
-  return (dispatch, getState) => {
-    let authToken = getState().authToken
-    fetch(`${API_BASE_URL}/trades/${tradeId}`, {
+  return async dispatch => {
+    let authToken = localStorage.getItem("authToken");
+    const res = await fetch(`${API_BASE_URL}/trades/${tradeId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${authToken}`
+        Authorization: `Bearer ${authToken}`
       }
-    })
-    .then(() => dispatch(deleteTradeSuccess(tradeId)))
-    .catch(err => console.log(err))
-  }
-}
+    });
+    if (!res.ok) {
+      throw new Error(res.statusText);
+    }
+    dispatch(deleteTradeSuccess(tradeId));
+  };
+};
 
 export const EDIT_TRADE_SUCCESS = "EDIT_TRADE_SUCCESS";
-export const editTradeSuccess = (values) => ({
+export const editTradeSuccess = values => ({
   type: EDIT_TRADE_SUCCESS,
   values
 });
 
-export const editTrade = (state) => {
-  return (dispatch, getState) => {
-    let authToken = getState().authToken
-    fetch(`${API_BASE_URL}/trades/${state.tradeId}`, {
+export const editTrade = state => {
+  return async dispatch => {
+    let authToken = localStorage.getItem("authToken");
+    const res = await fetch(`${API_BASE_URL}/trades/${state.tradeId}`, {
       method: "PUT",
       body: JSON.stringify(state),
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${authToken}`
+        Authorization: `Bearer ${authToken}`
       }
-    })
-    .then(res => {
-      return res.json()
+    });
+    if (!res.ok) {
+      throw new Error(res.statusText);
     }
-    )
-    .then(data => {
-      dispatch(editTradeSuccess(data))
-    })
-    .catch(err => console.log(err))
-  }
-}
+    const values = await res.json();
+    dispatch(editTradeSuccess(values));
+  };
+};
 
 export const GET_TRADES_SUCCESS = "GET_TRADES_SUCCESS";
-export const getTradesSuccess = values => ({
+export const getTradesSuccess = trades => ({
   type: GET_TRADES_SUCCESS,
-  values
-})
+  trades
+});
 
-export const getTrades = (userId) => {
-  return (dispatch, getState) => {
-    let authToken = getState().authToken
-    fetch(`${API_BASE_URL}/trades/user/${userId}`, {
+export const getTrades = userId => {
+  return async dispatch => {
+    let authToken = localStorage.getItem("authToken");
+    const res = await fetch(`${API_BASE_URL}/trades/user/${userId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${authToken}`
+        Authorization: `Bearer ${authToken}`
       }
-    })
-      .then(res => {
-        if (!res.ok) {
-          return Promise.reject(res.statusText);
-        }
-        return res.json();
-      })
-      .then(data => {
-        dispatch(getTradesSuccess(data));
-      })
-      .catch(err => console.log(err))
+    });
+    if (!res.ok) {
+      throw new Error(res.statusText);
+    }
+    const trades = await res.json();
+    dispatch(getTradesSuccess(trades));
   };
 };
 

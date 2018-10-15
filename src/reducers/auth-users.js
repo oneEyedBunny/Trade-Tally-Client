@@ -1,54 +1,33 @@
 //actions signal that we want the state to change, reducer actually executes changes to state
 
-import { ADD_NEW_USER_SUCCESS, ADD_NEW_USER_FAIL, LOADING, LOGIN_LOADING,
-  LOGIN_FAIL, SET_AUTH_TOKEN, LOGOUT_SUCCESS} from "../actions/auth-users";
+import { GET_ALL_USERS_SUCCESS, ADD_NEW_USER_SUCCESS, LOGIN_SUCCESS, LOGOUT_SUCCESS } from "../actions/auth-users";
 
 const initialState = {
-  trades: [],
-  errorMessage: "",
-  isLoggedin: false
+  isLoggedin: false,
+  authToken: "",
+  userId: "",
+  users: []
 }
 
 export const authUserReducer = (state = initialState, action) => {
-  if (action.type === ADD_NEW_USER_SUCCESS) {
-    return Object.assign({}, state, {
-      successMessage: true,
-      //firstName: action.values.firstName
+  console.log(action);
 
+  if (action.type === ADD_NEW_USER_SUCCESS || action.type === LOGIN_SUCCESS) {
+    return Object.assign({}, state, {
+      isLoggedin: true,
+      authToken: action.user.authToken,
+      userId: action.user.userId
     });
   }
-
-  if (action.type === ADD_NEW_USER_FAIL) {
-    return Object.assign({}, state, {
-      failMessage: true
-    });
-  }
-
-  if (action.type === LOGIN_LOADING) {
-    return Object.assign({}, state, {
-      loginLoading: action.value
-    });
-  }
-
-  if (action.type === LOGIN_FAIL) {
-    return Object.assign({}, state, {
-      loginFail: true,
-      errorMessage: action.error
-    });
-  }
-
-  if (action.type === SET_AUTH_TOKEN) {
-    return Object.assign({}, state, {
-      authToken: action.authToken,
-      isLoggedin: true
-    });
-  }
-
   if (action.type === LOGOUT_SUCCESS) {
-    return Object.assign({}, state, {
+    return {
       isLoggedin: false
+    }
+  }
+  if (action.type === GET_ALL_USERS_SUCCESS) {
+    return Object.assign({}, state, {
+      users: [action.users]
     });
   }
-
   return state;
 };
