@@ -10,7 +10,6 @@ class Login extends React.Component {
           password: "",
           passwordValidate: "",
           usernameValidate: "",
-          loading: false,
         };
 
     setInput = (event, key) => {
@@ -22,15 +21,13 @@ class Login extends React.Component {
     handleSubmit = async (event) => {
       event.preventDefault()
       let credentials = this.state
-      this.setState({ loading: true })
       try {
         await this.props.login(credentials);
         console.log("log in success");
-        //this.props.history.push("/trade-summary");
+        this.props.history.push("/trade-summary");
       } catch (error) {
         //build out error handling to display to users
         console.log(error);
-        this.setState({ loading: false })
       }
     }
 

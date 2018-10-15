@@ -18,7 +18,6 @@ class CreateAccount extends React.Component {
           password: "",
           passwordValidate: "",
           usernameValidate: "",
-          loading: true,
           loginDisplay: false
         };
 
@@ -49,7 +48,8 @@ class CreateAccount extends React.Component {
       // //if all inputs are valid, dispatch addNewUser action creator w/userInfo from state (set by onChange in inputs)
       //   else {
           console.log("Im the user info 2", userInfo);
-          await this.props.addNewUser(userInfo)
+          await this.props.addNewUser(userInfo);
+          this.props.history.push("/trade-summary");
           this.setState({
             firstName: "",
             lastName: "",
@@ -59,7 +59,6 @@ class CreateAccount extends React.Component {
             password: "",
             passwordValidate: "",
             usernameValidate: "",
-            loading: true,
             loginDisplay: false
           })
         } catch (error) {

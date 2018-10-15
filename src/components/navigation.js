@@ -14,7 +14,7 @@ export class Navigation extends React.Component {
   }
 
   render() {
-    console.log("props user state data=", this.props.user.isLoggedin);
+    console.log("login status is =", this.props.user.isLoggedin);
     return (
       <div>
         <nav role="navigation">
