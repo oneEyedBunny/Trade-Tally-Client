@@ -15,12 +15,12 @@ class Logout extends React.Component {
       console.log(error);
     }
     console.log("log out successfully");
+    this.props.onLogoutUser();
   };
 
   render() {
     return (
-      <button role="button" id="logout-user-button" type="submit"
-        onSubmit={this.handleLogout}>
+      <button role="button" id="logout-user-button" onClick={this.handleLogout}>
         Logout
       </button>
     );

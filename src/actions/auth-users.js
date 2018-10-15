@@ -44,7 +44,8 @@ export const addNewUser = user => {
       }
     });
     if (!res.ok) {
-      throw new Error(res.statusText);
+      const error = await res.json();
+      throw error;
     }
     const userInfo = await res.json();
     dispatch(addNewUserSuccess(userInfo));
@@ -68,7 +69,8 @@ export const login = credentials => {
       }
     });
     if (!res.ok) {
-      throw new Error(res.statusText);
+      const error = await res.json();
+      throw error;
     }
     const userInfo = await res.json();
     dispatch(loginSuccess(userInfo));
@@ -81,7 +83,7 @@ export const logoutSuccess = () => ({
   type: LOGOUT_SUCCESS
 });
 
-export const logout = dispatch => {
+export const logout = () => (dispatch) => {
   localStorage.removeItem("authToken");
   dispatch(logoutSuccess());
 };

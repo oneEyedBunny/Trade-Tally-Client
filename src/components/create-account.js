@@ -18,7 +18,8 @@ class CreateAccount extends React.Component {
           password: "",
           passwordValidate: "",
           usernameValidate: "",
-          loginDisplay: false
+          loginDisplay: false,
+          errorSummaryMessage: "",
         };
 
     setInput(event, key) {
@@ -47,9 +48,8 @@ class CreateAccount extends React.Component {
       //   }
       // //if all inputs are valid, dispatch addNewUser action creator w/userInfo from state (set by onChange in inputs)
       //   else {
-          console.log("Im the user info 2", userInfo);
           await this.props.addNewUser(userInfo);
-          this.props.history.push("/trade-summary");
+          //this.props.history.push("/trade-summary");
           this.setState({
             firstName: "",
             lastName: "",
@@ -59,16 +59,19 @@ class CreateAccount extends React.Component {
             password: "",
             passwordValidate: "",
             usernameValidate: "",
-            loginDisplay: false
+            loginDisplay: false,
+            errorSummaryMessage: "",
+
           })
         } catch (error) {
-          //build out error handling to display to users
           console.log(error);
+          this.setState({
+            errorSummaryMessage: `Error with your ${error.location}. ${error.message}`,
+          })
         }
-    }
+    };
 
  render() {
-   //need to add some message handling. Server error, server success
   return (
     <form id="new-user-form" onSubmit={this.handleSubmit}>
       {!this.props.user.isLoggedin && (
@@ -140,6 +143,7 @@ class CreateAccount extends React.Component {
             Create Profile
           </button>
         </div>
+       <div className="error-message-container"> {this.state.errorSummaryMessage} </div>
       </fieldset>
     )} {/*closes ternary*/}
     </form>

@@ -13,6 +13,10 @@ export class Navigation extends React.Component {
     this.setState({ loginDisplay: true });
   }
 
+  logoutUser() {
+    this.setState({ loginDisplay: false });
+  }
+
   render() {
     console.log("login status is =", this.props.user.isLoggedin);
     return (
@@ -25,7 +29,7 @@ export class Navigation extends React.Component {
           </div>
 
           <div className="right-nav-container">
-            {this.props.user.isLoggedin ? <Logout /> :
+            {this.props.user.isLoggedin ? <Logout onLogoutUser= {() => this.logoutUser()} /> :
               <div>
                 <button onClick={() => this.loginUser()}>
                   {this.props.status}
