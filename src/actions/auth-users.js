@@ -2,6 +2,31 @@
 //actions signal that we want the state to change, reducer actually executes changes to state
 const { API_BASE_URL } = require("../config");
 
+
+//retrieves all users so they're available in drop down menu for adding a new trade
+export const GET_ALL_USERS_SUCCESS = "GET_ALL_USERS_SUCCESS";
+export const getAllUsersSuccess = users => ({
+  type: GET_ALL_USERS_SUCCESS,
+  users
+});
+
+export const getAllUsers = () => {
+  return async dispatch => {
+    const res = await fetch(`${API_BASE_URL}/users`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+    if (!res.ok) {
+      throw new Error(res.statusText);
+    }
+    const users = await res.json();
+    dispatch(getAllUsersSuccess(users));
+  };
+};
+
+
 //Items related to creating a new user account
 export const ADD_NEW_USER_SUCCESS = "ADD_NEW_USER_SUCCESS";
 export const addNewUserSuccess = user => ({
@@ -23,7 +48,6 @@ export const addNewUser = user => {
     }
     const userInfo = await res.json();
     dispatch(addNewUserSuccess(userInfo));
-    //dispatch(loginSuccess(userInfo));
     localStorage.setItem("authToken", userInfo.authToken);
   };
 };

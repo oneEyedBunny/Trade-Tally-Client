@@ -3,7 +3,7 @@ import { ADD_TRADE_SUCCESS, DELETE_TRADE_SUCCESS, EDIT_TRADE_SUCCESS, GET_TRADES
 //everytime you dispatch an action, every single reducer in your app will run, whether you act on it is up to the reducer. Hence why use IF stmt and switch
 
 const initialState = {
-  trades: [],
+  trades: []
 };
 
 export function tradesReducer(state = initialState, action) {
@@ -36,7 +36,7 @@ export function tradesReducer(state = initialState, action) {
 
   if (action.type === GET_TRADES_SUCCESS) {
     return Object.assign({}, state, {
-      trades: [action.values]
+      trades: [action.trades]
     });
   }
   return state;

@@ -1,11 +1,12 @@
 //actions signal that we want the state to change, reducer actually executes changes to state
 
-import { ADD_NEW_USER_SUCCESS, LOGIN_SUCCESS, LOGOUT_SUCCESS } from "../actions/auth-users";
+import { GET_ALL_USERS_SUCCESS, ADD_NEW_USER_SUCCESS, LOGIN_SUCCESS, LOGOUT_SUCCESS } from "../actions/auth-users";
 
 const initialState = {
   isLoggedin: false,
   authToken: "",
   userId: "",
+  users: []
 }
 
 export const authUserReducer = (state = initialState, action) => {
@@ -22,6 +23,11 @@ export const authUserReducer = (state = initialState, action) => {
     return {
       isLoggedin: false
     }
+  }
+  if (action.type === GET_ALL_USERS_SUCCESS) {
+    return Object.assign({}, state, {
+      users: [action.users]
+    });
   }
   return state;
 };
