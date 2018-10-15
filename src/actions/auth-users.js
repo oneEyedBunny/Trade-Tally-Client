@@ -4,32 +4,35 @@ const { API_BASE_URL } = require("../config");
 
 //Items related to creating a new user account
 export const ADD_NEW_USER_SUCCESS = "ADD_NEW_USER_SUCCESS";
-export const addNewUserSuccess = values => ({
+export const addNewUserSuccess = user => ({
   type: ADD_NEW_USER_SUCCESS,
-  values
+  user
 });
 
-export const addNewUser = userInfo => {
-  return dispatch => {
-    fetch(`${API_BASE_URL}/users`, {
+export const addNewUser = user => {
+  return async dispatch => {
+    const res = await fetch(`${API_BASE_URL}/users`, {
       method: "POST",
-      body: JSON.stringify(userInfo),
+      body: JSON.stringify(user),
       headers: {
         "Content-Type": "application/json"
       }
-    })
-      .then(res => {
-        if (!res.ok) {
-          return Promise.reject(res.statusText);
-        }
-        return res.json();
-      })
-      .then(data => {
-        dispatch(addNewUserSuccess(data));
-        //dispatch(login(userInfo));
-      });
+    });
+    if (!res.ok) {
+      throw new Error(res.statusText);
+    }
+    const userInfo = await res.json();
+    dispatch(addNewUserSuccess(userInfo));
+    //dispatch(loginSuccess(userInfo));
+    localStorage.setItem("authToken", userInfo.authToken);
   };
 };
+
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const loginSuccess = user => ({
+  type: LOGIN_SUCCESS,
+  user
+});
 
 export const login = credentials => {
   return async dispatch => {
@@ -40,22 +43,14 @@ export const login = credentials => {
         "Content-Type": "application/json"
       }
     });
-
     if (!res.ok) {
       throw new Error(res.statusText);
     }
     const userInfo = await res.json();
     dispatch(loginSuccess(userInfo));
-    localStorage.setItem('authToken', userInfo.authToken);
+    localStorage.setItem("authToken", userInfo.authToken);
   };
 };
-
-export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
-export const loginSuccess = (user) => ({
-  type: LOGIN_SUCCESS,
-  user
-});
-
 
 export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
 export const logoutSuccess = () => ({
@@ -63,6 +58,6 @@ export const logoutSuccess = () => ({
 });
 
 export const logout = dispatch => {
-  localStorage.removeItem('authToken');
+  localStorage.removeItem("authToken");
   dispatch(logoutSuccess());
 };

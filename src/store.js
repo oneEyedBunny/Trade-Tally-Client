@@ -13,12 +13,6 @@ import { loadAuthToken } from './local-storage';
 import { tradeId, tradePartnerFullName, tradePartnerProfession,
   date, serviceDescription, amount } from './data/trades';
 
-// const authToken = loadAuthToken();
-// if (authToken) {
-//   const token = authToken;
-//   store.dispatch(setAuthToken(token));
-// }
-
 export const store = createStore(rootReducer, (applyMiddleware(thunk)));
 
 //export const history = syncHistoryWithStore(browserHistory, store);

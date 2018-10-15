@@ -13,10 +13,9 @@ import Login  from './components/login';
 
 
 export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { isLoggedIn: false };
-  }
+  state = {
+    isLoggedIn: false
+  };
 
   newAccountForm() {
     this.setState({ isLoggedIn: true });
@@ -58,6 +57,7 @@ export default class App extends React.Component {
             Create an Account
           </p>
           {this.state.isLoggedIn && <CreateAccount />}
+          {/*checks if both are true, if they are, render them. CreateAccount will always true */}
           <p className=""> Then find the people you trade with and enter your trades when they happen</p>
           <p className=""> Then you can see your trade history with all your partners as well as the details of the individual trades </p>
         </section>

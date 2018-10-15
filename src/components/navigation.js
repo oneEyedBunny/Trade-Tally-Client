@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Login from "./login";
+import Logout from "./logout";
 import { connect } from "react-redux";
 
 export class Navigation extends React.Component {
@@ -9,12 +10,11 @@ export class Navigation extends React.Component {
   };
 
   loginUser() {
-    console.log("I'm working");
     this.setState({ loginDisplay: true });
   }
 
   render() {
-    console.log(this.props.user);
+    console.log("props user state data=", this.props.user.isLoggedin);
     return (
       <div>
         <nav role="navigation">
@@ -25,7 +25,7 @@ export class Navigation extends React.Component {
           </div>
 
           <div className="right-nav-container">
-            {!this.props.user.isLoggedin && (
+            {this.props.user.isLoggedin ? <Logout /> :
               <div>
                 <button onClick={() => this.loginUser()}>
                   {this.props.status}
@@ -33,11 +33,11 @@ export class Navigation extends React.Component {
                 {this.state.loginDisplay && <Login />}
                 {/*checks if both are true, if they are, render them. Login will always true */}
               </div>
-            )}
+            } {/*closes ternary*/}
           </div>
         </nav>
       </div>
-    );
+   );
   }
 }
 const mapStateToProps = state => {
