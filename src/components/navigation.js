@@ -20,19 +20,19 @@ export class Navigation extends React.Component {
   render() {
     console.log("login status is =", this.props.user.isLoggedin);
     return (
-      <div>
+      <div className="navigation-container">
         <nav role="navigation">
           <div className="left-nav-container">
-            <h1>
-              <Link to="/">Trade Tally 1.0 </Link>
-            </h1>
+            <h3>
+              <Link className="logo" to="/">Trade Tally 1.0 </Link>
+            </h3>
           </div>
 
           <div className="right-nav-container">
             {this.props.user.isLoggedin ? <Logout onLogoutUser= {() => this.logoutUser()} /> :
               <div>
                 <button onClick={() => this.loginUser()}>
-                  {this.props.status}
+                  Login
                 </button>
                 {this.state.loginDisplay && <Login />}
                 {/*checks if both are true, if they are, render them. Login will always true */}
