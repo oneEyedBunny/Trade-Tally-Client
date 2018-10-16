@@ -43,7 +43,7 @@ class App extends React.Component {
         </section>
         <section className="options-container">
           <div className="option-box">
-            <p className="option-box-text">How it works</p>
+            <a href="#how-it-works-summary" className="option-box-text">How it works</a>
           </div>
           <div className="option-box">
             <Link className="option-box-text" to="/new-trade">Enter a Trade</Link>
@@ -52,7 +52,7 @@ class App extends React.Component {
             <Link className="option-box-text" to="/trade-summary">See All Trades</Link>
           </div>
         </section>
-        <section className="how-it-works">
+        <section className="how-it-works" id="how-it-works-summary">
           <h3 className=""> How to use the app</h3>
           <p className="" onClick={() => this.newAccountForm()}>
             {" "}
@@ -63,9 +63,9 @@ class App extends React.Component {
           <p className=""> Find the people you trade with & enter your trades when they happen</p>
           <p className=""> Then view your trade history with all your partners as well as the details of the individual trades </p>
         </section>
-        <footer role="contentinfo">
-          <h5 className="footer-info">Made by Allyson Short</h5>
-          <h5 className="footer-info">contact deets here</h5>
+        <footer role="contentinfo" id="footer">
+          <h5 className="footer-info">Built by <a href="http://www.linkedin.com/in/allyson-short/" target="_blank">
+             Allyson Short</a></h5>
         </footer>
       </div>
     );

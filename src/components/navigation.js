@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+
 import Login from "./login";
 import Logout from "./logout";
-import { connect } from "react-redux";
+import "./new-trade-container.css";
 
 export class Navigation extends React.Component {
   state = {

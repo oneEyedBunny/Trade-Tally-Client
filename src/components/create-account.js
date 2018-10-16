@@ -89,7 +89,7 @@ class CreateAccount extends React.Component {
             value={this.state.firstName}
             onChange={e => this.setInput(e, "firstName")}
           />
-          <label>Last Name: </label>
+        <label>Last Name: </label>
           <input
             className="new-form-fields"
             type="text"

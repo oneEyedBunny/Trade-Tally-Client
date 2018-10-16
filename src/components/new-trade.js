@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 import { addTrade } from "../actions/trades";
+import "./new-trade.css";
 
 class NewTrade extends React.Component {
   state = {
@@ -36,7 +37,7 @@ class NewTrade extends React.Component {
       <form id="new-trade-form" onSubmit={this.submitTrade}>
         <fieldset id="new-trade-fieldset">
           <legend>Trade Info</legend>
-          <div className="new-user-div">
+          <div className="new-trade-div">
             <label>Trade Partner: </label>
             <input
               className="new-trade-fields"
