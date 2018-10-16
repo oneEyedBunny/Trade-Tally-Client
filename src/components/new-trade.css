@@ -1,0 +1,33 @@
+
+#new-trade-form {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.new-trade-div {
+ margin-top: 10px;
+}
+
+.new-trade-fields {
+  margin: 5px;
+  width: 50%;
+  border: 1px solid #DBDBDB;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+#create-trade-button {
+  border: 1px solid black;
+  border-radius: 3px;
+  font-size: 15px;
+  display: block;
+  margin: 0 auto;
+  padding: 4px 10px;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+/* do I need this??? it's in App.css */
+.error-message-container {
+  color: yellow;
+}

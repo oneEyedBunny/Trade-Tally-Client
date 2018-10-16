@@ -6,7 +6,7 @@ A responsive web app that lets you record your service trades, so you know what 
 The backend server side code was build with Node.js and Mongo DB. The repo can be found [here](https://github.com/oneEyedBunny/Trade-Tally-Server)
 
 ## Motivation
-Currently I'm a hairstylist. I trade services with a variety of people: Chiropractors, Massage Therapists, Aetheticians, etc. Problem is, we're all left manually recording the trades if we want to know who's owed who a service since our client management systems aren't linked together. I wanted an easy way to record when either party has performed a service, what the value of that service is, and what my balance is so I can determine who's turn it is. Trade Tally lets you do this. With a few clicks it provides an easy way to enter trades, see a summary of where all your trades are at, and dig into the details of your trade history.
+Currently I'm a hairstylist. I trade services with a variety of people: Chiropractors, Massage Therapists, Aetheticians, etc. Problem is, we're all left manually recording trades if we want to know who's owed who a service since our client management systems aren't linked together. I wanted an easy way to record when either party has performed a service, what the value of that service is, and what my balance is so I can determine who's turn it is. Trade Tally lets you do this. With a few clicks it provides an easy way to enter trades, see a summary of where all your trades are at, and dig into the details of your trade history.
 
 ## Technology Used
 - React
@@ -19,6 +19,11 @@ Currently I'm a hairstylist. I trade services with a variety of people: Chiropra
 
 # Pending items
 1. Redirect after Login & CreateAccount aren't working
-1. CSS
+
+1. CSS- fade on of red/blue squares
+1. CSS- login button not taking css changes
+1. CSS- login screen drops in from top and overlays navigation
+1. CSS- improve how-it-works section
+1. CSS- all other components
+
 1. Test cases for all
-1. add in images
