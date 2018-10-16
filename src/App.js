@@ -24,42 +24,49 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <Navigation status="Login" />
+        <Navigation />
 
         <div id="welcome-message-container">
-          <h1 className="welcome-quote"> Welcome to Trade Tally</h1>
+          <h3 className="welcome-quote"> Hello. Welcome to Trade Tally</h3>
           <p className="welcome-message">
-            {" "}
-            The app that lets you know where your service trades stand{" "}
+            The app that lets you know where your service trades stand
           </p>
         </div>
 
         <section className="half-boxs-container">
-          <div className="left-box" />
-          <div className="right-box" />
+          <div className="left-box">
+            <img src="images/graphicdesigner.png" alt="graphic-designer" className="person-gif" />
+          </div>
+          <div className="right-box">
+            <img src="images/hairstylist.png" alt="hair-stylist" className="person-gif" />
+          </div>
         </section>
         <section className="options-container">
           <div className="option-box">
-            <p>How it works</p>
+            <p className="option-box-text">How it works</p>
           </div>
           <div className="option-box">
-            <Link to="/new-trade">Enter a Trade</Link>
+            <Link className="option-box-text" to="/new-trade">Enter a Trade</Link>
           </div>
           <div className="option-box">
-            <Link to="/trade-summary">See All Trades</Link>
+            <Link className="option-box-text" to="/trade-summary">See All Trades</Link>
           </div>
         </section>
         <section className="how-it-works">
-          <p className=""> Just simply</p>
+          <h3 className=""> How to use the app</h3>
           <p className="" onClick={() => this.newAccountForm()}>
             {" "}
             Create an Account
           </p>
           {this.state.createAccountDisplay && <CreateAccount />}
           {/*checks if both are true, if they are, render them. CreateAccount will always true */}
-          <p className=""> Then find the people you trade with and enter your trades when they happen</p>
-          <p className=""> Then you can see your trade history with all your partners as well as the details of the individual trades </p>
+          <p className=""> Find the people you trade with & enter your trades when they happen</p>
+          <p className=""> Then view your trade history with all your partners as well as the details of the individual trades </p>
         </section>
+        <footer role="contentinfo">
+          <h5 className="footer-info">Made by Allyson Short</h5>
+          <h5 className="footer-info">contact deets here</h5>
+        </footer>
       </div>
     );
   }

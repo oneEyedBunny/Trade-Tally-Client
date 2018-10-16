@@ -1,28 +1,100 @@
-.App {
+.app {
+  font-family: 'Nunito', serif;
+  /*min-height: 100vh; */
+  margin: 20px;
+}
+
+/******************************* Navigation ********************************/
+.navigation-container {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+/* font size isn't working */
+.right-nav-container {
+  margin-left: 125px;
+  /* font-size: 15px; */
+}
+
+.left-nav-container {
+  margin-top: -10px;
+  margin-left: 5px;
+}
+
+.logo {
+  text-decoration: none;
+  color: black;
+}
+
+/******************************* home *********************************/
+#welcome-message-container {
+  /* margin-top: 125px; */
+}
+
+.welcome-message-quote {
+  margin: 0 auto;
+}
+
+.welcome-message {
+  margin: 50px 0 150px;
+
+}
+/*****************************/
+.half-boxs-container {
+ display: inline-block;
+ width: 100%;
+}
+
+.person-gif {
+  max-width: 100px;
+  padding: 44px;
+}
+
+.left-box {
+  float: left;
+  width: 49.4%;
+  background-color: red;
+}
+
+.right-box {
+  float: right;
+  width: 49.4%;
+  background-color: blue;
+}
+
+/*****************************/
+.options-container {
+  margin: 45px 0;
+  width: 100%;
+}
+
+.option-box {
+  display: inline-block;
+  width: 25%;
+  margin: 5px;
+  padding: 10px;
+  background-color: gray;
+}
+
+/* trying to fix the size of first box */
+.option-box > p {
+  padding: 0px;
+  background-color: red;
+}
+
+.option-box-text {
+  text-decoration: none;
+  color: white
+}
+
+.how-it-works {
+  background-color: gray;
+  margin-top: 65px;
+  padding: 15px;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.footer-info {
+  display: inline-block;
+  margin: 45px 15px 5px;
 }
