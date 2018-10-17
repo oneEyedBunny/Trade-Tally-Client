@@ -11,6 +11,8 @@ import Navigation from './components/navigation';
 import CreateAccount  from './components/create-account';
 import Login  from './components/login';
 
+import "./App.css";
+
 
 class App extends React.Component {
   state = {

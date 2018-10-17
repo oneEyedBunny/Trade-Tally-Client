@@ -1,53 +1,7 @@
 .app {
-  font-family: 'Nunito', serif;
-  /*min-height: 100vh; */
   margin: 20px;
 }
 /******************************* Navigation ********************************/
-.navigation-container {
-  width: 100%;
-  margin-bottom: 50px;
-}
-
-/* font size isn't working */
-.right-nav-container {
-  margin-left: 125px;
-  /* font-size: 15px; */
-}
-
-.left-nav-container {
-  margin-top: -10px;
-  margin-left: 5px;
-}
-
-.logo {
-  text-decoration: none;
-  color: black;
-}
-
-#login-user {
-
-}
-
-.login-form-fields {
-  margin: 5px;
-  border: 1px solid #DBDBDB;
-  border-radius: 4px;
-  font-size: 12px;
-}
-
-.demo-info {
-  font-size: 14px;
-  font-weight: bold;
-  display: inline-block;
-  margin: 10px 0 0;
-  color: blue;
-}
-
-.login {
-  margin: 10px;
-  font-size: 12px;
-}
 
 /******************************* home *********************************/
 #welcome-message-container {
@@ -89,6 +43,7 @@
 .options-container {
   margin: 45px 0;
   width: 100%;
+  text-align: center;
 }
 
 .option-box {
