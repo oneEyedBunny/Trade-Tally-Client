@@ -7,6 +7,9 @@ import Navigation from "./navigation";
 import { getTrades } from "../actions/trades";
 
 export class TradeSummaryContainer extends React.Component {
+  componentDidMount() {
+   this.getTrades(); 
+  }
   getTrades() {
     this.props.dispatch(getTrades(this.props.userId));
   }
@@ -23,6 +26,12 @@ export class TradeSummaryContainer extends React.Component {
         />
       )
     });
+    // You can only return a single element from Render.
+    // The `{}` here is wrong because you're in JS world not JSX world.
+    // If anything you would have returned `return trades;`. No {}`.
+    
+    // But because you need to return a single element you can do 
+    // return <div>{trades}</div>`
     return (
       {trades}
     )
