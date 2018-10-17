@@ -30,7 +30,7 @@ export class TradeSummaryContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  trades: state.trades,
+  trades: state.trades.trades,
   userId: state.user.userId
 });
 
