@@ -1,9 +1,10 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import { TradeHistory } from './trade-history';
 import { Navigation } from './navigation';
 
-export class TradeHistoryContainer extends React.Component {
+class TradeHistoryContainer extends React.Component {
   render() {
     return (
       <div>
@@ -13,3 +14,10 @@ export class TradeHistoryContainer extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  trades: state.trades.trades,
+  userId: state.user.userId
+});
+
+export default connect(mapStateToProps)(TradeHistoryContainer);

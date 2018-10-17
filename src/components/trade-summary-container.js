@@ -6,7 +6,7 @@ import { TradeSummary } from "./trade-summary";
 import Navigation from "./navigation";
 import { getTrades } from "../actions/trades";
 
-export class TradeSummaryContainer extends React.Component {
+class TradeSummaryContainer extends React.Component {
 
   componentDidMount() {
       this.getTrades();
