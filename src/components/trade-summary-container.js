@@ -5,6 +5,7 @@ import { store } from "../store.js";
 import { TradeSummary } from "./trade-summary";
 import Navigation from "./navigation";
 import { getTrades } from "../actions/trades";
+import './trade-summary-container.css';
 
 class TradeSummaryContainer extends React.Component {
 
@@ -20,16 +21,20 @@ class TradeSummaryContainer extends React.Component {
     console.log(store.getState());
     let trades = this.props.trades.map(trade => {
       return (
+
         <TradeSummary
-          key={trade.id}
-          tradePartner={trade.tradePartner}
-          profession={trade.profession}
-          sumAmount={trade.sumAmount}
+          key={trade.tradeId}
+          tradePartner={trade.tradePartnerFullName}
+          profession={trade.tradePartnerProfession}
+          sumAmount={trade.amount}
         />
       )
     });
     return (
       <div>
+        <Navigation />
+        <h2 className="trade-summary-header">My Active Trades</h2>
+        // need a terniary to render message saying you have no trades yet, go ahead and add one here (link to newtrade form)
         {trades}
       </div>
     )
