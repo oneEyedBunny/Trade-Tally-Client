@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-//import { withRouter } from 'react-router-dom';
+import { store } from "../store.js";
 
 import { TradeSummary } from "./trade-summary";
 import Navigation from "./navigation";
@@ -8,10 +8,11 @@ import { getTrades } from "../actions/trades";
 
 export class TradeSummaryContainer extends React.Component {
   getTrades() {
-    this.props.dispatch(getTrades(this.props.user.userId));
+    this.props.dispatch(getTrades(this.props.userId));
   }
 
   render() {
+    console.log(store.getState());
     let trades = this.props.trades.map(trade => {
       return (
         <TradeSummary
