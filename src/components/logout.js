@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 import { logout } from "../actions/auth-users";
+import "./logout.css";
 
 class Logout extends React.Component {
   state = {};

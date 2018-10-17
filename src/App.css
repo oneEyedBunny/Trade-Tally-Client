@@ -1,8 +1,6 @@
 .app {
   margin: 20px;
 }
-/******************************* Navigation ********************************/
-
 /******************************* home *********************************/
 #welcome-message-container {
   /* margin-top: 125px; */
@@ -65,40 +63,6 @@
   margin-top: 65px;
   padding: 15px;
   text-align: center;
-}
-
-label {
-  float: left;
-  /* width: 10em; */
-  margin-right: 1em;
-}
-
-#new-user-form {
-  width: 80%;
-  margin: 0 auto;
-}
-
-.new-form-fields {
-  margin: 5px;
-  width: 50%;
-  border: 1px solid #DBDBDB;
-  border-radius: 4px;
-  font-size: 12px;
-}
-
-#create-profile-button, #login-user-button {
-  border: 1px solid black;
-  border-radius: 3px;
-  font-size: 15px;
-  display: block;
-  margin: 0 auto;
-  padding: 4px 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.error-message-container {
-  color: yellow;
 }
 
 /*****************************/

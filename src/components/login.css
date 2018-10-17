@@ -1,0 +1,44 @@
+#login-user {
+
+}
+
+.login-form-fields {
+  margin: 5px;
+  border: 1px solid #DBDBDB;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.demo-info {
+  font-size: 14px;
+  font-weight: bold;
+  display: inline-block;
+  margin: 10px 0 0;
+  color: blue;
+}
+
+.login {
+  margin: 10px;
+  font-size: 12px;
+}
+
+#login-user-button {
+  border: 1px solid black;
+  border-radius: 3px;
+  font-size: 15px;
+  display: block;
+  margin: 0 auto;
+  padding: 4px 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+label {
+  float: left;
+  /* width: 10em; */
+  margin-right: 1em;
+}
+
+.error-message-container {
+  color: yellow;
+}
