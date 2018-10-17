@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import { addNewUser } from '../actions/auth-users';
+import "./create-account.css";
 
 function hasWhiteSpace(string) {
   return string.indexOf(" ") >= 0;
