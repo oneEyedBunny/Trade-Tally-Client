@@ -9,14 +9,20 @@ export function TradeHistory(props) {
       </div>
       <table>
         <tr>
-          <th>Date</th>
-          <th>Description</th>
-          <th>Amount</th>
+          <th className="table-header-history">Date</th>
+          <th className="table-header-history">Description</th>
+          <th className="table-header-history">Amount</th>
         </tr>
         <tr>
-          <td>{props.date}</td>
-          <td>{props.description}</td>
-          <td>{props.amount}</td>
+          <td className="table-data-hisotry">{props.date}</td>
+          <td className="table-data-hisotry">{props.description}</td>
+          <td className="table-data-hisotry">{props.amount}</td>
+          <td className="table-data-history">
+            <button className="edit-trade">Edit</button>
+          </td>
+          <td className="table-data-history">
+            <button className="delete-trade">Delete</button>
+          </td>
         </tr>
       </table>
       <div>

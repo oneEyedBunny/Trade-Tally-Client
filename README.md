@@ -19,6 +19,7 @@ Currently I'm a hairstylist. I trade services with a variety of people: Chiropra
 
 # Pending items
 1. Redirect after Login & CreateAccount aren't working
+1. Is there a way to make the fields in the history table editable vs a pop up form to edit
 
 1. CSS- fade on of red/blue squares
 1. CSS- login button not taking css changes
