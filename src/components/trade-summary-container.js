@@ -7,6 +7,11 @@ import Navigation from "./navigation";
 import { getTrades } from "../actions/trades";
 
 export class TradeSummaryContainer extends React.Component {
+
+  componentDidMount() {
+      this.getTrades();
+  }
+
   getTrades() {
     this.props.dispatch(getTrades(this.props.userId));
   }
@@ -24,7 +29,9 @@ export class TradeSummaryContainer extends React.Component {
       )
     });
     return (
-      {trades}
+      <div>
+        {trades}
+      </div>
     )
   }
 }
