@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { TradeHistory } from './trade-history';
+import TradeHistory from './trade-history';
 import Navigation from './navigation';
 import './trade-history-container.css';
 
@@ -14,9 +14,11 @@ class TradeHistoryContainer extends React.Component {
     }, this);
 
     let trades = filteredTrades.map(trade => {
+      console.log("WHere is my key", trade.tradeId);
       return (
         <TradeHistory
           key={trade.tradeId}
+          tradeId={trade.tradeId}
           date={trade.date}
           serviceDescription={trade.serviceDescription}
           amount={trade.amount}

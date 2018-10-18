@@ -22,7 +22,6 @@ class TradeSummaryContainer extends React.Component {
     console.log("state=", store.getState());
     let trades = this.props.trades.map(trade => {
       console.log("trade =", trade);
-      console.log("trade Partner =", trade.tradePartnerFullName);
       return (
         <TradeSummary
           key={trade.tradePartnerId}

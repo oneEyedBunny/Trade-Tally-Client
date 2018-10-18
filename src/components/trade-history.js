@@ -1,7 +1,28 @@
 import React from 'react';
+import { connect } from "react-redux";
+
+import { deleteTrade } from "../actions/trades";
+import { updateTrade } from "../actions/trades";
 import './trade-history.css';
 
 export function TradeHistory(props) {
+  console.log('props=',props);
+
+  const deleteTrade = async event => {
+    event.preventDefault();
+    console.log("delete ID=", props.tradeId);
+    try {
+      await props.dispatch(deleteTrade(props.tradeId));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // const editTrade = async event => {
+  //   event.preventDefault();
+  //   console.log(hi);
+  // }
+
   return (
     <div>
       <table>
@@ -15,10 +36,13 @@ export function TradeHistory(props) {
           <td className="table-data-history">{props.serviceDescription}</td>
           <td className="table-data-history">{props.amount}</td>
           <td className="table-data-history">
-            <button className="edit-trade">Edit</button>
+            <button role="button" type="submit" id="edit-trade">
+              Edit</button>
           </td>
           <td className="table-data-history">
-            <button className="delete-trade">Delete</button>
+            <button role="button" type="submit" id="delete-trade" value={props.tradeId}
+              onClick={(e) => { if (window.confirm('Are you sure you wish to delete this trade?')) this.deleteTrade(e.value) }}
+              >Delete</button>
           </td>
         </tr>
       </table>
@@ -29,3 +53,14 @@ export function TradeHistory(props) {
     </div>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    user: state.user,
+    trades: state.trades.trades
+  };
+};
+
+export default connect(mapStateToProps)(TradeHistory);
+//onClick={(e) => { if (window.confirm('Are you sure you wish to delete this item?')) this.deleteTrade(e) }}>Delete</button>
+//          onClick={this.deleteTrade(value)}>Delete</button>

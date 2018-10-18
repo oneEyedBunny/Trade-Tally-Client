@@ -13,8 +13,8 @@ componentDidMount() {
 }
 
   state = {
-    user: this.props.user.userId,
-    tradePartner: "",
+    userId: this.props.user.userId,
+    tradePartnerId: "",
     date: "",
     serviceDescription: "",
     amount: ""
@@ -38,16 +38,16 @@ componentDidMount() {
     }
       this.setState({
       user: this.props.user.userId,
-      tradePartner: "",
+      tradePartnerId: "",
       date: "",
       serviceDescription: "",
       amount: ""
-    })  
+    })
   };
 
   render() {
     let userDropDown = this.props.user.users.map((user) => {
-        return(<option value={user.id}>{user.FullName}
+        return(<option value={user.id}>{user.fullName}
         </option>
       )}
     )
@@ -59,10 +59,10 @@ componentDidMount() {
             <label>Trade Partner: </label>
             <select
               className="new-trade-fields"
-              id="tradePartner"
-              name="tradePartner"
-              value={this.state.tradePartner}
-              onChange={e => this.setInput(e, "tradePartner")}
+              id="tradePartnerId"
+              name="tradePartnerId"
+              value={this.state.tradePartnerId}
+              onChange={e => this.setInput(e, "tradePartnerId")}
               required>
               {userDropDown}
             </select>
