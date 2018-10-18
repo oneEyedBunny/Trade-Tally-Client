@@ -18,8 +18,8 @@ Currently I'm a hairstylist. I trade services with a variety of people: Chiropra
 - CSS
 
 # Pending items
-1. CSS isn't applying nav formatting
 1. Login/logout needs to be applied across all pages
+1. get Create new trade working
 
 1. Redirect after Login & CreateAccount aren't working
 1. Is there a way to make the fields in the history table editable

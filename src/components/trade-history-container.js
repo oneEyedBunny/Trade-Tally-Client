@@ -1,25 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
-import { store } from "../store.js";
 
 import { TradeHistory } from './trade-history';
 import Navigation from './navigation';
-import { getTrades } from "../actions/trades";
 import './trade-history-container.css';
 
 class TradeHistoryContainer extends React.Component {
 
-  componentDidMount() {
-      this.getTrades();
-  }
-
-  getTrades() {
-    this.props.dispatch(getTrades(this.props.userId));
-  }
-
   render() {
-    console.log(store.getState());
-    let trades = this.props.trades.map(trade => {
+    console.log("tradeparterid", this.props.trades[0].tradePartnerId);
+    let filteredTrades = this.props.trades.filter(trade => {
+      return trade.tradePartnerId === this.props.match.params.tradePartnerId
+    }, this);
+
+    let trades = filteredTrades.map(trade => {
       return (
         <TradeHistory
           key={trade.tradeId}
@@ -35,7 +29,7 @@ class TradeHistoryContainer extends React.Component {
         <Navigation status="Login" />
         <div>
           <h2>Trade History</h2>
-          <h4> with {trades.tradePartnerFullName} </h4>
+          <h4> with {this.props.trades.tradePartnerFullName} </h4>
         </div>
          {trades}
       </div>
