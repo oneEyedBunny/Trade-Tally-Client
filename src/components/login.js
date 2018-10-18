@@ -7,7 +7,7 @@ import "./login.css";
 
 class Login extends React.Component {
   state = {
-    username: "testing12345!!",
+    username: "cattycatter",
     password: "testing0101",
     errorSummaryMessage: "",
   };

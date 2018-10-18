@@ -1,16 +1,22 @@
 import React from "react";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+// import { withRouter } from "react-router-dom";
 
 import { addTrade } from "../actions/trades";
+import { getAllUsers } from "../actions/auth-users";
 import "./new-trade.css";
 
 class NewTrade extends React.Component {
+
+componentDidMount() {
+  this.props.dispatch(getAllUsers());
+}
+
   state = {
     user: this.props.user.userId,
-    tradePartnerId: "",
+    tradePartner: "",
     date: "",
-    description: "",
+    serviceDescription: "",
     amount: ""
   };
 
@@ -25,40 +31,59 @@ class NewTrade extends React.Component {
     let newTrade = this.state;
     console.log("im the new trade data", newTrade);
     try {
-      await this.props.addTrade(newTrade);
+      await this.props.dispatch(addTrade(newTrade));
       console.log("new trade form working");
     } catch (error) {
       console.log(error);
     }
+      this.setState({
+      user: this.props.user.userId,
+      tradePartner: "",
+      date: "",
+      serviceDescription: "",
+      amount: ""
+    })  
   };
 
   render() {
+    let userDropDown = this.props.user.users.map((user) => {
+        return(<option value={user.id}>{user.FullName}
+        </option>
+      )}
+    )
     return (
       <form id="new-trade-form" onSubmit={this.submitTrade}>
         <fieldset id="new-trade-fieldset">
           <legend>Trade Info</legend>
           <div className="new-trade-div">
             <label>Trade Partner: </label>
-            <input
+            <select
               className="new-trade-fields"
               id="tradePartner"
               name="tradePartner"
-              required
-            />
+              value={this.state.tradePartner}
+              onChange={e => this.setInput(e, "tradePartner")}
+              required>
+              {userDropDown}
+            </select>
             <label>Date: </label>
             <input
               className="new-trade-fields"
               id="date"
               type="date"
               name="date"
+              value={this.state.date}
+              onChange={e => this.setInput(e, "date")}
               required
             />
             <label>Description: </label>
             <input
               className="new-trade-fields"
               type="text area"
-              id="description"
-              name="description"
+              id="serviceDescription"
+              name="serviceDescription"
+              value={this.state.serviceDescription}
+              onChange={e => this.setInput(e, "serviceDescription")}
               required
             />
             <label>Amount: </label>
@@ -66,6 +91,8 @@ class NewTrade extends React.Component {
               className="new-trade-fields"
               id="amount"
               name="amount"
+              value={this.state.amount}
+              onChange={e => this.setInput(e, "amount")}
               required
             />
             <button role="button" type="submit" id="create-trade-button">
@@ -85,5 +112,5 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = { addTrade };
-export default withRouter(connect(mapStateToProps,mapDispatchToProps)(NewTrade));
+//export default withRouter(connect(mapStateToProps,mapDispatchToProps)(NewTrade));
+export default connect(mapStateToProps)(NewTrade);
