@@ -14,7 +14,6 @@ class TradeHistoryContainer extends React.Component {
     }, this);
 
     let trades = filteredTrades.map(trade => {
-      console.log("WHere is my key", trade.tradeId);
       return (
         <TradeHistory
           key={trade.tradeId}
