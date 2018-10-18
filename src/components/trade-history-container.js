@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { store } from "../store.js";
 
 import TradeHistory from './trade-history';
 import Navigation from './navigation';
@@ -8,7 +9,7 @@ import './trade-history-container.css';
 class TradeHistoryContainer extends React.Component {
 
   render() {
-    console.log("tradeparterid", this.props.trades[0].tradePartnerId);
+    //console.log("tradeparterid", this.props.trades[0].tradePartnerId);
     let filteredTrades = this.props.trades.filter(trade => {
       return trade.tradePartnerId === this.props.match.params.tradePartnerId
     }, this);
@@ -24,7 +25,7 @@ class TradeHistoryContainer extends React.Component {
         />
       )
     });
-
+    console.log("state in history=", store.getState());
     return (
       <div>
         <Navigation status="Login" />

@@ -6,7 +6,7 @@ import { updateTrade } from "../actions/trades";
 import './trade-history.css';
 
 export function TradeHistory(props) {
-  console.log('props=',props);
+
 
   const deleteTrade = async event => {
     console.log("delete ID=", props.tradeId);
@@ -25,11 +25,14 @@ export function TradeHistory(props) {
   return (
     <div>
       <table>
+        <thead>
         <tr>
           <th className="table-header-history">Date</th>
           <th className="table-header-history">Description</th>
           <th className="table-header-history">Amount</th>
         </tr>
+      </thead>
+      <tbody>
         <tr>
           <td className="table-data-history">{props.date}</td>
           <td className="table-data-history">{props.serviceDescription}</td>
@@ -44,11 +47,12 @@ export function TradeHistory(props) {
               >Delete</button>
           </td>
         </tr>
+        <tr>
+          <th className="table-header-history">Balance</th>
+          <td id="sum-amount">{props.amount}</td>
+        </tr>
+       </tbody>
       </table>
-      <div>
-        <p>Balance</p>
-        <div>SUMMED AMOUNT GOES HERE</div>
-      </div>
     </div>
   );
 }
@@ -61,5 +65,4 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(TradeHistory);
-//onClick={(e) => { if (window.confirm('Are you sure you wish to delete this item?')) this.deleteTrade(e) }}>Delete</button>
-//          onClick={this.deleteTrade(value)}>Delete</button>
+//onClick={deleteTrade(event.value)}>Delete</button>
