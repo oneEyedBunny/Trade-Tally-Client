@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from 'react-router-dom';
 import { store } from "../store.js";
 
 import { TradeSummary } from "./trade-summary";
@@ -18,12 +19,15 @@ class TradeSummaryContainer extends React.Component {
   }
 
   render() {
-    console.log(store.getState());
+    console.log("state=", store.getState());
     let trades = this.props.trades.map(trade => {
+      console.log("trades =", this.props.trades);
+      console.log("trade =", trade);
+      console.log("trade Partner =", trade.tradePartnerFullName);
       return (
-
         <TradeSummary
-          key={trade.tradeId}
+          key={trade.tradePartnerId}
+        debugger
           tradePartner={trade.tradePartnerFullName}
           profession={trade.tradePartnerProfession}
           sumAmount={trade.amount}
@@ -34,8 +38,16 @@ class TradeSummaryContainer extends React.Component {
       <div>
         <Navigation />
         <h2 className="trade-summary-header">My Active Trades</h2>
-        // need a terniary to render message saying you have no trades yet, go ahead and add one here (link to newtrade form)
-        {trades}
+        <div>
+          {this.props.trades.length===0 ?
+            <div>
+              {trades}
+            </div> :
+            <h3>You don't have any recorded trades yet. Add one
+              <Link className="link-new-trade" to="/new-trade"> here.</Link>
+            </h3>
+          } {/*closes ternary*/}
+        </div>
       </div>
     )
   }

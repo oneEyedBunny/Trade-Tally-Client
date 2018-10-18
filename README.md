@@ -18,6 +18,10 @@ Currently I'm a hairstylist. I trade services with a variety of people: Chiropra
 - CSS
 
 # Pending items
+1. Summary table isn't rendering trades
+1. onClick see details button- need to have it route to trades/history:id
+1. CSS isn't applying nav formatting
+
 1. Redirect after Login & CreateAccount aren't working
 1. Is there a way to make the fields in the history table editable vs a pop up form to edit
 
