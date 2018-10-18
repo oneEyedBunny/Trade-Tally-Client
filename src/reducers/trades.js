@@ -35,8 +35,9 @@ export function tradesReducer(state = initialState, action) {
   }
 
   if (action.type === GET_TRADES_SUCCESS) {
+    console.log("action.trades=", action.trades);
     return Object.assign({}, state, {
-      trades: [action.trades]
+      trades: action.trades.trades
     });
   }
   return state;

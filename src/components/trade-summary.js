@@ -1,8 +1,7 @@
 import React from 'react';
 // import { withRouter } from "react-router-dom";
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-//import { getTrades } from "../actions/trades";
 import './trade-summary.css';
 
 export function TradeSummary(props) {
@@ -32,8 +31,8 @@ export function TradeSummary(props) {
           <td className="table-data-summary">{props.tradePartnerProfession}</td>
           <td className="table-data-summary">{props.amount}</td>
           <td className="table-data-summary">
-            <button role="button" value={props.tradePartnerId} id="see-trade-history-button">
-              See Details</button>
+
+            <Link id="see-trade-history-button" to={`/trade-history/${props.tradePartnerId}`} >See Details</Link>
           </td>
         </tr>
       </table>
