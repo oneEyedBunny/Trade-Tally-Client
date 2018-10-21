@@ -24,35 +24,20 @@ export function TradeHistory(props) {
 
   return (
     <div>
-      <table>
-        <thead>
-        <tr>
-          <th className="table-header-history">Date</th>
-          <th className="table-header-history">Description</th>
-          <th className="table-header-history">Amount</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td className="table-data-history">{props.date}</td>
-          <td className="table-data-history">{props.serviceDescription}</td>
-          <td className="table-data-history">{props.amount}</td>
-          <td className="table-data-history">
-            <button role="button" type="submit" id="edit-trade">
-              Edit</button>
-          </td>
-          <td className="table-data-history">
-            <button role="button" id="delete-trade" value={props.tradeId}
-              onClick={(event) => { if (window.confirm('Are you sure you wish to delete this trade?')) deleteTrade(event.value) }}
-              >Delete</button>
-          </td>
-        </tr>
-        <tr>
-          <th className="table-header-history">Balance</th>
-          <td id="sum-amount">{props.amount}</td>
-        </tr>
-       </tbody>
-      </table>
+      <div className="data-container">
+      <div className="table-data-history">{props.date}</div>
+      <div className="table-data-history">{props.serviceDescription}</div>
+      <div className="table-data-history">{props.amount}</div>
+      <div className="table-data-history">
+        <button role="button" type="submit" id="edit-trade button">
+          Edit</button>
+      </div>
+      <div className="table-data-history">
+        <button role="button" id="delete-trade button" value={props.tradeId}
+          onClick={(event) => { if (window.confirm('Are you sure you wish to delete this trade?')) deleteTrade(event.value) }}
+          >Delete</button>
+      </div>
+     </div>
     </div>
   );
 }
