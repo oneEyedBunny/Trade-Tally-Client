@@ -26,7 +26,7 @@ export const authUserReducer = (state = initialState, action) => {
   }
   if (action.type === GET_ALL_USERS_SUCCESS) {
     return Object.assign({}, state, {
-      users: [action.users]
+      users: action.users
     });
   }
   return state;

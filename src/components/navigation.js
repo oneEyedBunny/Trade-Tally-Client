@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import Login from "./login";
 import Logout from "./logout";
-import "./new-trade-container.css";
+import "./navigation.css";
 
 export class Navigation extends React.Component {
   state = {

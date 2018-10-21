@@ -1,0 +1,13 @@
+.table-header-history {
+  margin: 35px;
+  display: inline-block;
+}
+
+.table-data-history {
+  margin: 10px;
+  display: inline-block;
+}
+
+#button, #sum-amount {
+  display: inline-block;
+}

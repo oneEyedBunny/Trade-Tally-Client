@@ -16,6 +16,7 @@ export function tradesReducer(state = initialState, action) {
   if (action.type === DELETE_TRADE_SUCCESS) {
     let tradesArray = [...state.trades];
     let deletedIndex = tradesArray.findIndex(item => item.id === action.values.tradeId);
+    console.log("deletedIndex=", deletedIndex);
     tradesArray.splice(deletedIndex, 1);
     return Object.assign({}, state, {
       trades: tradesArray
@@ -35,8 +36,9 @@ export function tradesReducer(state = initialState, action) {
   }
 
   if (action.type === GET_TRADES_SUCCESS) {
+    console.log("action.trades=", action.trades);
     return Object.assign({}, state, {
-      trades: [action.trades]
+      trades: action.trades.trades
     });
   }
   return state;

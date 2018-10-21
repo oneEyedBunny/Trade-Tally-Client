@@ -18,7 +18,12 @@ Currently I'm a hairstylist. I trade services with a variety of people: Chiropra
 - CSS
 
 # Pending items
+1. Login/logout needs to be applied across all pages
 1. Redirect after Login & CreateAccount aren't working
+1. Is there a way to make the fields in the history table editable
+1. Add autocomplete to new trade form drop down (https://alligator.io/react/react-autocomplete/_)
+1. Fix functions so they're arrow/ES6
+1. Helper function for money formatting or date?? helper.js
 
 1. CSS- fade on of red/blue squares
 1. CSS- login button not taking css changes
