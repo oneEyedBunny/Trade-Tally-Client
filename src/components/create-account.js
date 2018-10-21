@@ -140,7 +140,7 @@ class CreateAccount extends React.Component {
             value={this.state.password}
             onChange={e => this.setInput(e, "password")}
           />
-          <button role="button" type="submit" id="create-profile-button">
+        <button role="button" type="submit" id="create-profile-button" className="button">
             Create Profile
           </button>
         </div>

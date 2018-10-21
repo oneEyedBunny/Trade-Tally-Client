@@ -32,7 +32,7 @@ export function TradeSummary(props) {
           <td className="table-data-summary">{props.amount}</td>
           <td className="table-data-summary">
 
-            <Link id="see-trade-history-button" to={`/trade-history/${props.tradePartnerId}`} >See Details</Link>
+            <Link id="see-trade-history-button" className="button" to={`/trade-history/${props.tradePartnerId}`} >See Details</Link>
           </td>
         </tr>
       </table>

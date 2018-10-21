@@ -29,11 +29,11 @@ export function TradeHistory(props) {
       <div className="table-data-history">{props.serviceDescription}</div>
       <div className="table-data-history">{props.amount}</div>
       <div className="table-data-history">
-        <button role="button" type="submit" id="edit-trade button">
+        <button role="button" type="submit" id="edit-trade" className="button">
           Edit</button>
       </div>
       <div className="table-data-history">
-        <button role="button" id="delete-trade button" value={props.tradeId}
+        <button role="button" id="delete-trade" className="button" value={props.tradeId}
           onClick={(event) => { if (window.confirm('Are you sure you wish to delete this trade?')) deleteTrade(event.value) }}
           >Delete</button>
       </div>

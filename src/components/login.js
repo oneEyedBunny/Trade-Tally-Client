@@ -62,7 +62,7 @@ class Login extends React.Component {
             value={this.state.password}
             onChange={e => this.setInput(e, "password")}
           />
-          <button role="button" id="login-user-button" type="submit">
+        <button role="button" id="login-user-button" className="button" type="submit">
             Login
           </button>
           <div id="demo-container">

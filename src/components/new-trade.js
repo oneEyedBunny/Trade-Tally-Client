@@ -95,7 +95,7 @@ componentDidMount() {
               onChange={e => this.setInput(e, "amount")}
               required
             />
-            <button role="button" type="submit" id="create-trade-button">
+            <button role="button" type="submit" id="create-trade-button" className="button">
               Create Trade
             </button>
           </div>

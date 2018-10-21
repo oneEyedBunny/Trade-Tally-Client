@@ -17,14 +17,6 @@
 }
 
 #create-trade-button {
-  border: 1px solid black;
-  border-radius: 3px;
-  font-size: 15px;
-  display: block;
-  margin: 0 auto;
-  padding: 4px 10px;
-  margin-top: 25px;
-  margin-bottom: 15px;
 }
 
 /* do I need this??? it's in App.css */
