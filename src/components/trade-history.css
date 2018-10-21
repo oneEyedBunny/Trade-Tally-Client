@@ -1,13 +1,13 @@
-.table-header-history {
-  margin: 35px;
-  display: inline-block;
-}
 
 .table-data-history {
-  margin: 10px;
-  display: inline-block;
+  font-size: 12px;
 }
 
-#button, #sum-amount {
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#delete-trade, #edit-trade {
+  font-size: 12px;
   display: inline-block;
 }

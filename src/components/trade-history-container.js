@@ -47,14 +47,20 @@ class TradeHistoryContainer extends React.Component {
           </h2>
           <h4>{this.props.trades.tradePartnerFullName} </h4>
         </div>
-        <div className="table-header-history">Date</div>
-        <div className="table-header-history">Description</div>
-        <div className="table-header-history">Amount</div>
-        {trades}
-        <div className="table-header-history">Balance</div>
-        <div id="sum-amount">AMOUNT</div>
-      </div>
-    );
+        <table>
+          <thead>
+            <tr id="trade-history-table-row-header">
+              <th className="trade-history-table-header">Date</th>
+              <th className="trade-history-table-header">Description</th>
+              <th className="trade-history-table-header">Amount</th>
+            </tr>
+          </thead>
+            <tbody>{trades}</tbody>
+        </table>
+        <div className="trade-balance">Balance</div>
+        <div className="trade-balance total">$$amount</div>
+     </div>
+    )
   }
 }
 
