@@ -1,3 +1,12 @@
-.table-header-summary {
-  text-align: center;
+
+#trade-summary-table-row-header {
+  text-align: left;
+}
+
+.trade-summary-table-header {
+  text-align: left;
+  padding: 10px;
+  background-color: blue;
+  color: white;
+  font-size: 14px;
 }

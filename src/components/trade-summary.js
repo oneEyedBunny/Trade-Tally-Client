@@ -19,24 +19,14 @@ export function TradeSummary(props) {
 
 
   return (
-    <div>
-      <table>
-        <tr>
-          <th className="table-header-summary">Trade Partner</th>
-          <th className="table-header-summary">Profession</th>
-          <th className="table-header-summary">Trade Balance</th>
-        </tr>
-        <tr>
-          <td className="table-data-summary">{props.tradePartnerFullName}</td>
-          <td className="table-data-summary">{props.tradePartnerProfession}</td>
-          <td className="table-data-summary">{props.amount}</td>
-          <td className="table-data-summary">
-
-            <Link id="see-trade-history-button" className="button" to={`/trade-history/${props.tradePartnerId}`} >See Details</Link>
-          </td>
-        </tr>
-      </table>
-    </div>
+    <tr id="trade-summary-data-row">
+      <td className="table-data-summary">{props.tradePartnerFullName}</td>
+      <td className="table-data-summary">{props.tradePartnerProfession}</td>
+      <td className="table-data-summary">{props.amount}</td>
+      <td className="table-data-summary">
+        <Link id="see-trade-history-button" className="button" to={`/trade-history/${props.tradePartnerId}`} >See Details</Link>
+      </td>
+    </tr>
   );
 }
 

@@ -35,14 +35,23 @@ class TradeSummaryContainer extends React.Component {
     return (
       <div className="app">
         <Navigation />
-        <h2 className="trade-summary-header">My Active Trades</h2>
+        <h2 className="trade-summary-page-header">My Active Trades</h2>
         <div>
-          {this.props.trades.length ?
-            <div>{trades}</div> :
-            <h3>You don't have any recorded trades yet. Add one
-              <Link className="link-new-trade" to="/new-trade"> here.</Link>
-            </h3>
-          } {/*closes ternary*/}
+          <table>
+            <thead>
+            <tr id="trade-summary-table-row-header">
+              <th className="trade-summary-table-header">Trade Partner</th>
+              <th className="trade-summary-table-header">Profession</th>
+              <th className="trade-summary-table-header">Trade Balance</th>
+            </tr>
+            </thead>
+              {this.props.trades.length ?
+                <tbody>{trades}</tbody> :
+                <h3>You don't have any recorded trades yet. Add one
+                  <Link className="link-new-trade" to="/new-trade"> here.</Link>
+                </h3>
+              } {/*closes ternary*/}
+          </table>
         </div>
       </div>
     )
