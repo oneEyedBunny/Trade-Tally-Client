@@ -52,8 +52,7 @@ class App extends React.Component {
         </section>
         <section className="how-it-works" id="how-it-works-summary">
           <h3 className=""> How to use the app</h3>
-          <p className="" onClick={() => this.newAccountForm()}>
-            {" "}
+          <p className="create-account-link" onClick={() => this.newAccountForm()}>
             Create an Account
           </p>
           {this.state.createAccountDisplay && <CreateAccount />}

@@ -33,7 +33,7 @@ export class Navigation extends React.Component {
           <div className="right-nav-container">
             {this.props.user.isLoggedin ? <Logout onLogoutUser= {() => this.logoutUser()} /> :
               <div>
-                <button className="button" onClick={() => this.loginUser()}>
+                <button id="display-login-form" className="button" onClick={() => this.loginUser()}>
                   Login
                 </button>
                 {this.state.loginDisplay && <Login />}

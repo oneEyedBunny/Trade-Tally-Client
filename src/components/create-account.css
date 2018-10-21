@@ -3,6 +3,14 @@
   margin: 0 auto;
 }
 
+#new-user-fieldset {
+  background-color: #D3D3D3;
+  border: none;
+  border-radius: 5px;
+}
+
+
+
 .new-form-fields {
   margin: 5px;
   width: 50%;

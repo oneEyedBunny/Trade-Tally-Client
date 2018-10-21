@@ -37,7 +37,7 @@ class Login extends React.Component {
     return (
       <form
         role="form"
-        id="login-user"
+        id="login-user-form"
         name="loginUser"
         onSubmit={this.handleSubmit}
       >

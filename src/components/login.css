@@ -1,5 +1,32 @@
-#login-user {
+#login-user-form {
+  position: absolute;
+  top: 0;
+  left: 200px;
+  border-radius: 10px;
+  background-color: #D3D3D3;
+  animation-duration: .5s;
+  animation-name: slidein;
+}
 
+@keyframes slidein {
+  from {
+    margin-left:100%;
+    /* width:300% */
+  }
+
+  to {
+    margin-left:0%;
+    /* width:100%; */
+  }
+}
+
+
+#user-info {
+ border: none;
+}
+
+label {
+  font-size: 13px;
 }
 
 .login-form-fields {
@@ -10,7 +37,7 @@
 }
 
 .demo-info {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
   display: inline-block;
   margin: 10px 0 0;
@@ -22,9 +49,9 @@
   font-size: 12px;
 }
 
-#login-user-button {
-
-}
+/* #display-login-form:hover {
+  background-color: red;
+} */
 
 label {
   float: left;
