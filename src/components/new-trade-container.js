@@ -8,7 +8,7 @@ import "./new-trade-container.css";
 class NewTradeContainer extends React.Component {
   render() {
     return (
-      <div>
+      <div className="app">
         <Navigation />
         <h3 id="new-trade-header">Enter a new trade</h3>
         <NewTrade />

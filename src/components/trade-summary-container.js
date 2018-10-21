@@ -33,7 +33,7 @@ class TradeSummaryContainer extends React.Component {
       )
     });
     return (
-      <div>
+      <div className="app">
         <Navigation />
         <h2 className="trade-summary-header">My Active Trades</h2>
         <div>

@@ -38,7 +38,7 @@ class TradeHistoryContainer extends React.Component {
     console.log("state in history=", store.getState());
     console.log("the figgin name", this.props.trades.tradePartnerFullName);
     return (
-      <div>
+      <div className="app">
         <Navigation status="Login" />
         <div>
           <h2>
