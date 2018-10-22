@@ -32,7 +32,8 @@ class TradeHistoryContainer extends React.Component {
 //gives grand total
     let balance = 0;
     filteredTrades.forEach((trade) => {
-      balance += trade.amount;
+      (this.props.userId === trade.tradePartnerId) ? balance -= trade.amount:
+        balance += trade.amount;
     })
     console.log("state in history=", store.getState());
 

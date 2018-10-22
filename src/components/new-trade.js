@@ -94,6 +94,7 @@ componentDidMount() {
             <label>Amount: </label>
             <input
               className="new-trade-fields"
+              type="number"
               id="amount"
               name="amount"
               value={this.state.amount}
