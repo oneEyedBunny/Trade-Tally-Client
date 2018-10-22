@@ -1,6 +1,7 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect , withRouter} from "react-router-dom";
 import { connect } from "react-redux";
+
 
 import Login from "./login";
 import Logout from "./logout";
@@ -18,7 +19,7 @@ export class Navigation extends React.Component {
 
   logoutUser() {
     this.setState({ loginDisplay: false });
-    return <Redirect to="/" />
+    this.props.history.push('/');
   }
 
   render() {
@@ -53,4 +54,4 @@ const mapStateToProps = state => {
     user: state.user
   };
 };
-export default connect(mapStateToProps)(Navigation);
+export default withRouter(connect(mapStateToProps)(Navigation));

@@ -8,16 +8,6 @@ import "./trade-history-container.css";
 
 class TradeHistoryContainer extends React.Component {
 
-  //   Array.prototype.sum = function (prop) {
-  //   var total = 0
-  //   for ( var i = 0, _len = this.length; i < _len; i++ ) {
-  //       total += this[i][prop]
-  //   }
-  //   return total
-  //   }
-  //
-  // console.log("Sum =", this.props.trades.sum("amount"))
-
   render() {
     //console.log("tradeparterid", this.props.trades[0].tradePartnerId);
     let filteredTrades = this.props.trades.filter(trade => {
@@ -35,6 +25,12 @@ class TradeHistoryContainer extends React.Component {
         />
       );
     });
+
+    let sumamount = 0;
+    // trades.forEach()
+    //write forEach loop here and then render this down below
+
+
     console.log("state in history=", store.getState());
     console.log("the figgin name", this.props.trades.tradePartnerFullName);
     return (

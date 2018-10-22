@@ -20,9 +20,7 @@ export const authUserReducer = (state = initialState, action) => {
     });
   }
   if (action.type === LOGOUT_SUCCESS) {
-    return {
-      isLoggedin: false
-    }
+    return initialState
   }
   if (action.type === GET_ALL_USERS_SUCCESS) {
     return Object.assign({}, state, {

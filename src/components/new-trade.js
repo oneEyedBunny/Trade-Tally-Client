@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-// import { withRouter } from "react-router-dom";
 
 import { addTrade } from "../actions/trades";
 import { getAllUsers } from "../actions/auth-users";
@@ -18,7 +17,6 @@ componentDidMount() {
     date: "",
     serviceDescription: "",
     amount: "",
-    errorMessage: "",
     successMessage: ""
   };
 
@@ -35,20 +33,10 @@ componentDidMount() {
     try {
       await this.props.dispatch(addTrade(newTrade));
       this.setState({
-        errorMessage: "",
         successMessage: `Your trade has been recorded`,
       })
     } catch (error) {
       console.log(error);
-      (error.status === 401)?
-        this.setState({
-          errorMessage: `You must be logged in to create a trade`,
-          successMessage: ""
-        }) :
-        this.setState({
-        errorMessage: `Something went wrong on our end, please try again`,
-        successMessage: ""
-        })
     }
       this.setState({
       user: this.props.user.userId,
@@ -78,7 +66,7 @@ componentDidMount() {
               value={this.state.tradePartnerId}
               onChange={e => {
                 this.setInput(e, "tradePartnerId");
-                this.setState({errorMessage: "", successMessage: ""})
+                this.setState({successMessage: ""})
               } }
               required>
               {userDropDown}
@@ -117,7 +105,7 @@ componentDidMount() {
               Create Trade
             </button>
           </div>
-          <div className="error-message-container">{this.state.errorMessage}{this.state.successMessage} </div>
+          <div className="error-message-container">{this.state.successMessage} </div>
         </fieldset>
       </form>
     );
@@ -130,5 +118,4 @@ const mapStateToProps = state => {
   };
 };
 
-//export default withRouter(connect(mapStateToProps,mapDispatchToProps)(NewTrade));
 export default connect(mapStateToProps)(NewTrade);
