@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
-import moment from 'react-moment';
+import Moment from 'react-moment';
 import 'moment-timezone';
 
 import { deleteTrade } from "../actions/trades";
@@ -24,12 +24,9 @@ export function TradeHistory(props) {
   //   console.log(hi);
   // }
 
-  // let date= moment(props.date);
-  // let dateFormat = date.format('M-DD-YYYY');
-
   return (
     <tr id="trade-history-data-row">
-      <td className="table-data-history">{props.date}</td >
+      <td className="table-data-history"><Moment format="M-DD-YYYY">{props.date}</Moment></td >
       <td  className="table-data-history">{props.serviceDescription}</td >
       <td  className="table-data-history">{props.amount}</td >
       <td  className="table-data-history">

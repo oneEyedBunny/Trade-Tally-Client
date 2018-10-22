@@ -16,13 +16,18 @@ class TradeHistoryContainer extends React.Component {
       trade.userId === this.props.match.params.tradePartnerId;
     }, this);
 
+    let isNegative =(tradePartnerId) => {
+      return this.props.userId === tradePartnerId
+    }
+
     let trades = filteredTrades.map(trade => {
       return (
         <TradeHistory
           tradeId={trade.tradeId}
           date={trade.date}
           serviceDescription={trade.serviceDescription}
-          amount={trade.amount}
+          amount={isNegative(trade.tradePartnerId) ? trade.amount *-1 :
+            trade.amount}
         />
       );
     });
