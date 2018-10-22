@@ -17,7 +17,9 @@ componentDidMount() {
     tradePartnerId: "",
     date: "",
     serviceDescription: "",
-    amount: ""
+    amount: "",
+    errorMessage: "",
+    successMessage: ""
   };
 
   setInput = (event, key) => {
@@ -32,18 +34,30 @@ componentDidMount() {
     console.log("im the new trade data", newTrade);
     try {
       await this.props.dispatch(addTrade(newTrade));
-      console.log("new trade form working");
+      this.setState({
+        errorMessage: "",
+        successMessage: `Your trade has been recorded`,
+      })
     } catch (error) {
       console.log(error);
+      (error.status === 401)?
+        this.setState({
+          errorMessage: `You must be logged in to create a trade`,
+          successMessage: ""
+        }) :
+        this.setState({
+        errorMessage: `Something went wrong on our end, please try again`,
+        successMessage: ""
+        })
     }
       this.setState({
       user: this.props.user.userId,
       tradePartnerId: "",
       date: "",
       serviceDescription: "",
-      amount: ""
-    })
-  };
+      amount: "",
+     })
+    }
 
   render() {
     let userDropDown = this.props.user.users.map((user) => {
@@ -62,7 +76,10 @@ componentDidMount() {
               id="tradePartnerId"
               name="tradePartnerId"
               value={this.state.tradePartnerId}
-              onChange={e => this.setInput(e, "tradePartnerId")}
+              onChange={e => {
+                this.setInput(e, "tradePartnerId");
+                this.setState({errorMessage: "", successMessage: ""})
+              } }
               required>
               {userDropDown}
             </select>
@@ -95,11 +112,12 @@ componentDidMount() {
               onChange={e => this.setInput(e, "amount")}
               required
             />
-            <button role="button" type="submit" id="create-trade-button" className="button">
+            <button role="button" type="submit" id="create-trade-button"
+              className="button" >
               Create Trade
             </button>
           </div>
-          <div className="error-message-container" />
+          <div className="error-message-container">{this.state.errorMessage}{this.state.successMessage} </div>
         </fieldset>
       </form>
     );
