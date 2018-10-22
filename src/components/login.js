@@ -23,8 +23,6 @@ class Login extends React.Component {
     let credentials = this.state;
     try {
       await this.props.login(credentials);
-      console.log("log in success");
-      //this.props.history.push("/trade-summary");
 
     } catch (error) {
       this.setState({
@@ -37,7 +35,7 @@ class Login extends React.Component {
     return (
       <form
         role="form"
-        id="login-user"
+        id="login-user-form"
         name="loginUser"
         onSubmit={this.handleSubmit}
       >
@@ -62,7 +60,7 @@ class Login extends React.Component {
             value={this.state.password}
             onChange={e => this.setInput(e, "password")}
           />
-          <button role="button" id="login-user-button" type="submit">
+        <button role="button" id="login-user-button" className="button" type="submit">
             Login
           </button>
           <div id="demo-container">

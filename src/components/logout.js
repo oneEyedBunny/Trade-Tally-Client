@@ -15,13 +15,13 @@ class Logout extends React.Component {
     } catch (error) {
       console.log(error);
     }
-    console.log("log out successfully");
     this.props.onLogoutUser();
+    // this.props.history.push("/");
   };
 
   render() {
     return (
-      <button role="button" id="logout-user-button" onClick={this.handleLogout}>
+      <button role="button" id="logout-user-button" className="button" onClick={this.handleLogout}>
         Logout
       </button>
     );

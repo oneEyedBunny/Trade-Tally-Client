@@ -1,3 +1,16 @@
-.table-header-summary {
-  padding: 35px;
+
+.table-data-summary {
+  font-size: 12px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#see-trade-history-button {
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  margin: 15px;
+
 }

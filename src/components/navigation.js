@@ -1,6 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect , withRouter} from "react-router-dom";
 import { connect } from "react-redux";
+
 
 import Login from "./login";
 import Logout from "./logout";
@@ -13,10 +14,12 @@ export class Navigation extends React.Component {
 
   loginUser() {
     this.setState({ loginDisplay: true });
+
   }
 
   logoutUser() {
     this.setState({ loginDisplay: false });
+    this.props.history.push('/');
   }
 
   render() {
@@ -33,7 +36,7 @@ export class Navigation extends React.Component {
           <div className="right-nav-container">
             {this.props.user.isLoggedin ? <Logout onLogoutUser= {() => this.logoutUser()} /> :
               <div>
-                <button onClick={() => this.loginUser()}>
+                <button id="display-login-form" className="button" onClick={() => this.loginUser()}>
                   Login
                 </button>
                 {this.state.loginDisplay && <Login />}
@@ -51,4 +54,4 @@ const mapStateToProps = state => {
     user: state.user
   };
 };
-export default connect(mapStateToProps)(Navigation);
+export default withRouter(connect(mapStateToProps)(Navigation));

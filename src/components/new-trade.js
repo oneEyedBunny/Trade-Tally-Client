@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-// import { withRouter } from "react-router-dom";
 
 import { addTrade } from "../actions/trades";
 import { getAllUsers } from "../actions/auth-users";
@@ -17,7 +16,8 @@ componentDidMount() {
     tradePartnerId: "",
     date: "",
     serviceDescription: "",
-    amount: ""
+    amount: "",
+    successMessage: ""
   };
 
   setInput = (event, key) => {
@@ -32,7 +32,9 @@ componentDidMount() {
     console.log("im the new trade data", newTrade);
     try {
       await this.props.dispatch(addTrade(newTrade));
-      console.log("new trade form working");
+      this.setState({
+        successMessage: `Your trade has been recorded`,
+      })
     } catch (error) {
       console.log(error);
     }
@@ -41,9 +43,9 @@ componentDidMount() {
       tradePartnerId: "",
       date: "",
       serviceDescription: "",
-      amount: ""
-    })
-  };
+      amount: "",
+     })
+    }
 
   render() {
     let userDropDown = this.props.user.users.map((user) => {
@@ -62,7 +64,10 @@ componentDidMount() {
               id="tradePartnerId"
               name="tradePartnerId"
               value={this.state.tradePartnerId}
-              onChange={e => this.setInput(e, "tradePartnerId")}
+              onChange={e => {
+                this.setInput(e, "tradePartnerId");
+                this.setState({successMessage: ""})
+              } }
               required>
               {userDropDown}
             </select>
@@ -95,11 +100,12 @@ componentDidMount() {
               onChange={e => this.setInput(e, "amount")}
               required
             />
-            <button role="button" type="submit" id="create-trade-button">
+            <button role="button" type="submit" id="create-trade-button"
+              className="button" >
               Create Trade
             </button>
           </div>
-          <div className="error-message-container" />
+          <div className="error-message-container">{this.state.successMessage} </div>
         </fieldset>
       </form>
     );
@@ -112,5 +118,4 @@ const mapStateToProps = state => {
   };
 };
 
-//export default withRouter(connect(mapStateToProps,mapDispatchToProps)(NewTrade));
 export default connect(mapStateToProps)(NewTrade);

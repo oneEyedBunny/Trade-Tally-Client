@@ -17,17 +17,16 @@
 }
 
 #create-trade-button {
-  border: 1px solid black;
-  border-radius: 3px;
-  font-size: 15px;
-  display: block;
-  margin: 0 auto;
-  padding: 4px 10px;
-  margin-top: 25px;
-  margin-bottom: 15px;
+}
+
+#new-trade-fieldset {
+  background-color: #D3D3D3;
+  border: none;
+  border-radius: 5px;
 }
 
 /* do I need this??? it's in App.css */
 .error-message-container {
   color: yellow;
+  text-align: center;
 }
