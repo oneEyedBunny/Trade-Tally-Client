@@ -8,6 +8,7 @@ import "./trade-history-container.css";
 
 class TradeHistoryContainer extends React.Component {
 
+//creates an array of trades that contain either the tradePartnerId or userId
   render() {
     //console.log("tradeparterid", this.props.trades[0].tradePartnerId);
     let filteredTrades = this.props.trades.filter(trade => {
@@ -17,7 +18,6 @@ class TradeHistoryContainer extends React.Component {
     let trades = filteredTrades.map(trade => {
       return (
         <TradeHistory
-          key={trade.tradeId}
           tradeId={trade.tradeId}
           date={trade.date}
           serviceDescription={trade.serviceDescription}
@@ -26,22 +26,21 @@ class TradeHistoryContainer extends React.Component {
       );
     });
 
-    let sumamount = 0;
-    // trades.forEach()
-    //write forEach loop here and then render this down below
-
-
+//gives grand total
+    let balance = 0;
+    filteredTrades.forEach((trade) => {
+      balance += trade.amount;
+    })
     console.log("state in history=", store.getState());
-    console.log("the figgin name", this.props.trades.tradePartnerFullName);
+
     return (
       <div className="app">
         <Navigation status="Login" />
         <div>
           <h2>
             Trade History
-            <h6>with</h6>
+            <h6>with {filteredTrades[0].tradePartnerFullName}</h6>
           </h2>
-          <h4>{this.props.trades.tradePartnerFullName} </h4>
         </div>
         <table>
           <thead>
@@ -54,7 +53,7 @@ class TradeHistoryContainer extends React.Component {
             <tbody>{trades}</tbody>
         </table>
         <div className="trade-balance">Balance</div>
-        <div className="trade-balance total">$$amount</div>
+        <div className="trade-balance total">${balance}</div>
      </div>
     )
   }
