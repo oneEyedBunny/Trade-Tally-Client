@@ -23,8 +23,6 @@ class Login extends React.Component {
     let credentials = this.state;
     try {
       await this.props.login(credentials);
-      console.log("log in success");
-      //this.props.history.push("/trade-summary");
 
     } catch (error) {
       this.setState({
