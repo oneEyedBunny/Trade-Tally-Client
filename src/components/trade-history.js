@@ -10,7 +10,7 @@ import './trade-history.css';
 export function TradeHistory(props) {
 
 
-  const deleteTrade = async event => {
+  const onDeleteTrade = async event => {
     console.log("delete ID=", props.tradeId);
     try {
       await props.dispatch(deleteTrade(props.tradeId));
@@ -35,7 +35,7 @@ export function TradeHistory(props) {
       </td >
       <td  className="table-data-history">
         <button role="button" id="delete-trade" className="button" value={props.tradeId}
-          onClick={(event) => { if (window.confirm('Are you sure you wish to delete this trade?')) deleteTrade(event.value) }}
+          onClick={(event) => { if (window.confirm('Are you sure you wish to delete this trade?')) onDeleteTrade(event.value) }}
           >Delete</button>
       </td >
     </tr>
