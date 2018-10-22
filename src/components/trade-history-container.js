@@ -12,7 +12,8 @@ class TradeHistoryContainer extends React.Component {
   render() {
     //console.log("tradeparterid", this.props.trades[0].tradePartnerId);
     let filteredTrades = this.props.trades.filter(trade => {
-      return trade.tradePartnerId === this.props.match.params.tradePartnerId;
+      return trade.tradePartnerId === this.props.match.params.tradePartnerId ||
+      trade.userId === this.props.match.params.tradePartnerId;
     }, this);
 
     let trades = filteredTrades.map(trade => {
@@ -25,6 +26,8 @@ class TradeHistoryContainer extends React.Component {
         />
       );
     });
+
+    console.log("ft", filteredTrades);
 
 //gives grand total
     let balance = 0;
