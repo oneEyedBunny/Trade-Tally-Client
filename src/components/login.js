@@ -7,8 +7,8 @@ import "./login.css";
 
 class Login extends React.Component {
   state = {
-    username: "testing12345!!",
-    password: "testing0101",
+    username: "",
+    password: "",
     errorSummaryMessage: "",
   };
 
@@ -48,7 +48,10 @@ class Login extends React.Component {
             name="username"
             required
             value={this.state.username}
-            onChange={e => this.setInput(e, "username")}
+            onChange={e => {
+              this.setInput(e, "username")
+              this.setState({errorSummaryMessage:""})
+            }}
           />
           <label>Password:</label>
           <input
@@ -66,7 +69,7 @@ class Login extends React.Component {
           <div id="demo-container">
             <h5 className="demo-info"> For demo account use:</h5>
             <h5 className="demo-info login"> u: demoDanny</h5>
-            <h5 className="demo-info login"> p: demoFun1</h5>
+            <h5 className="demo-info login"> p: demoFun111</h5>
           </div>
           <div className="error-message-container"> {this.state.errorSummaryMessage} </div>
         </fieldset>
