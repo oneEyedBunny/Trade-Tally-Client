@@ -31,14 +31,17 @@ class TradeSummaryContainer extends React.Component {
       }
 
       userSums[otherUserId] = userSums[otherUserId] || 0;
+
       userInfo[otherUserId] = {
         name: trade.tradePartnerFullName,
         profession: trade.tradePartnerProfession
       };
-      userSums[otherUserId] += trade.amount;
+
+      (otherUserId === trade.userId) ? userSums[otherUserId] -= trade.amount:
+        userSums[otherUserId] += trade.amount;
     });
 
-    console.log(userSums);
+    console.log("userSums=", userSums);
 
     let trades = Object.entries(userSums).map(tradePartner=> {
       return (
