@@ -4,14 +4,18 @@ import Moment from 'react-moment';
 import 'moment-timezone';
 
 import { deleteTrade } from "../actions/trades";
-import { updateTrade } from "../actions/trades";
+import { editTrade } from "../actions/trades";
 import './trade-history.css';
 
 export function TradeHistory(props) {
 
+  const state= {
+    date: "",
+    serviceDescription: "",
+    amount: ""
+  }
 
   const onDeleteTrade = async event => {
-    console.log("delete ID=", props.tradeId);
     try {
       await props.dispatch(deleteTrade(props.tradeId));
     } catch (error) {
@@ -19,10 +23,14 @@ export function TradeHistory(props) {
     }
   };
 
-  // const editTrade = async event => {
-  //   event.preventDefault();
-  //   console.log(hi);
-  // }
+  const onEditTrade = async event => {
+    console.log("edit ID=", props.tradeId)
+    try {
+      await props.dispatch(editTrade(props.tradeId));
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <tr id="trade-history-data-row">
@@ -30,8 +38,8 @@ export function TradeHistory(props) {
       <td  className="table-data-history">{props.serviceDescription}</td >
       <td  className="table-data-history">{props.amount}</td >
       <td  className="table-data-history">
-        <button role="button" type="submit" id="edit-trade" className="button">
-          Edit</button>
+        <button role="button" type="submit" id="edit-trade" className="button" value={props.tradeId}
+          onClick={(event) => {onEditTrade(event.value)}}>Edit</button>
       </td >
       <td  className="table-data-history">
         <button role="button" id="delete-trade" className="button" value={props.tradeId}
@@ -50,4 +58,3 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(TradeHistory);
-//onClick={deleteTrade(event.value)}>Delete</button>

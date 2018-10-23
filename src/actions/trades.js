@@ -96,21 +96,3 @@ export const getTrades = userId => {
     dispatch(getTradesSuccess(trades));
   };
 };
-
-//This isn't quite right because tradeBalance will need to be a calculation.
-// export const BUILD_SUMMARY_TABLE = "BUILD_SUMMARY_TABLE";
-// export const buildSummaryTable = (tradePartnerFullName, tradePartnerProfession, tradeBalance) => ({
-//   type: BUILD_SUMMARY_TABLE,
-//   tradePartnerFullName,
-//   tradePartnerProfession: profession,
-//   tradeBalance
-// });
-//
-// export const BUILD_HISTORY_TABLE = "BUILD_HISTORY_TABLE";
-// export const buildHistoryTable = (tradeId, date, serviceDescription, amount) => ({
-//   type: BUILD_HISTORY_TABLE,
-//   tradeId,
-//   date,
-//   serviceDescription,
-//   amount
-// });
