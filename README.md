@@ -18,10 +18,7 @@ Currently I'm a hairstylist. I trade services with a variety of people: Chiropra
 - CSS
 
 # Pending items
-1. Edit button not working on history
-1. Delete button not working on history
-1. Numbers aren't showing as negative in history
-1. Fix moment/date display formatting
+1. Edit button > need to either make it editable or add form and set items into component state onchange
 1. Is there a way to make the fields in the history table editable
 1. Add autocomplete to new trade form drop down (https://alligator.io/react/react-autocomplete/_)
 1. Fix functions so they're arrow/ES6
