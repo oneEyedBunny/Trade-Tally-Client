@@ -19,11 +19,21 @@ Currently I'm a hairstylist. I trade services with a variety of people: Chiropra
 
 # Pending items
 1. Edit button > need to either make it editable or add form and set items into component state onchange
-1. Is there a way to make the fields in the history table editable
-1. Add autocomplete to new trade form drop down (https://alligator.io/react/react-autocomplete/_)
+1. Name on trade history still not right 100% of time
+1. Protected route for all screens (logged in)
+1. Any 500 error handling??s
 1. Fix functions so they're arrow/ES6
 
 1. CSS- fade on of red/blue squares
 1. CSS- improve how-it-works section
 
 1. Test cases for all
+
+
+
+
+# Future 2.0 features:
+1. Make the fields in the history table editable, add a dot drop down on left that lets you delete/edit
+1. Add autocomplete to new trade form drop down (https://alligator.io/react/react-autocomplete/_)
+1. Format negative numbers with brackets or red to make them stand out more
+1. Create password reset feature

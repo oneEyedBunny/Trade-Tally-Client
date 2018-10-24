@@ -4,9 +4,19 @@ import { store } from "../store.js";
 
 import TradeHistory from "./trade-history";
 import Navigation from "./navigation";
+import { editTrade } from "../actions/trades";
+import EditTradeForm from "./edit-trade-form";
 import "./trade-history-container.css";
 
 class TradeHistoryContainer extends React.Component {
+
+  state = {
+    editForm: false
+  };
+
+  createEditForm() {
+    this.setState({ editForm: true });
+  }
 
 //creates an array of trades that contain either the tradePartnerId or userId
   render() {
@@ -22,14 +32,19 @@ class TradeHistoryContainer extends React.Component {
 
     let trades = filteredTrades.map(trade => {
       return (
-        <TradeHistory
-          tradeId={trade.tradeId}
-          date={trade.date}
-          serviceDescription={trade.serviceDescription}
-          amount={isNegative(trade.tradePartnerId) ? trade.amount *-1 :
-            trade.amount}
-        />
-      );
+        <div>
+          <TradeHistory
+            tradeId={trade.tradeId}
+            date={trade.date}
+            serviceDescription={trade.serviceDescription}
+            amount={isNegative(trade.tradePartnerId) ? trade.amount *-1 :
+              trade.amount}
+          />
+          <div className="edit-form-container">
+            {this.state.editForm && <EditTradeForm createEditForm = {this.createEditForm}/>}
+          </div>
+     </div>
+     );
     });
 
     console.log("ft", filteredTrades);

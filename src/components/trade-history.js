@@ -4,16 +4,11 @@ import Moment from 'react-moment';
 import 'moment-timezone';
 
 import { deleteTrade } from "../actions/trades";
-import { editTrade } from "../actions/trades";
+// import { editTrade } from "../actions/trades";
+// import EditTradeForm from "./edit-trade-form";
 import './trade-history.css';
 
 export function TradeHistory(props) {
-
-  const state= {
-    date: "",
-    serviceDescription: "",
-    amount: ""
-  }
 
   const onDeleteTrade = async event => {
     try {
@@ -23,14 +18,10 @@ export function TradeHistory(props) {
     }
   };
 
-  const onEditTrade = async event => {
-    console.log("edit ID=", props.tradeId)
-    try {
-      await props.dispatch(editTrade(props.tradeId));
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const createEditForm = props => {
+  //   //console.log("edit ID=", props.tradeId);
+  //   return <EditTradeForm />
+  // };
 
   return (
     <tr id="trade-history-data-row">
@@ -39,7 +30,7 @@ export function TradeHistory(props) {
       <td  className="table-data-history">{props.amount}</td >
       <td  className="table-data-history">
         <button role="button" type="submit" id="edit-trade" className="button" value={props.tradeId}
-          onClick={(event) => {onEditTrade(event.value)}}>Edit</button>
+          onClick={props.createEditForm}>Edit</button>
       </td >
       <td  className="table-data-history">
         <button role="button" id="delete-trade" className="button" value={props.tradeId}
@@ -58,3 +49,5 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(TradeHistory);
+
+//onClick={(event) => {createEditForm(event.value)}}>Edit</button>
