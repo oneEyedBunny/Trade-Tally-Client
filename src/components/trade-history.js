@@ -4,8 +4,6 @@ import Moment from 'react-moment';
 import 'moment-timezone';
 
 import { deleteTrade } from "../actions/trades";
-// import { editTrade } from "../actions/trades";
-// import EditTradeForm from "./edit-trade-form";
 import './trade-history.css';
 
 export function TradeHistory(props) {
@@ -18,11 +16,6 @@ export function TradeHistory(props) {
     }
   };
 
-  // const createEditForm = props => {
-  //   //console.log("edit ID=", props.tradeId);
-  //   return <EditTradeForm />
-  // };
-
   return (
     <tr id="trade-history-data-row">
       <td className="table-data-history"><Moment format="M-DD-YYYY">{props.date}</Moment></td >
@@ -30,7 +23,7 @@ export function TradeHistory(props) {
       <td  className="table-data-history">{props.amount}</td >
       <td  className="table-data-history">
         <button role="button" type="submit" id="edit-trade" className="button" value={props.tradeId}
-          onClick={props.createEditForm}>Edit</button>
+          onClick={() => props.createEditForm()}>Edit</button>
       </td >
       <td  className="table-data-history">
         <button role="button" id="delete-trade" className="button" value={props.tradeId}
