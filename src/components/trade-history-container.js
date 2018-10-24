@@ -11,12 +11,15 @@ import "./trade-history-container.css";
 class TradeHistoryContainer extends React.Component {
 
   state = {
-    editForm: false
+    editForm: false,
+    selectedTradeId: ""
   };
 
-  createEditForm() {
-    console.log("is this firing");
-    this.setState({ editForm: true });
+  createEditForm(tradeId) {
+    this.setState({
+      editForm: true,
+      selectedTradeId: tradeId
+     });
   }
 
   render() {
@@ -39,7 +42,7 @@ class TradeHistoryContainer extends React.Component {
             serviceDescription={trade.serviceDescription}
             amount={isNegative(trade.tradePartnerId) ? trade.amount *-1 :
               trade.amount}
-            createEditForm = {() => this.createEditForm()}
+            createEditForm = {() => this.createEditForm(trade.tradeId)}
           />
       );
     });
@@ -83,7 +86,7 @@ class TradeHistoryContainer extends React.Component {
         <div className="trade-balance total">${balance}</div>
 
         <div className="edit-form-container">
-            {this.state.editForm && <EditTradeForm />}
+            {this.state.editForm && <EditTradeForm tradeId= {this.state.selectedTradeId} />}
         </div>
      </div>
     )

@@ -8,7 +8,7 @@ import "./edit-trade-form.css";
 class EditTradeForm extends React.Component {
 
   state= {
-    tradeId: "",
+    tradeId: this.props.tradeId,
     date: "",
     serviceDescription: "",
     amount: "",
@@ -19,6 +19,18 @@ class EditTradeForm extends React.Component {
     this.setState({
       [key]: event.target.value
     })
+  };
+
+  selectedTrade = this.props.trades.find(trade => {
+    return trade.tradeId === this.state.tradeId
+  });
+
+  componentDidMount() {
+    this.setState({
+      date: this.selectedTrade.date,
+      serviceDescription: this.selectedTrade.serviceDescription,
+      amount: this.selectedTrade.amount,
+    });
   }
 
   onEditTrade = async event => {
@@ -31,6 +43,7 @@ class EditTradeForm extends React.Component {
   };
 
   render() {
+    console.log("selectedTrade", this.selectedTrade);
    return (
      <form id="edit-trade-form" onSubmit={this.onEditTrade}>
        <fieldset id="edit-trade-fieldset">
@@ -50,9 +63,9 @@ class EditTradeForm extends React.Component {
            <input
              className="edit-trade-fields"
              type="text area"
-             id="serviceDescription"
-             name="serviceDescription"
-             value={this.state.description}
+             id="description"
+             name="description"
+             value={this.state.serviceDescription}
              onChange={e => this.setInput(e, "serviceDescription")}
              required
            />
