@@ -22,6 +22,15 @@ class TradeHistoryContainer extends React.Component {
      });
   }
 
+  clearEditForm() {
+    //page needs to display changes
+    //how will they know that it worked?  Data updates but it's so fast, display message then fade out?? 
+    this.setState({
+      editForm: false,
+      selectedTradeId: ""
+     });
+  }
+
   render() {
     //creates an array of trades between the user and each trade partner
     let filteredTrades = this.props.trades.filter(trade => {
@@ -86,7 +95,9 @@ class TradeHistoryContainer extends React.Component {
         <div className="trade-balance total">${balance}</div>
 
         <div className="edit-form-container">
-            {this.state.editForm && <EditTradeForm tradeId= {this.state.selectedTradeId} />}
+            {this.state.editForm &&
+            <EditTradeForm tradeId= {this.state.selectedTradeId}
+              clearEditForm = {() => this.clearEditForm()} />}
         </div>
      </div>
     )

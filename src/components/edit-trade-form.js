@@ -6,7 +6,6 @@ import "./edit-trade-form.css";
 
 
 class EditTradeForm extends React.Component {
-
   state= {
     tradeId: this.props.tradeId,
     date: "",
@@ -15,16 +14,19 @@ class EditTradeForm extends React.Component {
     successMessage: ""
   };
 
+//sets the inputs into state as the user types them into the form
   setInput(event, key) {
     this.setState({
       [key]: event.target.value
     })
   };
 
+//finds the trade object that matches the id of the trade we selected
   selectedTrade = this.props.trades.find(trade => {
     return trade.tradeId === this.state.tradeId
   });
 
+//sets edit form data from existing data
   componentDidMount() {
     this.setState({
       date: this.selectedTrade.date,
@@ -39,11 +41,20 @@ class EditTradeForm extends React.Component {
       await this.props.dispatch(editTrade(this.state));
     } catch (error) {
       console.log(error);
-    }
+    } finally {
+      this.setState({
+        tradeId: "",
+        date: "",
+        serviceDescription: "",
+        amount: "",
+        successMessage: ""
+    })
+   }
   };
 
   render() {
-    console.log("selectedTrade", this.selectedTrade);
+    // console.log("selectedTrade", this.selectedTrade);
+    //console.log("state=", this.state);
    return (
      <form id="edit-trade-form" onSubmit={this.onEditTrade}>
        <fieldset id="edit-trade-fieldset">
@@ -80,7 +91,7 @@ class EditTradeForm extends React.Component {
              required
            />
            <button role="button" type="submit" id="edit-trade-button"
-             className="button" >
+             className="button" onClick={() => this.props.clearEditForm()}>
              Submit Edit
            </button>
          </div>
