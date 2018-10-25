@@ -1,5 +1,6 @@
 .app {
   margin: 20px;
+  /* width: 100%; */
 }
 
 .button {
@@ -14,7 +15,7 @@
 }
 /******************************* home *********************************/
 #welcome-message-container {
-  margin-top: 150px;
+  margin-top: 200px;
 }
 
 .welcome-message-quote {
@@ -32,21 +33,43 @@
 }
 
 .person-gif {
-  max-width: 100px;
-  padding: 44px;
+  max-width: 90px;
+  padding: 25px;
 }
 
 .left-box {
   float: left;
   width: 49.4%;
   background-color: red;
+
+
+  top: 500px;
+  right: 200px;
+  animation-duration: 1s;
+  animation-name: slidein;
 }
 
 .right-box {
   float: right;
   width: 49.4%;
   background-color: blue;
+
+  top: 500px;
+  left: 200px;
+  /* animation-duration: 1s;
+  animation-name: slidein; */
 }
+
+
+/* @keyframes slidein {
+  from {
+    margin-left:200%;
+  }
+
+  to {
+    margin-left:0%;
+  }
+} */
 
 /*****************************/
 .options-container {
@@ -57,7 +80,7 @@
 
 .option-box {
   display: inline-block;
-  width: 25%;
+  width: 20%;
   margin: 5px;
   padding: 10px;
   background-color: gray;
@@ -88,4 +111,9 @@
 .footer-info {
   display: inline-block;
   margin: 45px 15px 5px;
+}
+
+/***********universal******************/
+.error-message-container {
+  color: orange;
 }

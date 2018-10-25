@@ -1,5 +1,5 @@
 #new-user-form {
-  width: 80%;
+  width: 85%;
   margin: 0 auto;
 }
 
@@ -11,7 +11,7 @@
 
 .new-form-fields {
   margin: 5px;
-  width: 50%;
+  width: 75%;
   border: 1px solid #DBDBDB;
   border-radius: 4px;
   font-size: 12px;
@@ -20,7 +20,7 @@
 #create-profile-button {
   border: 1px solid black;
   border-radius: 3px;
-  font-size: 15px;
+  font-size: 14px;
   display: block;
   margin: 0 auto;
   padding: 4px 10px;
@@ -28,11 +28,8 @@
   margin-bottom: 10px;
 }
 
-.error-message-container {
-  color: yellow;
-}
-
-label {
+.new-user-div label {
+  font-size: 14px;
   float: left;
   /* width: 10em; */
   margin-right: 1em;

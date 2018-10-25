@@ -18,7 +18,7 @@
   resize: none;
 }
 
-label {
+#new-trade-form > label {
   float: left;
   width: 100%;
   font-size: 15px;

@@ -31,11 +31,11 @@ class App extends React.Component {
           </p>
         </div>
 
-        <section className="half-boxs-container">
-          <div className="left-box">
+        <section className="half-boxs-container wow">
+          <div className="left-box wow slideInDown">
             <img src="images/graphicdesigner.png" alt="graphic-designer" className="person-gif" />
           </div>
-          <div className="right-box">
+          <div className="right-box wow slideInDown">
             <img src="images/hairstylist.png" alt="hair-stylist" className="person-gif" />
           </div>
         </section>
