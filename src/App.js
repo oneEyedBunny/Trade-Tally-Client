@@ -31,6 +31,12 @@ class App extends React.Component {
           </p>
         </div>
 
+        <div className="chevron-container">
+          <div className="chevron"></div>
+          <div className="chevron"></div>
+          <div className="chevron"></div>
+        </div>
+
         <section className="half-boxs-container wow">
           <div className="left-box wow slideInDown">
             <img src="images/graphicdesigner.png" alt="graphic-designer" className="person-gif" />
@@ -60,6 +66,8 @@ class App extends React.Component {
           <p className=""> Find the people you trade with & enter your trades when they happen</p>
           <p className=""> Then view your trade history with all your partners as well as the details of the individual trades </p>
         </section>
+
+
         <footer role="contentinfo" id="footer">
           <h5 className="footer-info">Built by <a href="http://www.linkedin.com/in/allyson-short/" target="_blank">
              Allyson Short</a></h5>
