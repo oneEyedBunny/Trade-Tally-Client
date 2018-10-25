@@ -1,3 +1,9 @@
 #new-trade-header {
   text-align: center;
 }
+
+.link-trade-summary {
+  text-align: center;
+  margin-top: 20px;
+  color: blue;
+}

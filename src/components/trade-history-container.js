@@ -12,7 +12,8 @@ class TradeHistoryContainer extends React.Component {
 
   state = {
     editForm: false,
-    selectedTradeId: ""
+    selectedTradeId: "",
+    successMessage: ""
   };
 
   createEditForm(tradeId) {
@@ -23,12 +24,16 @@ class TradeHistoryContainer extends React.Component {
   }
 
   clearEditForm() {
-    //page needs to display changes
-    //how will they know that it worked?  Data updates but it's so fast, display message then fade out?? 
     this.setState({
       editForm: false,
-      selectedTradeId: ""
+      selectedTradeId: "",
+      successMessage: "Your trade was updated successfully!"
      });
+     setTimeout(() => {
+       this.setState({
+         successMessage: ""
+       })
+     }, 3000)
   }
 
   render() {
@@ -78,7 +83,9 @@ class TradeHistoryContainer extends React.Component {
         <div>
           <h2>
             Trade History
-            <h6>with {actualTradePartner.fullName}</h6>
+            <h6>with {actualTradePartner ?
+                actualTradePartner.fullName : "" }
+            </h6>
           </h2>
         </div>
         <table>
@@ -97,8 +104,9 @@ class TradeHistoryContainer extends React.Component {
         <div className="edit-form-container">
             {this.state.editForm &&
             <EditTradeForm tradeId= {this.state.selectedTradeId}
-              clearEditForm = {() => this.clearEditForm()} />}
+               clearEditForm = {() => this.clearEditForm()}/>}
         </div>
+        <div className="error-message-container">{this.state.successMessage} </div>
      </div>
     )
   }

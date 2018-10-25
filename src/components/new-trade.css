@@ -1,6 +1,6 @@
 
 #new-trade-form {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -10,13 +10,18 @@
 
 .new-trade-fields {
   margin: 5px;
-  width: 50%;
+  padding: 3px;
+  width: 80%;
   border: 1px solid #DBDBDB;
   border-radius: 4px;
-  font-size: 12px;
+  font-size: 14px;
+  resize: none;
 }
 
-#create-trade-button {
+label {
+  float: left;
+  width: 100%;
+  font-size: 15px;
 }
 
 #new-trade-fieldset {

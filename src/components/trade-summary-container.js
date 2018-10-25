@@ -25,6 +25,7 @@ class TradeSummaryContainer extends React.Component {
     let userInfo = {};
     let match;
 
+    //ensure that all trades ID's will be the partners id not the logged in user id
     this.props.trades.forEach((trade) => {
       let otherUserId = trade.tradePartnerId;
       if (otherUserId === this.props.userId) {
@@ -32,6 +33,7 @@ class TradeSummaryContainer extends React.Component {
       }
       userSums[otherUserId] = userSums[otherUserId] || 0;
 
+      //populating relevent data for display
       userInfo[otherUserId] = {
         name: '',
         profession: ''
@@ -45,7 +47,7 @@ class TradeSummaryContainer extends React.Component {
         userInfo[otherUserId].name = match.fullName
         userInfo[otherUserId].profession =match.profession
       }
-
+      //looks for logged in user and sets any trade amounts where they're the trade partner to negative
       (otherUserId === trade.userId) ? userSums[otherUserId] -= trade.amount:
         userSums[otherUserId] += trade.amount;
     }); //close loop
@@ -75,13 +77,18 @@ class TradeSummaryContainer extends React.Component {
               <th className="trade-summary-table-header">Trade Balance</th>
             </tr>
             </thead>
-              {this.props.trades.length ?
-                <tbody>{trades}</tbody> :
-                <h3>You don't have any recorded trades yet. Add one
-                  <Link className="link-new-trade" to="/new-trade"> here.</Link>
-                </h3>
-              } {/*closes ternary*/}
+                <tbody>{trades}</tbody>
           </table>
+          <div className="link-new-trade">
+            {!this.props.trades.length ?
+              <h3>You don't have any recorded trades yet. Add one
+                <Link className="link-new-trade" to="/new-trade"> here.</Link>
+              </h3>:
+              <h3>
+                <Link className="link-new-trade" to="/new-trade"> Enter a Trade</Link>
+             </h3>
+           }
+           </div>
         </div>
       </div>
     )
@@ -95,15 +102,3 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(TradeSummaryContainer);
-
-
-// this.props.users.find(user => {
-//   user.id===otherUserId;
-//   console.log("finding user", user);
-//   userInfo[otherUserId].name = user.fullName
-//   userInfo[otherUserId].profession =user.profession
-//   console.log("userInfo1=", userInfo);
-// });
-
-// name: this.props.users.fullName,
-// profession: this.props.users.profession

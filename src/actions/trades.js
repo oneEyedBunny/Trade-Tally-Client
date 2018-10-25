@@ -49,12 +49,11 @@ export const deleteTrade = tradeId => {
 };
 
 export const EDIT_TRADE_SUCCESS = "EDIT_TRADE_SUCCESS";
-export const editTradeSuccess = values => ({
-  type: EDIT_TRADE_SUCCESS,
-  values
+export const editTradeSuccess = () => ({
+  type: EDIT_TRADE_SUCCESS
 });
 
-export const editTrade = state => {
+export const editTrade = (state, userId) => {
   return async dispatch => {
     let authToken = localStorage.getItem("authToken");
     const res = await fetch(`${API_BASE_URL}/trades/${state.tradeId}`, {
@@ -68,8 +67,8 @@ export const editTrade = state => {
     if (!res.ok) {
       throw new Error(res.statusText);
     }
-    const values = await res.json();
-    dispatch(editTradeSuccess(values));
+    dispatch(editTradeSuccess());
+    dispatch(getTrades(userId))
   };
 };
 

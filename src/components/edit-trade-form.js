@@ -11,7 +11,6 @@ class EditTradeForm extends React.Component {
     date: "",
     serviceDescription: "",
     amount: "",
-    successMessage: ""
   };
 
 //sets the inputs into state as the user types them into the form
@@ -36,9 +35,10 @@ class EditTradeForm extends React.Component {
   }
 
   onEditTrade = async event => {
+    event.preventDefault();
     console.log("edit ID=", this.props.tradeId);
     try {
-      await this.props.dispatch(editTrade(this.state));
+      await this.props.dispatch(editTrade(this.state, this.props.userId));
     } catch (error) {
       console.log(error);
     } finally {
@@ -47,16 +47,16 @@ class EditTradeForm extends React.Component {
         date: "",
         serviceDescription: "",
         amount: "",
-        successMessage: ""
     })
+      this.props.clearEditForm()
    }
   };
 
   render() {
-    // console.log("selectedTrade", this.selectedTrade);
-    //console.log("state=", this.state);
+    console.log("selectedTrade", this.selectedTrade);
+    console.log("state=", this.state);
    return (
-     <form id="edit-trade-form" onSubmit={this.onEditTrade}>
+     <form id="edit-trade-form" onSubmit={(e) =>this.onEditTrade(e)}>
        <fieldset id="edit-trade-fieldset">
          <legend>Trade Info</legend>
          <div className="edit-trade-div">
@@ -90,17 +90,15 @@ class EditTradeForm extends React.Component {
              onChange={e => this.setInput(e, "amount")}
              required
            />
-           <button role="button" type="submit" id="edit-trade-button"
-             className="button" onClick={() => this.props.clearEditForm()}>
+         <button role="button" type="submit" id="edit-trade-button"
+             className="button">
              Submit Edit
            </button>
          </div>
-         <div className="error-message-container">{this.state.successMessage} </div>
         </fieldset>
         </form>
 
    )} //closes return & render
-
 } //closes comp
 
 const mapStateToProps = state => ({
