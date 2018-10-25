@@ -6,12 +6,14 @@ import { store } from "../store.js";
 import { TradeSummary } from "./trade-summary";
 import Navigation from "./navigation";
 import { getTrades } from "../actions/trades";
+import { getAllUsers } from "../actions/auth-users";
 import './trade-summary-container.css';
 
 class TradeSummaryContainer extends React.Component {
 
   componentDidMount() {
       this.getTrades();
+      this.props.dispatch(getAllUsers());
   }
 
   getTrades() {
@@ -19,26 +21,36 @@ class TradeSummaryContainer extends React.Component {
   }
 
   render() {
-    console.log("state=", store.getState());
-
     let userSums = {};
     let userInfo = {};
+    let match;
 
     this.props.trades.forEach((trade) => {
       let otherUserId = trade.tradePartnerId;
       if (otherUserId === this.props.userId) {
         otherUserId = trade.userId;
       }
-
       userSums[otherUserId] = userSums[otherUserId] || 0;
-      userInfo[otherUserId] = {
-        name: trade.tradePartnerFullName,
-        profession: trade.tradePartnerProfession
-      };
-      userSums[otherUserId] += trade.amount;
-    });
 
-    console.log(userSums);
+      userInfo[otherUserId] = {
+        name: '',
+        profession: ''
+      };
+
+      match = this.props.users.find(user => {
+        return otherUserId===user.id;
+      });
+
+      if(match) {
+        userInfo[otherUserId].name = match.fullName
+        userInfo[otherUserId].profession =match.profession
+      }
+
+      (otherUserId === trade.userId) ? userSums[otherUserId] -= trade.amount:
+        userSums[otherUserId] += trade.amount;
+    }); //close loop
+
+    console.log("state=", store.getState());
 
     let trades = Object.entries(userSums).map(tradePartner=> {
       return (
@@ -78,7 +90,20 @@ class TradeSummaryContainer extends React.Component {
 
 const mapStateToProps = state => ({
   trades: state.trades.trades,
+  users: state.user.users,
   userId: state.user.userId
 });
 
 export default connect(mapStateToProps)(TradeSummaryContainer);
+
+
+// this.props.users.find(user => {
+//   user.id===otherUserId;
+//   console.log("finding user", user);
+//   userInfo[otherUserId].name = user.fullName
+//   userInfo[otherUserId].profession =user.profession
+//   console.log("userInfo1=", userInfo);
+// });
+
+// name: this.props.users.fullName,
+// profession: this.props.users.profession

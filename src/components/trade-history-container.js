@@ -4,37 +4,73 @@ import { store } from "../store.js";
 
 import TradeHistory from "./trade-history";
 import Navigation from "./navigation";
+import { editTrade } from "../actions/trades";
+import EditTradeForm from "./edit-trade-form";
 import "./trade-history-container.css";
 
 class TradeHistoryContainer extends React.Component {
 
-//creates an array of trades that contain either the tradePartnerId or userId
+  state = {
+    editForm: false,
+    selectedTradeId: ""
+  };
+
+  createEditForm(tradeId) {
+    this.setState({
+      editForm: true,
+      selectedTradeId: tradeId
+     });
+  }
+
+  clearEditForm() {
+    //page needs to display changes
+    //how will they know that it worked?  Data updates but it's so fast, display message then fade out?? 
+    this.setState({
+      editForm: false,
+      selectedTradeId: ""
+     });
+  }
+
   render() {
-    //console.log("tradeparterid", this.props.trades[0].tradePartnerId);
+    //creates an array of trades between the user and each trade partner
     let filteredTrades = this.props.trades.filter(trade => {
       return trade.tradePartnerId === this.props.match.params.tradePartnerId ||
       trade.userId === this.props.match.params.tradePartnerId;
     }, this);
 
+    //helps to determine if amounts should be displayed as negative
+    let isNegative =(tradePartnerId) => {
+      return this.props.userId === tradePartnerId
+    }
+
     let trades = filteredTrades.map(trade => {
       return (
-        <TradeHistory
-          tradeId={trade.tradeId}
-          date={trade.date}
-          serviceDescription={trade.serviceDescription}
-          amount={trade.amount}
-        />
+          <TradeHistory
+            tradeId={trade.tradeId}
+            date={trade.date}
+            serviceDescription={trade.serviceDescription}
+            amount={isNegative(trade.tradePartnerId) ? trade.amount *-1 :
+              trade.amount}
+            createEditForm = {() => this.createEditForm(trade.tradeId)}
+          />
       );
     });
 
     console.log("ft", filteredTrades);
 
-//gives grand total
+    //gives grand total for bottom section of table
     let balance = 0;
     filteredTrades.forEach((trade) => {
-      balance += trade.amount;
+      (this.props.userId === trade.tradePartnerId) ? balance -= trade.amount:
+        balance += trade.amount;
     })
     console.log("state in history=", store.getState());
+
+    //creating full name to display
+    let actualTradePartnerId= this.props.match.params.tradePartnerId;
+    const actualTradePartner = this.props.users.find(user => {
+      return user.id === actualTradePartnerId
+    })
 
     return (
       <div className="app">
@@ -42,7 +78,7 @@ class TradeHistoryContainer extends React.Component {
         <div>
           <h2>
             Trade History
-            <h6>with {filteredTrades[0].tradePartnerFullName}</h6>
+            <h6>with {actualTradePartner.fullName}</h6>
           </h2>
         </div>
         <table>
@@ -57,6 +93,12 @@ class TradeHistoryContainer extends React.Component {
         </table>
         <div className="trade-balance">Balance</div>
         <div className="trade-balance total">${balance}</div>
+
+        <div className="edit-form-container">
+            {this.state.editForm &&
+            <EditTradeForm tradeId= {this.state.selectedTradeId}
+              clearEditForm = {() => this.clearEditForm()} />}
+        </div>
      </div>
     )
   }
@@ -64,7 +106,11 @@ class TradeHistoryContainer extends React.Component {
 
 const mapStateToProps = state => ({
   trades: state.trades.trades,
-  userId: state.user.userId
+  userId: state.user.userId,
+  users: state.user.users
 });
 
 export default connect(mapStateToProps)(TradeHistoryContainer);
+
+//<h6>with {filteredTrades[0].tradePartnerFullName}</h6>
+//console.log("tradeparterid", this.props.trades[0].tradePartnerId);
