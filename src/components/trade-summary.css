@@ -1,6 +1,14 @@
 
 .table-data-summary {
-  font-size: 12px;
+  font-size: 14px;
+}
+
+table, tbody {
+  width: 100%;
+}
+
+#trade-summary-data-row {
+
 }
 
 tr:nth-child(even) {
@@ -11,6 +19,4 @@ tr:nth-child(even) {
   text-align: center;
   text-decoration: none;
   font-size: 12px;
-  margin: 15px;
-
 }

@@ -82,9 +82,9 @@ componentDidMount() {
               required
             />
             <label>Description: </label>
-            <input
+            <textarea
               className="new-trade-fields"
-              type="text area"
+              type="text"
               id="serviceDescription"
               name="serviceDescription"
               value={this.state.serviceDescription}

@@ -24,15 +24,16 @@ export function tradesReducer(state = initialState, action) {
   }
 
   if (action.type === EDIT_TRADE_SUCCESS) {
-    let tradesArray = [...state.trades];
-    tradesArray.forEach(trade => {
-      if (trade.id === action.values.tradeId) {
-        trade = Object.assign(trade, action.values);
-      }
-    });
-    return Object.assign({}, state, {
-      trades: tradesArray
-    });
+    console.log("edit trade working");
+    // let tradesArray = [...state.trades];
+    // tradesArray.forEach(trade => {
+    //   if (trade.id === action.values.tradeId) {
+    //     trade = Object.assign(trade, action.values);
+    //   }
+    // });
+    // return Object.assign({}, state, {
+    //   trades: tradesArray
+    // });
   }
 
   if (action.type === GET_TRADES_SUCCESS) {
