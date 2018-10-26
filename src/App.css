@@ -1,5 +1,6 @@
 .app {
   margin: 20px;
+  /* width: 100%; */
 }
 
 .button {
@@ -14,7 +15,7 @@
 }
 /******************************* home *********************************/
 #welcome-message-container {
-  margin-top: 150px;
+  margin-top: 200px;
 }
 
 .welcome-message-quote {
@@ -25,6 +26,76 @@
   margin: 50px 0 150px;
 
 }
+
+/******************************* chevron animation *********************************/
+$base: 0.6rem;
+
+.chevron-container {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ width: 100%;
+ height: 100vh;
+}
+
+.chevron {
+  position: absolute;
+  width: $base * 3.5;
+  height: $base * 0.8;
+  opacity: 0;
+  transform: scale(0.3);
+  animation: move-chevron 3s ease-out infinite;
+}
+
+.chevron:first-child {
+  animation: move-chevron 3s ease-out 1s infinite;
+}
+
+.chevron:nth-child(2) {
+  animation: move-chevron 3s ease-out 2s infinite;
+}
+
+.chevron:before,
+.chevron:after {
+ content: '';
+ position: absolute;
+ top: 0;
+ height: 100%;
+ width: 50%;
+ background: black;
+}
+
+.chevron:before {
+ left: 0;
+ transform: skewY(30deg);
+}
+
+.chevron:after {
+ right: 0;
+ width: 50%;
+ transform: skewY(-30deg);
+}
+
+@keyframes move-chevron {
+ 25% {
+  opacity: 1;
+	}
+ 33.3% {
+  opacity: 1;
+  transform: translateY($base * 3.8);
+ }
+ 66.6% {
+  opacity: 1;
+  transform: translateY($base * 5.2);
+ }
+ 100% {
+  opacity: 0;
+  transform: translateY($base * 8) scale(0.5);
+ }
+}
+
+
+
 /*****************************/
 .half-boxs-container {
  display: inline-block;
@@ -32,21 +103,43 @@
 }
 
 .person-gif {
-  max-width: 100px;
-  padding: 44px;
+  max-width: 90px;
+  padding: 25px;
 }
 
 .left-box {
   float: left;
   width: 49.4%;
   background-color: red;
+
+
+  top: 500px;
+  right: 200px;
+  animation-duration: 1s;
+  animation-name: slidein;
 }
 
 .right-box {
   float: right;
   width: 49.4%;
   background-color: blue;
+
+  top: 500px;
+  left: 200px;
+  /* animation-duration: 1s;
+  animation-name: slidein; */
 }
+
+
+/* @keyframes slidein {
+  from {
+    margin-left:200%;
+  }
+
+  to {
+    margin-left:0%;
+  }
+} */
 
 /*****************************/
 .options-container {
@@ -57,7 +150,7 @@
 
 .option-box {
   display: inline-block;
-  width: 25%;
+  width: 20%;
   margin: 5px;
   padding: 10px;
   background-color: gray;
@@ -88,4 +181,9 @@
 .footer-info {
   display: inline-block;
   margin: 45px 15px 5px;
+}
+
+/***********universal******************/
+.error-message-container {
+  color: orange;
 }

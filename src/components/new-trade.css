@@ -11,14 +11,14 @@
 .new-trade-fields {
   margin: 5px;
   padding: 3px;
-  width: 80%;
+  width: 85%;
   border: 1px solid #DBDBDB;
   border-radius: 4px;
   font-size: 14px;
   resize: none;
 }
 
-label {
+#new-trade-form > label {
   float: left;
   width: 100%;
   font-size: 15px;
@@ -30,8 +30,7 @@ label {
   border-radius: 5px;
 }
 
-/* do I need this??? it's in App.css */
-.error-message-container {
-  color: yellow;
-  text-align: center;
+#create-trade-button {
+  background-color: white;
+  
 }
