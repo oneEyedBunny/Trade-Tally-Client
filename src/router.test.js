@@ -6,7 +6,7 @@ import configure from './setUpTests'
 
 import store from './store';
 import {Provider} from 'react-redux';
-import Router from './Router';
+import Router from './router';
 
 describe('Router', () => {
   it('Renders without crashing', () => {
