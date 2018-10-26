@@ -6,23 +6,14 @@ import configure from './setupTests'
 
 import store from './store';
 import {Provider} from 'react-redux';
-import App from './App';
+import Router from './Router';
 
-describe('App', () => {
+describe('Router', () => {
   it('Renders without crashing', () => {
     shallow(
     <Provider store={store}>
-      <App />
+      <Router />
     </Provider>
     )
   })
 })
-
-
-
-
-// it('Renders without crashing', () => {
-//   const div = document.createElement('div');
-//   ReactDOM.render(<App />, div);
-//   ReactDOM.unmountComponentAtNode(div);
-// });
