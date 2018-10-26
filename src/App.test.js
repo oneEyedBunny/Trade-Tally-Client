@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import {shallow} from 'enzyme';
-import configure from './setupTests'
+import configure from './setUpTests'
 
 import store from './store';
 import {Provider} from 'react-redux';
