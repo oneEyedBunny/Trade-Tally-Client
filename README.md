@@ -25,7 +25,7 @@ Currently I'm a hairstylist. I trade services with a variety of people: Chiropra
 1. CSS- fade on of red/blue squares
 1. CSS- improve how-it-works section
 
-1. Test cases for all
+1. Test cases for reducers & actions
 
 
 
