@@ -28,20 +28,19 @@
 }
 
 /******************************* chevron animation *********************************/
-$base: 0.6rem;
-
 .chevron-container {
  display: flex;
  justify-content: center;
+ position: relative;
  align-items: center;
- width: 100%;
- height: 100vh;
+ width: 80%;
+ height: 100px;
 }
 
 .chevron {
   position: absolute;
-  width: $base * 3.5;
-  height: $base * 0.8;
+  width: calc(0.6rem * 3.5);
+  height: calc(0.6rem * 0.8);
   opacity: 0;
   transform: scale(0.3);
   animation: move-chevron 3s ease-out infinite;
@@ -82,15 +81,15 @@ $base: 0.6rem;
 	}
  33.3% {
   opacity: 1;
-  transform: translateY($base * 3.8);
+  transform: translateY(calc(0.6rem * 3.8));
  }
  66.6% {
   opacity: 1;
-  transform: translateY($base * 5.2);
+  transform: translateY(calc(0.6rem * 5.2));
  }
  100% {
   opacity: 0;
-  transform: translateY($base * 8) scale(0.5);
+  transform: translateY(calc(0.6rem * 8)) scale(0.5);
  }
 }
 

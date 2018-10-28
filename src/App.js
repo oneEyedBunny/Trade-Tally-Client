@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'; //allows you to link to different route
 import { connect } from 'react-redux';
 
 import './App.css';
-
+import { WOW } from "wowjs";
 //import components
 import Navigation from './components/navigation';
 import CreateAccount  from './components/create-account';
@@ -14,6 +14,10 @@ class App extends React.Component {
   state = {
     createAccountDisplay: false
   };
+
+  componentDidMount() {
+    new WOW().init();
+  }
 
   newAccountForm() {
     this.setState({ createAccountDisplay: true });
@@ -38,10 +42,10 @@ class App extends React.Component {
         </div>
 
         <section className="half-boxs-container wow">
-          <div className="left-box wow slideInDown">
+          <div className="left-box wow slideInLeft">
             <img src="images/graphicdesigner.png" alt="graphic-designer" className="person-gif" />
           </div>
-          <div className="right-box wow slideInDown">
+          <div className="right-box wow slideInRight">
             <img src="images/hairstylist.png" alt="hair-stylist" className="person-gif" />
           </div>
         </section>

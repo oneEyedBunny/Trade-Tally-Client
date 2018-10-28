@@ -8,6 +8,8 @@ import './trade-history.css';
 
 export function TradeHistory(props) {
 
+  const isNegative = props.amount < 0;
+
   const onDeleteTrade = async event => {
     try {
       await props.dispatch(deleteTrade(props.tradeId));
@@ -20,7 +22,7 @@ export function TradeHistory(props) {
     <tr id="trade-history-data-row">
       <td className="table-data-history"><Moment format="M-DD-YYYY">{props.date}</Moment></td >
       <td  className="table-data-history">{props.serviceDescription}</td >
-      <td  className="table-data-history">{props.amount}</td >
+      <td  className="table-data-history" style={{color: isNegative? "red": "black"}}>${props.amount}</td >
       <td  className="table-data-history">
         <button role="button" type="submit" id="edit-trade" className="button" value={props.tradeId}
           onClick={() => props.createEditForm()}>Edit</button>
