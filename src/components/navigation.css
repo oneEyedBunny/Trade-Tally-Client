@@ -6,10 +6,9 @@
 
 /* font size isn't working */
 .right-nav-container {
-  margin-right: 25px;
+  margin-right: 10px;
   display: inline-block;
   float: right;
-  /* font-size: 15px; */
 }
 
 .left-nav-container {
