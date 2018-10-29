@@ -18,6 +18,7 @@ class NewTradeContainer extends React.Component {
         <h4 className="link-trade-summary">
           <Link className="link-trade-summary" to="/trade-summary"> See all my trades</Link>
         </h4>
+        <h4>Invite a friend to Join Trade Tally</h4>
       </div>
     );
   }
