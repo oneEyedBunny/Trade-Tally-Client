@@ -36,6 +36,7 @@
   border: 1px solid #DBDBDB;
   border-radius: 4px;
   font-size: 12px;
+  text-indent: 5px;
 }
 
 .demo-info {
@@ -51,6 +52,9 @@
   font-size: 12px;
 }
 
-/* #display-login-form:hover {
-  background-color: red;
-} */
+/************Media queries*****************/
+@media only screen and (min-width: 375px) {
+  #login-user-form {
+   width: 165px
+  }
+}

@@ -19,11 +19,12 @@ Currently I'm a hairstylist. I trade services with a variety of people: Chiropra
 
 # Pending items
 1. Protected route for all screens (logged in)
+1. Invite a friend link on create trade page...send email
 1. Any 500 error handling??s
 1. Fix functions so they're arrow/ES6
 
-1. CSS- fade on of red/blue squares
-1. CSS- improve how-it-works section
+1. CSS- window formatting for delete confirmation
+1. CSS- non mobile css
 
 1. Test cases for reducers & actions
 

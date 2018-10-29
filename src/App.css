@@ -114,10 +114,11 @@
  display: inline-block;
  width: 100%;
  margin-top: 150px;
+ text-align: center;
 }
 
 .person-gif {
-  max-width: 130px;
+  max-width: 110px;
   padding: 25px;
 }
 
@@ -139,7 +140,7 @@
 
 /***********3 boxes******************/
 .options-container {
-  margin: 45px 0;
+  margin: 75px 0;
   width: 100%;
   text-align: center;
 }
@@ -153,6 +154,10 @@
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
+.option-box:hover {
+  border: 2px solid gray
+}
+
 .option-box-text {
   text-decoration: none;
   color: white
@@ -161,7 +166,7 @@
 /**************gray box***************/
 .how-it-works {
   background-color: gray;
-  margin-top: 65px;
+  margin-top: 135px;
   padding: 15px;
   text-align: center;
 }
@@ -170,7 +175,7 @@
   color: white;
 }
 
-.how-it-works p {
+.how-it-works-text {
   margin: 20px;
 }
 
@@ -190,5 +195,158 @@
 
 .footer-info {
   display: inline-block;
-  margin: 45px 15px 5px;
+  margin: 65px 15px 5px;
+}
+
+/************Media queries*****************/
+
+@media only screen and (min-width: 410px) {
+  .app {
+    margin: 22px;
+  }
+  #welcome-message-container {
+    margin-top: 175px;
+  }
+
+  .welcome-quote {
+    font-size: 22px;
+  }
+  .welcome-message {
+    font-size: 17px;
+  }
+  #welcome-message-container {
+    margin-top: 225px;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  .app {
+    margin: 30px;
+  }
+  .welcome-quote {
+    font-size: 24px
+  }
+  .welcome-message {
+    font-size: 19px
+  }
+  .person-gif {
+    max-width: 130px;
+  }
+}
+
+@media only screen and (min-width: 535px) {
+  .option-box {
+    width: 25%;
+    padding: 20px 10px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  #welcome-message-container {
+    margin-top: 200px;
+  }
+  .chevron-container {
+    margin-top: -40px;
+  }
+  .welcome-message {
+      margin: 50px 60px 150px 0;
+  }
+  .option-box-text {
+    font-size: 17px;
+  }
+  .how-it-works h3 {
+    font-size: 25px;
+  }
+  .how-it-works-text {
+    font-size: 20px;
+  }
+}
+
+
+@media only screen and (min-width: 651px) {
+  .app {
+    margin: 40px;
+  }
+  .welcome-quote {
+    font-size: 27px;
+  }
+  .welcome-message {
+    font-size: 22px;
+  }
+  .chevron-container {
+    margin-top: 50px;
+  }
+  .person-gif {
+    max-width: 140px;
+    padding: 35px;
+  }
+  .chevron-container {
+    margin-top: -25px;
+  }
+  .options-container {
+    margin: 110px 0;
+  }
+  .option-box-text {
+    font-size: 19px;
+  }
+  .how-it-works h3 {
+    font-size: 27px;
+  }
+  .how-it-works-text {
+    font-size: 22px;
+  }
+  .footer-info {
+    font-size: 15px;
+    margin-top: 85px;
+  }
+}
+
+@media only screen and (min-width: 750px) {
+  .app {
+    margin: 55px;
+  }
+  #welcome-message-container {
+    margin-top: 300px;
+  }
+  .welcome-quote {
+    font-size: 34px;
+  }
+  .welcome-message {
+    font-size: 28px;
+  }
+  .chevron-container {
+    margin-top: 150px;
+  }
+  .person-gif {
+    max-width: 165px;
+    padding: 50px;
+  }
+  .option-box-text {
+    font-size: 22px;
+  }
+  .how-it-works {
+    padding: 25px;
+  }
+  .how-it-works h3 {
+    font-size: 30px;
+  }
+  .how-it-works-text {
+    font-size: 25px;
+    margin: 30px;
+  }
+  .what-to-do-gif {
+    max-width: 30px;
+  }
+  .footer-info {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 855px) {
+  .app {
+    margin: 55px;
+  }
+  .footer-info {
+    font-size: 20px;
+  }
 }

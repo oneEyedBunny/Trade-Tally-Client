@@ -7,9 +7,9 @@ import "./new-trade.css";
 
 class NewTrade extends React.Component {
 
-componentDidMount() {
-  this.props.dispatch(getAllUsers());
-}
+  componentDidMount() {
+    this.props.dispatch(getAllUsers());
+  }
 
   state = {
     userId: this.props.user.userId,
@@ -44,15 +44,32 @@ componentDidMount() {
       date: "",
       serviceDescription: "",
       amount: "",
-     })
+      });
     }
 
   render() {
-    let userDropDown = this.props.user.users.map((user) => {
+    //creates a sorted list of names for drop down with blank as the first for display purposes
+    let sortedUsers = this.props.user.users.sort((a,b) => {
+      return(
+        a.firstName > b.firstName ? 1 : 0)
+    })
+
+    sortedUsers.push({
+      firstName: "",
+      fullName: "",
+      id: "",
+      lastName: "",
+      profession: ""
+    })
+
+    let userDropDown = sortedUsers.map((user) => {
         return(<option value={user.id}>{user.fullName}
         </option>
       )}
     )
+    console.log('sortedUsers =', sortedUsers)
+    console.log('userDropDown =', userDropDown)
+
     return (
       <form id="new-trade-form" onSubmit={this.submitTrade}>
         <fieldset id="new-trade-fieldset">
@@ -69,7 +86,7 @@ componentDidMount() {
                 this.setState({successMessage: ""})
               } }
               required>
-              {userDropDown}
+                {userDropDown}
             </select>
             <label>Date: </label>
             <input
@@ -120,3 +137,6 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(NewTrade);
+
+// {userDropDown}
+// {userDropDown.selectedIndex=-1}
