@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'; //allows you to link to different route
 import { connect } from 'react-redux';
 
 import './App.css';
-
+import { WOW } from "wowjs";
 //import components
 import Navigation from './components/navigation';
 import CreateAccount  from './components/create-account';
@@ -14,6 +14,10 @@ class App extends React.Component {
   state = {
     createAccountDisplay: false
   };
+
+  componentDidMount() {
+    new WOW().init();
+  }
 
   newAccountForm() {
     this.setState({ createAccountDisplay: true });
@@ -27,7 +31,7 @@ class App extends React.Component {
         <div id="welcome-message-container">
           <h3 className="welcome-quote"> Hello. Welcome to Trade Tally</h3>
           <p className="welcome-message">
-            The app that lets you know where your service trades stand
+            The app that lets you know where your service trade $$$ stand
           </p>
         </div>
 
@@ -38,11 +42,11 @@ class App extends React.Component {
         </div>
 
         <section className="half-boxs-container wow">
-          <div className="left-box wow slideInDown">
-            <img src="images/graphicdesigner.png" alt="graphic-designer" className="person-gif" />
+          <div className="left-box wow zoomIn">
+            <img src="images/graphicdesigner.png" alt="graphic-designer" className="person-gif" id="person-gif-left" />
           </div>
-          <div className="right-box wow slideInDown">
-            <img src="images/hairstylist.png" alt="hair-stylist" className="person-gif" />
+          <div className="right-box wow zoomIn">
+            <img src="images/hairstylist.png" alt="hair-stylist" className="person-gif" id="person-gif-right" />
           </div>
         </section>
         <section className="options-container">
@@ -56,15 +60,19 @@ class App extends React.Component {
             <Link className="option-box-text" to="/trade-summary">See All Trades</Link>
           </div>
         </section>
-        <section className="how-it-works" id="how-it-works-summary">
-          <h3 className=""> How to use the app</h3>
-          <p className="create-account-link" onClick={() => this.newAccountForm()}>
+        <section className="how-it-works wow fadeInLeft" id="how-it-works-summary">
+          <h3> How to use the app</h3>
+          <img src="images/addblu.png" alt="create-account" className="what-to-do-gif"
+            onClick={() => this.newAccountForm()}/>
+          <p className="create-account-link how-it-works-text" onClick={() => this.newAccountForm()}>
             Create an Account
           </p>
           {this.state.createAccountDisplay && <CreateAccount />}
           {/*checks if both are true, if they are, render them. CreateAccount will always true */}
-          <p className=""> Find the people you trade with & enter your trades when they happen</p>
-          <p className=""> Then view your trade history with all your partners as well as the details of the individual trades </p>
+          <img src="images/searchblu.png" alt="enter a trade" className="what-to-do-gif" />
+          <p className="how-it-works-text"> Find the people you trade with & enter your trades when they happen</p>
+          <img src="images/trkblu.png" alt="see your trades" className="what-to-do-gif" />
+          <p className="how-it-works-text"> Then see your trade history with all your partners as well as the details of the individual trades so you know who owes who </p>
         </section>
 
 

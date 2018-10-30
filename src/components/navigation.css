@@ -6,10 +6,9 @@
 
 /* font size isn't working */
 .right-nav-container {
-  margin-right: 25px;
+  margin-right: 10px;
   display: inline-block;
   float: right;
-  /* font-size: 15px; */
 }
 
 .left-nav-container {
@@ -21,4 +20,29 @@
 .logo {
   text-decoration: none;
   color: black;
+}
+
+/************Media queries*****************/
+@media only screen and (min-width: 500px) {
+  .login-button {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (min-width: 550px) {
+  .login-button {
+    font-size: 17px;
+  }
+  .logo {
+    font-size: 20px
+  }
+}
+
+@media only screen and (min-width: 650px) {
+  .login-button {
+    font-size: 20px;
+  }
+  .logo {
+    font-size: 25px
+  }
 }

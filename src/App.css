@@ -9,39 +9,55 @@
   font-size: 13px;
   display: block;
   margin: 0 auto;
-  padding: 4px 10px;
+  padding: 6px 10px;
   margin-top: 10px;
   margin-bottom: 10px;
-}
-/******************************* home *********************************/
-#welcome-message-container {
-  margin-top: 200px;
+  background-color: white;
 }
 
-.welcome-message-quote {
+.login-button:hover {
+  cursor: pointer;
+  border: 1px solid blue;
+  background-color: blue;
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.error-message-container {
+  color: orange;
+  font-weight: bold;
+  text-align: center;
+}
+
+/******************************* home *********************************/
+#welcome-message-container {
+  margin-top: 150px;
+}
+
+.welcome-quote {
   margin: 0 auto;
+  font-size: 20px;
 }
 
 .welcome-message {
   margin: 50px 0 150px;
-
 }
 
 /******************************* chevron animation *********************************/
-$base: 0.6rem;
-
 .chevron-container {
  display: flex;
  justify-content: center;
+ position: relative;
  align-items: center;
- width: 100%;
- height: 100vh;
+ /* width: 80%; */
+ height: 100px;
+ margin-top: -70px;
 }
 
 .chevron {
   position: absolute;
-  width: $base * 3.5;
-  height: $base * 0.8;
+  width: calc(0.6rem * 3.5);
+  height: calc(0.6rem * 0.8);
   opacity: 0;
   transform: scale(0.3);
   animation: move-chevron 3s ease-out infinite;
@@ -82,68 +98,50 @@ $base: 0.6rem;
 	}
  33.3% {
   opacity: 1;
-  transform: translateY($base * 3.8);
+  transform: translateY(calc(0.6rem * 3.8));
  }
  66.6% {
   opacity: 1;
-  transform: translateY($base * 5.2);
+  transform: translateY(calc(0.6rem * 5.2));
  }
  100% {
   opacity: 0;
-  transform: translateY($base * 8) scale(0.5);
+  transform: translateY(calc(0.6rem * 8)) scale(0.5);
  }
 }
 
-
-
-/*****************************/
+/************gif image area*****************/
 .half-boxs-container {
  display: inline-block;
  width: 100%;
+ margin-top: 150px;
+ text-align: center;
 }
 
 .person-gif {
-  max-width: 90px;
+  max-width: 110px;
   padding: 25px;
+}
+
+#person-gif-left {
+  padding-left: 10px;
 }
 
 .left-box {
   float: left;
-  width: 49.4%;
+  width: 50%;
   background-color: red;
-
-
-  top: 500px;
-  right: 200px;
-  animation-duration: 1s;
-  animation-name: slidein;
 }
 
 .right-box {
   float: right;
-  width: 49.4%;
-  background-color: blue;
-
-  top: 500px;
-  left: 200px;
-  /* animation-duration: 1s;
-  animation-name: slidein; */
+  width: 50%;
+  background-color: #0000FF;
 }
 
-
-/* @keyframes slidein {
-  from {
-    margin-left:200%;
-  }
-
-  to {
-    margin-left:0%;
-  }
-} */
-
-/*****************************/
+/***********3 boxes******************/
 .options-container {
-  margin: 45px 0;
+  margin: 75px 0;
   width: 100%;
   text-align: center;
 }
@@ -154,6 +152,11 @@ $base: 0.6rem;
   margin: 5px;
   padding: 10px;
   background-color: gray;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.option-box:hover {
+  border: 2px solid gray
 }
 
 .option-box-text {
@@ -161,16 +164,29 @@ $base: 0.6rem;
   color: white
 }
 
-/*****************************/
+/**************gray box***************/
 .how-it-works {
   background-color: gray;
-  margin-top: 65px;
+  margin-top: 135px;
   padding: 15px;
   text-align: center;
 }
 
-.create-account-link:hover {
+.how-it-works h3 {
   color: white;
+}
+
+.how-it-works-text {
+  margin: 20px;
+}
+
+.create-account-link:hover {
+  color: blue;
+}
+
+.what-to-do-gif {
+  max-width: 25px;
+  margin: -15px;
 }
 
 /*****************************/
@@ -180,10 +196,158 @@ $base: 0.6rem;
 
 .footer-info {
   display: inline-block;
-  margin: 45px 15px 5px;
+  margin: 65px 15px 5px;
 }
 
-/***********universal******************/
-.error-message-container {
-  color: orange;
+/************Media queries*****************/
+
+@media only screen and (min-width: 410px) {
+  .app {
+    margin: 22px;
+  }
+  #welcome-message-container {
+    margin-top: 175px;
+  }
+
+  .welcome-quote {
+    font-size: 22px;
+  }
+  .welcome-message {
+    font-size: 17px;
+  }
+  #welcome-message-container {
+    margin-top: 225px;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  .app {
+    margin: 30px;
+  }
+  .welcome-quote {
+    font-size: 24px
+  }
+  .welcome-message {
+    font-size: 19px
+  }
+  .person-gif {
+    max-width: 130px;
+  }
+}
+
+@media only screen and (min-width: 535px) {
+  .option-box {
+    width: 25%;
+    padding: 20px 10px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  #welcome-message-container {
+    margin-top: 200px;
+  }
+  .chevron-container {
+    margin-top: -40px;
+  }
+  .welcome-message {
+      margin: 50px 60px 150px 0;
+  }
+  .option-box-text {
+    font-size: 17px;
+  }
+  .how-it-works h3 {
+    font-size: 25px;
+  }
+  .how-it-works-text {
+    font-size: 20px;
+  }
+}
+
+
+@media only screen and (min-width: 651px) {
+  .app {
+    margin: 40px;
+  }
+  .welcome-quote {
+    font-size: 27px;
+  }
+  .welcome-message {
+    font-size: 22px;
+  }
+  .chevron-container {
+    margin-top: 50px;
+  }
+  .person-gif {
+    max-width: 140px;
+    padding: 35px;
+  }
+  .chevron-container {
+    margin-top: -25px;
+  }
+  .options-container {
+    margin: 110px 0;
+  }
+  .option-box-text {
+    font-size: 19px;
+  }
+  .how-it-works h3 {
+    font-size: 27px;
+  }
+  .how-it-works-text {
+    font-size: 22px;
+  }
+  .footer-info {
+    font-size: 15px;
+    margin-top: 85px;
+  }
+}
+
+@media only screen and (min-width: 750px) {
+  .app {
+    margin: 55px;
+  }
+  #welcome-message-container {
+    margin-top: 300px;
+  }
+  .welcome-quote {
+    font-size: 34px;
+  }
+  .welcome-message {
+    font-size: 28px;
+  }
+  .chevron-container {
+    margin-top: 150px;
+  }
+  .person-gif {
+    max-width: 165px;
+    padding: 50px;
+  }
+  .option-box-text {
+    font-size: 22px;
+  }
+  .how-it-works {
+    padding: 25px;
+  }
+  .how-it-works h3 {
+    font-size: 30px;
+  }
+  .how-it-works-text {
+    font-size: 25px;
+    margin: 30px;
+  }
+  .what-to-do-gif {
+    max-width: 30px;
+  }
+  .footer-info {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 855px) {
+  .app {
+    margin: 55px;
+  }
+  .footer-info {
+    font-size: 20px;
+  }
 }

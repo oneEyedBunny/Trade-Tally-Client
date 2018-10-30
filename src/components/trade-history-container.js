@@ -83,10 +83,10 @@ class TradeHistoryContainer extends React.Component {
         <div>
           <h2>
             Trade History
-            <h6>with {actualTradePartner ?
-                actualTradePartner.fullName : "" }
-            </h6>
           </h2>
+          <h6>with {actualTradePartner ?
+              actualTradePartner.fullName : "" }
+          </h6>
         </div>
         <table>
           <thead>

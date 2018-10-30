@@ -6,6 +6,7 @@ const initialState = {
   isLoggedin: false,
   authToken: "",
   userId: "",
+  fullName: "",
   users: []
 }
 
@@ -16,7 +17,8 @@ export const authUserReducer = (state = initialState, action) => {
     return Object.assign({}, state, {
       isLoggedin: true,
       authToken: action.user.authToken,
-      userId: action.user.userId
+      userId: action.user.userId,
+      fullName: action.user.fullName
     });
   }
   if (action.type === LOGOUT_SUCCESS) {

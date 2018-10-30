@@ -1,0 +1,23 @@
+.invite-tt {
+  text-align: center;
+}
+
+.invite-tt h4 {
+  width: 65%;
+  margin: 0 auto;
+}
+
+#invite-friend-form {
+  width: 65%;
+  margin: 0 auto;
+  margin-top: 35px;
+  text-align: left;
+}
+
+.invite-friend-div {
+  padding: 15px 10px 10px;
+}
+
+.invite-form-fields  {
+  margin-bottom: 10px;
+}

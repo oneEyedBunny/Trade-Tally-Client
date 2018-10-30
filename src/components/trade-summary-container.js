@@ -12,12 +12,8 @@ import './trade-summary-container.css';
 class TradeSummaryContainer extends React.Component {
 
   componentDidMount() {
-      this.getTrades();
+      this.props.dispatch(getTrades(this.props.userId));
       this.props.dispatch(getAllUsers());
-  }
-
-  getTrades() {
-    this.props.dispatch(getTrades(this.props.userId));
   }
 
   render() {
