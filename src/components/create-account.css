@@ -35,3 +35,10 @@
   /* width: 10em; */
   margin-right: 1em;
 }
+
+/************Media queries*****************/
+@media only screen and (min-width: 500px) {
+  .login-button {
+    font-size: 15px;
+  }
+}

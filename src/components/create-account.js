@@ -21,7 +21,7 @@ class CreateAccount extends React.Component {
           usernameValidate: "",
           loginDisplay: false,
           errorSummaryMessage: "",
-        };
+    };
 
     setInput(event, key) {
       this.setState({
