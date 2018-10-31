@@ -79,7 +79,7 @@ class TradeHistoryContainer extends React.Component {
 
     return (
       <div className="app">
-        <Navigation status="Login" tradeHistoryContainer = {true}  />
+        <Navigation tradeHistoryContainer = {true}  />
         <div>
           <h2>
             Trade History

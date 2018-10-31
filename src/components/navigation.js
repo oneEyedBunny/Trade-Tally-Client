@@ -14,15 +14,17 @@ export class Navigation extends React.Component {
 
   loginUser() {
     this.setState({ loginDisplay: true });
+    this.props.zztop(this.state.loginDisplay)
   }
 
   logoutUser() {
     this.setState({ loginDisplay: false });
     this.props.history.push('/');
+    this.props.zztop(this.state.loginDisplay)
   }
 
   render() {
-    console.log("props=", this.props);
+    // console.log("test=", this.state.loginDisplay);
     return (
       <div className="navigation-container">
         <nav role="navigation">
