@@ -9,7 +9,7 @@ import "./new-trade-container.css";
 
 class NewTradeContainer extends React.Component {
 
-  parentState = {
+  state = {
     newTradeContainer: false,
     editForm: false,
     successMessage: ""
@@ -44,7 +44,7 @@ class NewTradeContainer extends React.Component {
   render() {
     return (
       <div className="app">
-        <Navigation {...this.parentState} />
+        <Navigation {...this.state} />
         <h3 id="new-trade-header">Enter a New Trade</h3>
         <NewTrade />
         <h4 className="link-trade-summary">

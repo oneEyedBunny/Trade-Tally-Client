@@ -11,7 +11,7 @@ import './trade-summary-container.css';
 
 class TradeSummaryContainer extends React.Component {
 
-  parentState = {
+  state = {
     tradeSummaryContainer: false
   }
 
@@ -71,7 +71,7 @@ class TradeSummaryContainer extends React.Component {
     });
     return (
       <div className="app">
-        <Navigation {...this.parentState}  />
+        <Navigation {...this.state}  />
         <h2 className="trade-summary-page-header">My Active Trades</h2>
         <div>
           <table>

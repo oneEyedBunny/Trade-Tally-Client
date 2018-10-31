@@ -10,7 +10,7 @@ import "./trade-history-container.css";
 
 class TradeHistoryContainer extends React.Component {
 
-  parentState = {
+  state = {
     tradeHistoryContainer: false,
     editForm: false,
     selectedTradeId: "",
@@ -87,7 +87,7 @@ class TradeHistoryContainer extends React.Component {
 
     return (
       <div className="app">
-        <Navigation status="Login" {...this.parentState} />
+        <Navigation status="Login" {...this.state} />
         <div>
           <h2>
             Trade History

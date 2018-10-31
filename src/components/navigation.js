@@ -22,6 +22,7 @@ export class Navigation extends React.Component {
   }
 
   render() {
+    console.log("props=", this.props);
     return (
       <div className="navigation-container">
         <nav role="navigation">
@@ -42,9 +43,9 @@ export class Navigation extends React.Component {
                 {/*checks if both are true, if they are, render them. Login will always true */}
               </div>
             } {/*closes ternary*/}
-            {this.props.parentState.tradeSummaryContainer || this.props.parentState.tradeHistoryContainer ?
+            {this.props.state.tradeSummaryContainer || this.props.state.tradeHistoryContainer ?
               <Link className="link" to="/new-trade">Enter Trade</Link> :
-            this.props.parentState.newTradeContainer ?
+            this.props.state.newTradeContainer ?
               <Link className="link" to="/trade-summary">Trades</Link> : <div></div>}
           </div>
         </nav>
