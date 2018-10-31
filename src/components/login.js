@@ -29,6 +29,7 @@ class Login extends React.Component {
         errorSummaryMessage: `Your login credentials for ${error.location} failed`,
       })
     }
+    this.props.onHideForm();
   };
 
   render() {

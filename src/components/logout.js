@@ -15,7 +15,7 @@ class Logout extends React.Component {
     } catch (error) {
       console.log(error);
     }
-    this.props.onLogoutUser();
+    this.props.onHideForm();
     // this.props.history.push("/");
   };
 
