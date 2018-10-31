@@ -19,7 +19,6 @@ Currently I'm a hairstylist. I trade services with a variety of people: Chiropra
 - CSS
 
 # Pending items
-1. Protected route for all screens (logged in)
 1. error handling for twilio not working (switch Twilio accout as well to paid)
 1. Any 500 error handling??s
 1. Fix functions so they're arrow/ES6

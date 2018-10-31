@@ -11,3 +11,7 @@ tr:nth-child(even) {
   font-size: 12px;
   display: inline-block;
 }
+
+#delete-trade, #edit-trade {
+  max-width: 25px;
+}

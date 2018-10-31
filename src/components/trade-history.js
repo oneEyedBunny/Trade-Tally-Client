@@ -20,17 +20,16 @@ export function TradeHistory(props) {
 
   return (
     <tr id="trade-history-data-row">
-      <td className="table-data-history"><Moment format="M-DD-YYYY">{props.date}</Moment></td >
+      <td  className="table-data-history"><Moment format="M-DD-YYYY">{props.date}</Moment></td >
       <td  className="table-data-history">{props.serviceDescription}</td >
       <td  className="table-data-history" style={{color: isNegative? "red": "black"}}>${props.amount}</td >
       <td  className="table-data-history">
-        <button role="button" type="submit" id="edit-trade" className="button" value={props.tradeId}
-          onClick={() => props.createEditForm()}>Edit</button>
+        <img src="../images/edit.png" alt="edit trade" id="edit-trade" className="button" value={props.tradeId}
+          onClick={() => props.createEditForm()} />
       </td >
       <td  className="table-data-history">
-        <button role="button" id="delete-trade" className="button" value={props.tradeId}
-          onClick={(event) => { if (window.confirm('Are you sure you wish to delete this trade?')) onDeleteTrade(event.value) }}
-          >Delete</button>
+        <img src="../images/delete.png" alt="delete trade" id="delete-trade" className="button" value={props.tradeId}
+          onClick={(event) => { if (window.confirm('Are you sure you wish to delete this trade?')) onDeleteTrade(event.value) }}/>
       </td >
     </tr>
   );
@@ -46,3 +45,12 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps)(TradeHistory);
 
 //onClick={(event) => {createEditForm(event.value)}}>Edit</button>
+// <td  className="table-data-history">
+//   <button role="button" type="submit" id="edit-trade" className="button" value={props.tradeId}
+//     onClick={() => props.createEditForm()}>Edit</button>
+// </td >
+// <td  className="table-data-history">
+//   <button role="button" id="delete-trade" className="button" value={props.tradeId}
+//     onClick={(event) => { if (window.confirm('Are you sure you wish to delete this trade?')) onDeleteTrade(event.value) }}
+//     >Delete</button>
+// </td >
