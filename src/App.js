@@ -24,9 +24,11 @@ class App extends React.Component {
   }
 
   render() {
+    console.log("user =", this.props.user);
+    console.log("isLoggedin =", this.props.user.isLoggedin);
     return (
       <div className="app">
-        <Navigation />
+        <Navigation zztop={this.isLoggedIn}/>
 
         <div id="welcome-message-container">
           <h3 className="welcome-quote"> Hello. Welcome to Trade Tally</h3>
@@ -54,10 +56,15 @@ class App extends React.Component {
             <a href="#how-it-works-summary" className="option-box-text">How it works</a>
           </div>
           <div className="option-box">
-            <Link className="option-box-text" to="/new-trade">Enter a Trade</Link>
+            {this.props.user.isLoggedin ?
+            <Link className="option-box-text" to="/new-trade">Enter a Trade</Link>:
+            <a href="#display-login-form">Enter a Trade</a>}
+
           </div>
           <div className="option-box">
-            <Link className="option-box-text" to="/trade-summary">See All Trades</Link>
+            {this.props.user.isLoggedin ?
+            <Link className="option-box-text" to="/trade-summary">See All Trades</Link>:
+            <a href="#display-login-form">See All Trades</a>}
           </div>
         </section>
         <section className="how-it-works wow fadeInLeft" id="how-it-works-summary">

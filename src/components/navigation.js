@@ -9,21 +9,21 @@ import "./navigation.css";
 
 export class Navigation extends React.Component {
   state = {
-    loginDisplay: false
+    displayLoginForm: false
   };
 
-  loginUser() {
-    this.setState({ loginDisplay: true });
-
+  displayForm() {
+    this.setState({ displayLoginForm: true });
   }
 
-  logoutUser() {
-    this.setState({ loginDisplay: false });
+  hideForm() {
+    this.setState({
+      displayLoginForm: false
+    });
     this.props.history.push('/');
   }
 
   render() {
-    console.log("login status is =", this.props.user.isLoggedin);
     return (
       <div className="navigation-container">
         <nav role="navigation">
@@ -33,17 +33,21 @@ export class Navigation extends React.Component {
             </h3>
           </div>
 
-          <div className="right-nav-container wow">
-            {this.props.user.isLoggedin ? <Logout onLogoutUser= {() => this.logoutUser()} /> :
+          <div className="right-nav-container">
+            {this.props.user.isLoggedin ? <Logout onHideForm= {() => this.hideForm()} /> :
               <div>
                 <button id="display-login-form" className="button login-button"
-                  onClick={() => this.loginUser()}>
+                  onClick={() => this.displayForm()}>
                   Login
                 </button>
-                {this.state.loginDisplay && <Login />}
+                {this.state.displayLoginForm && <Login onHideForm={() => this.hideForm()}/>}
                 {/*checks if both are true, if they are, render them. Login will always true */}
               </div>
             } {/*closes ternary*/}
+            {this.props.tradeSummaryContainer || this.props.tradeHistoryContainer ?
+              <Link className="link" to="/new-trade">Enter Trade</Link> :
+            this.props.newTradeContainer ?
+              <Link className="link" to="/trade-summary">Trades</Link> : <div></div>}
           </div>
         </nav>
       </div>

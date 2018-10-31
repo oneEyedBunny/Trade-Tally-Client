@@ -62,7 +62,7 @@ class TradeSummaryContainer extends React.Component {
     });
     return (
       <div className="app">
-        <Navigation />
+        <Navigation tradeSummaryContainer = {true} />
         <h2 className="trade-summary-page-header">My Active Trades</h2>
         <div>
           <table>
@@ -79,10 +79,7 @@ class TradeSummaryContainer extends React.Component {
             {!this.props.trades.length ?
               <h3>You don't have any recorded trades yet. Add one
                 <Link className="link-new-trade" to="/new-trade"> here.</Link>
-              </h3>:
-              <h3>
-                <Link className="link-new-trade" to="/new-trade"> Enter a Trade</Link>
-             </h3>
+              </h3>: <h3></h3>
            }
            </div>
         </div>

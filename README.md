@@ -20,7 +20,7 @@ Currently I'm a hairstylist. I trade services with a variety of people: Chiropra
 
 # Pending items
 1. Protected route for all screens (logged in)
-1. Invite a friend link on create trade page...send email
+1. error handling for twilio not working (switch Twilio accout as well to paid)
 1. Any 500 error handling??s
 1. Fix functions so they're arrow/ES6
 
@@ -33,7 +33,9 @@ Currently I'm a hairstylist. I trade services with a variety of people: Chiropra
 
 
 # Future 2.0 features:
+1. Add location feature, so logic will search names by location of person
+1. Add ability for trades to be confirmed by the recieving partner
 1. Make the fields in the history table editable, add a dot drop down on left that lets you delete/edit
 1. Add autocomplete to new trade form drop down (https://alligator.io/react/react-autocomplete/_)
-1. Format negative numbers with brackets or red to make them stand out more
+1. Improve window confirm for delete button
 1. Create password reset feature
