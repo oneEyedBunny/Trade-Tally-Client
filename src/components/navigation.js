@@ -43,9 +43,9 @@ export class Navigation extends React.Component {
                 {/*checks if both are true, if they are, render them. Login will always true */}
               </div>
             } {/*closes ternary*/}
-            {this.props.state.tradeSummaryContainer || this.props.state.tradeHistoryContainer ?
+            {this.props.tradeSummaryContainer || this.props.tradeHistoryContainer ?
               <Link className="link" to="/new-trade">Enter Trade</Link> :
-            this.props.state.newTradeContainer ?
+            this.props.newTradeContainer ?
               <Link className="link" to="/trade-summary">Trades</Link> : <div></div>}
           </div>
         </nav>
