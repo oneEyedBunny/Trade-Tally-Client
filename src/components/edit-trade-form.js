@@ -57,9 +57,9 @@ class EditTradeForm extends React.Component {
     console.log("state=", this.state);
    return (
      <form id="edit-trade-form" onSubmit={(e) =>this.onEditTrade(e)}>
-       <fieldset id="edit-trade-fieldset">
+       <fieldset id="edit-trade-fieldset" className="fieldset">
          <legend>Trade Info</legend>
-         <div className="edit-trade-div">
+         <div className="form-row-container">
            <label>Date: </label>
            <input
              className="edit-trade-fields"
@@ -70,6 +70,8 @@ class EditTradeForm extends React.Component {
              onChange={e => this.setInput(e, "date")}
              required
            />
+          </div>
+           <div className="form-row-container">
            <label>Description: </label>
            <input
              className="edit-trade-fields"
@@ -80,6 +82,8 @@ class EditTradeForm extends React.Component {
              onChange={e => this.setInput(e, "serviceDescription")}
              required
            />
+         </div>
+          <div className="form-row-container">
            <label>Amount: </label>
            <input
              className="edit-trade-fields"
@@ -90,16 +94,15 @@ class EditTradeForm extends React.Component {
              onChange={e => this.setInput(e, "amount")}
              required
            />
+         </div>
          <button role="button" type="submit" id="edit-trade-button"
              className="button">
              Submit Edit
            </button>
-         </div>
         </fieldset>
         </form>
-
-   )} //closes return & render
-} //closes comp
+   )}
+}
 
 const mapStateToProps = state => ({
   trades: state.trades.trades,

@@ -51,11 +51,12 @@ class InviteFriendForm extends React.Component {
  render() {
   return (
     <form id="invite-friend-form" onSubmit={(e) =>this.handleSubmit(e)}>
-      <fieldset id="invite-friend-fieldset">
-        <div className="invite-friend-div">
+      <fieldset id="invite-friend-fieldset" className="fieldset">
+        <legend>Text a Friend</legend>
+        <div className="form-row-container" id="invite-friend-row">
           <label>Friends First Name: </label>
           <input
-            className="new-form-fields invite-form-fields"
+            className="invite-friend-fields"
             type="text"
             id="firstName"
             name="firstName"
@@ -63,9 +64,11 @@ class InviteFriendForm extends React.Component {
             value={this.state.firstName}
             onChange={e => this.setInput(e, "firstName")}
           />
+      </div>
+      <div className="form-row-container" id="invite-friend-row">
         <label>Friends Phone: </label>
           <input
-            className="new-form-fields invite-form-fields"
+            className="invite-friend-fields"
             type="number"
             id="phonenumber"
             name="phonenumber"
@@ -74,11 +77,11 @@ class InviteFriendForm extends React.Component {
             value={this.state.phone}
             onChange={e => this.setInput(e, "phone")}
           />
+      </div>
         <button role="button" type="submit" id="invite-button" className="button">
             Invite
         </button>
         <div className="error-message-container">{this.state.errorSummaryMessage}</div>
-        </div>
       </fieldset>
     </form>
   );

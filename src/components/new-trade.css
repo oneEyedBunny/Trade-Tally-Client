@@ -1,36 +1,4 @@
 
-#new-trade-form {
-  width: 90%;
-  margin: 0 auto;
-}
-
-.new-trade-div {
- margin-top: 10px;
-}
-
 .new-trade-fields {
-  margin: 5px;
-  padding: 3px;
-  width: 85%;
-  border: 1px solid #DBDBDB;
-  border-radius: 4px;
-  font-size: 14px;
-  resize: none;
-}
-
-#new-trade-form > label {
-  float: left;
-  width: 100%;
-  font-size: 15px;
-}
-
-#new-trade-fieldset {
-  background-color: #D3D3D3;
-  border: none;
-  border-radius: 5px;
-}
-
-#create-trade-button {
-  background-color: white;
-  
+  flex: 2;
 }

@@ -1,48 +1,11 @@
-#new-user-form {
-  width: 85%;
-  margin: 0 auto;
-}
-
-#new-user-fieldset {
-  background-color: #D3D3D3;
-  border: none;
-  border-radius: 5px;
-}
-
-/* .new-user-div {
-  display: flex;
-} */
 
 .new-form-fields {
-  margin: 5px;
-  width: 75%;
-  border: 1px solid #DBDBDB;
-  border-radius: 4px;
-  font-size: 12px;
-  text-indent: 5px;
-}
-
-.new-user-div label {
-  flex: 1;
-  font-size: 14px;
-  /* float: left; */
-  /* width: 10em; */
-  margin-right: 1em;
-}
-
-.new-user-div input {
-  flex: 3;
+  
 }
 
 #create-profile-button {
-  border: 1px solid black;
-  border-radius: 3px;
   font-size: 14px;
-  display: block;
-  margin: 0 auto;
   padding: 4px 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
 }
 
 
