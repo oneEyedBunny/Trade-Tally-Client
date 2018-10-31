@@ -112,10 +112,11 @@
 
 /************gif image area*****************/
 .half-boxs-container {
- display: inline-block;
- width: 100%;
+ display: flex;
+ justify-content: center;
+ /* width: 100%; */
  margin-top: 150px;
- text-align: center;
+ /* text-align: center; */
 }
 
 .person-gif {
@@ -128,28 +129,30 @@
 }
 
 .left-box {
-  float: left;
+  /* float: left; */
   width: 50%;
   background-color: red;
 }
 
 .right-box {
-  float: right;
+  /* float: right; */
   width: 50%;
   background-color: #0000FF;
 }
 
 /***********3 boxes******************/
 .options-container {
+  display:flex;
+  justify-content: space-around;
   margin: 75px 0;
-  width: 100%;
+  /*width: 100%;*/
   text-align: center;
 }
 
 .option-box {
-  display: inline-block;
+  /* display: inline-block;
   width: 20%;
-  margin: 5px;
+  margin: 5px; */
   padding: 10px;
   background-color: gray;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -162,6 +165,11 @@
 .option-box-text {
   text-decoration: none;
   color: white
+}
+
+.option-box a {
+  text-decoration: none;
+  color: white;
 }
 
 /**************gray box***************/

@@ -1,25 +1,41 @@
 /******************************* Navigation ********************************/
 .navigation-container {
-  width: 100%;
+  /* width: 100%; */
   margin-bottom: 50px;
 }
 
-/* font size isn't working */
+nav {
+  display: flex;
+}
+
 .right-nav-container {
-  margin-right: 10px;
-  display: inline-block;
-  float: right;
+  /* margin-right: 10px; */
+  flex: 2;
+  /* display: inline-block; */
+  /* float: right; */
 }
 
 .left-nav-container {
-  display: inline-block;
-  margin-top: -10px;
-  margin-left: 5px;
+  /* display: inline-block; */
+  flex: 3;
+  /* margin-top: -10px; */
+  /* margin-left: 5px; */
 }
 
 .logo {
   text-decoration: none;
   color: black;
+}
+
+.link {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+}
+
+#logout-user-button {
+  display: inline-block;
+  margin: 13px 25px;
 }
 
 /************Media queries*****************/
