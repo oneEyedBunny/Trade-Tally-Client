@@ -10,11 +10,19 @@ import "./trade-history-container.css";
 
 class TradeHistoryContainer extends React.Component {
 
-  state = {
+  parentState = {
+    tradeHistoryContainer: false,
     editForm: false,
     selectedTradeId: "",
     successMessage: ""
   };
+
+//facilitates Navigation rendering appropriate links
+  componentDidMount() {
+    this.setState({
+      tradeHistoryContainer: true
+    })
+  }
 
   createEditForm(tradeId) {
     this.setState({
@@ -79,7 +87,7 @@ class TradeHistoryContainer extends React.Component {
 
     return (
       <div className="app">
-        <Navigation status="Login" />
+        <Navigation status="Login" {...this.parentState} />
         <div>
           <h2>
             Trade History

@@ -14,7 +14,6 @@ export class Navigation extends React.Component {
 
   loginUser() {
     this.setState({ loginDisplay: true });
-
   }
 
   logoutUser() {
@@ -23,7 +22,6 @@ export class Navigation extends React.Component {
   }
 
   render() {
-    console.log("login status is =", this.props.user.isLoggedin);
     return (
       <div className="navigation-container">
         <nav role="navigation">
@@ -33,7 +31,7 @@ export class Navigation extends React.Component {
             </h3>
           </div>
 
-          <div className="right-nav-container wow">
+          <div className="right-nav-container">
             {this.props.user.isLoggedin ? <Logout onLogoutUser= {() => this.logoutUser()} /> :
               <div>
                 <button id="display-login-form" className="button login-button"
@@ -44,6 +42,10 @@ export class Navigation extends React.Component {
                 {/*checks if both are true, if they are, render them. Login will always true */}
               </div>
             } {/*closes ternary*/}
+            {this.props.parentState.tradeSummaryContainer || this.props.parentState.tradeHistoryContainer ?
+              <Link className="link" to="/new-trade">Enter Trade</Link> :
+            this.props.parentState.newTradeContainer ?
+              <Link className="link" to="/trade-summary">Trades</Link> : <div></div>}
           </div>
         </nav>
       </div>

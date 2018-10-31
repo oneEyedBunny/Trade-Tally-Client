@@ -9,10 +9,18 @@ import "./new-trade-container.css";
 
 class NewTradeContainer extends React.Component {
 
-  state = {
+  parentState = {
+    newTradeContainer: false,
     editForm: false,
     successMessage: ""
   }
+
+  //facilitates Navigation rendering appropriate links
+    componentDidMount() {
+      this.setState({
+        newTradeContainer: true
+      })
+    }
 
   generateInviteForm = () => {
     this.setState({
@@ -36,7 +44,7 @@ class NewTradeContainer extends React.Component {
   render() {
     return (
       <div className="app">
-        <Navigation />
+        <Navigation {...this.parentState} />
         <h3 id="new-trade-header">Enter a New Trade</h3>
         <NewTrade />
         <h4 className="link-trade-summary">

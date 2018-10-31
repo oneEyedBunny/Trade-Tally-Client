@@ -11,9 +11,18 @@ import './trade-summary-container.css';
 
 class TradeSummaryContainer extends React.Component {
 
+  parentState = {
+    tradeSummaryContainer: false
+  }
+
   componentDidMount() {
       this.props.dispatch(getTrades(this.props.userId));
       this.props.dispatch(getAllUsers());
+
+      //facilitates Navigation rendering appropriate links
+      this.setState({
+        tradeSummaryContainer: true
+      });
   }
 
   render() {
@@ -62,7 +71,7 @@ class TradeSummaryContainer extends React.Component {
     });
     return (
       <div className="app">
-        <Navigation />
+        <Navigation {...this.parentState}  />
         <h2 className="trade-summary-page-header">My Active Trades</h2>
         <div>
           <table>
