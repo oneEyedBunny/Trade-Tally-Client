@@ -38,9 +38,8 @@ class Login extends React.Component {
         role="form"
         id="login-user-form"
         name="loginUser"
-        onSubmit={this.handleSubmit}
-      >
-        <fieldset name="user-info" id="user-info">
+        onSubmit={this.handleSubmit}>
+        <fieldset name="user-info" id="user-info" className="fieldset">
           <label>Username:</label>
           <input
             className="login-form-fields"

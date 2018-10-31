@@ -76,10 +76,9 @@ class CreateAccount extends React.Component {
   return (
     <form id="new-user-form" onSubmit={this.handleSubmit}>
       {!this.props.user.isLoggedin && (
-      <fieldset id="new-user-fieldset">
+      <fieldset id="new-user-fieldset" className="fieldset">
         <legend>Profile Info</legend>
-        <div className="error-message-container" />
-        <div className="new-user-div">
+        <div className="form-row-container">
           <label>First Name: </label>
           <input
             className="new-form-fields"
@@ -90,6 +89,8 @@ class CreateAccount extends React.Component {
             value={this.state.firstName}
             onChange={e => this.setInput(e, "firstName")}
           />
+        </div>
+        <div className="form-row-container">
         <label>Last Name: </label>
           <input
             className="new-form-fields"
@@ -100,6 +101,8 @@ class CreateAccount extends React.Component {
             value={this.state.lastName}
             onChange={e => this.setInput(e, "lastName")}
           />
+        </div>
+        <div className="form-row-container">
           <label>Email: </label>
           <input
             className="new-form-fields"
@@ -110,6 +113,8 @@ class CreateAccount extends React.Component {
             value={this.state.email}
             onChange={e => this.setInput(e, "email")}
           />
+        </div>
+        <div className="form-row-container">
           <label>Profession: </label>
           <input
             className="new-form-fields"
@@ -120,6 +125,8 @@ class CreateAccount extends React.Component {
             value={this.state.profession}
             onChange={e => this.setInput(e, "profession")}
           />
+        </div>
+        <div className="form-row-container">
           <label>Username: </label>
           <input
             className="new-form-fields"
@@ -130,6 +137,8 @@ class CreateAccount extends React.Component {
             value={this.state.username}
             onChange={e => this.setInput(e, "username")}
           />
+        </div>
+        <div className="form-row-container">
           <label>Password: </label>
           <input
             className="new-form-fields"
@@ -140,10 +149,10 @@ class CreateAccount extends React.Component {
             value={this.state.password}
             onChange={e => this.setInput(e, "password")}
           />
+        </div>
         <button role="button" type="submit" id="create-profile-button" className="button">
             Create Profile
           </button>
-        </div>
        <div className="error-message-container"> {this.state.errorSummaryMessage} </div>
       </fieldset>
     )} {/*closes ternary*/}

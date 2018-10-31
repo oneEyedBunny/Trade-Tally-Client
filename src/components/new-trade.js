@@ -72,9 +72,9 @@ class NewTrade extends React.Component {
 
     return (
       <form id="new-trade-form" onSubmit={this.submitTrade}>
-        <fieldset id="new-trade-fieldset">
+        <fieldset id="new-trade-fieldset" className="fieldset">
           <legend>Trade Info</legend>
-          <div className="new-trade-div">
+          <div className="form-row-container">
             <label>Trade Partner: </label>
             <select
               className="new-trade-fields"
@@ -88,6 +88,8 @@ class NewTrade extends React.Component {
               required>
                 {userDropDown}
             </select>
+            </div>
+            <div className="form-row-container">
             <label>Date: </label>
             <input
               className="new-trade-fields"
@@ -98,6 +100,8 @@ class NewTrade extends React.Component {
               onChange={e => this.setInput(e, "date")}
               required
             />
+            </div>
+            <div className="form-row-container">
             <label>Description: </label>
             <textarea
               className="new-trade-fields"
@@ -108,6 +112,8 @@ class NewTrade extends React.Component {
               onChange={e => this.setInput(e, "serviceDescription")}
               required
             />
+            </div>
+            <div className="form-row-container">
             <label>Amount: </label>
             <input
               className="new-trade-fields"
@@ -118,11 +124,11 @@ class NewTrade extends React.Component {
               onChange={e => this.setInput(e, "amount")}
               required
             />
+            </div>
             <button role="button" type="submit" id="create-trade-button"
               className="button" >
               Create Trade
             </button>
-          </div>
           <div className="error-message-container">{this.state.successMessage} </div>
         </fieldset>
       </form>

@@ -8,16 +8,18 @@
 }
 
 #invite-friend-form {
-  width: 65%;
-  margin: 0 auto;
+  width: 70%;
   margin-top: 35px;
-  text-align: left;
 }
 
-.invite-friend-div {
-  padding: 15px 10px 10px;
+#invite-friend-row {
+  width: 100%;
 }
 
-.invite-form-fields  {
-  margin-bottom: 10px;
+.invite-friend-fields {
+  flex: 2;
+}
+
+#invite-friend-form label {
+  flex: 3;
 }

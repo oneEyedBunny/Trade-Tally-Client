@@ -69,7 +69,7 @@ class App extends React.Component {
         </section>
         <section className="how-it-works wow fadeInLeft" id="how-it-works-summary">
           <h3> How to use the app</h3>
-          <img src="images/addblu.png" alt="create-account" className="what-to-do-gif"
+          <img src="images/addblu.png" alt="create account" className="what-to-do-gif"
             onClick={() => this.newAccountForm()}/>
           <p className="create-account-link how-it-works-text" onClick={() => this.newAccountForm()}>
             Create an Account
