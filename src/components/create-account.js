@@ -17,10 +17,7 @@ class CreateAccount extends React.Component {
           profession: "",
           username: "",
           password: "",
-          passwordValidate: "",
-          usernameValidate: "",
-          loginDisplay: false,
-          errorSummaryMessage: "",
+          message: ""
     };
 
     setInput(event, key) {
@@ -36,21 +33,31 @@ class CreateAccount extends React.Component {
       //frontend validation
         if (hasWhiteSpace(userInfo.username)) {
           this.setState({
-            usernameValidate: "Username cannot contain spaces"
+            message: "Username cannot contain spaces"
           })
         } else if (hasWhiteSpace(userInfo.password)) {
           this.setState({
-            passwordValidate: "Password cannot contain spaces"
+            message: "Password cannot contain spaces"
           })
         } else if (userInfo.password.length < 8) {
           this.setState({
-            passwordValidate: "Password must be at least 8 characters"
+            message: "Password must be at least 8 characters"
           })
         }
       //if all inputs are valid, dispatch addNewUser action creator w/userInfo from state (set by onChange in inputs)
         else {
           await this.props.addNewUser(userInfo);
-          //this.props.history.push("/trade-summary");
+          this.setState({
+            message: "Your account was created successfully!",
+          })
+        }
+      } catch (error) {
+          console.log(error);
+          this.setState({
+            message: `Error with your ${error.location}. ${error.message}`,
+          });
+        } finally {
+        setTimeout(() => {
           this.setState({
             firstName: "",
             lastName: "",
@@ -58,18 +65,10 @@ class CreateAccount extends React.Component {
             profession: "",
             username: "",
             password: "",
-            passwordValidate: "",
-            usernameValidate: "",
-            loginDisplay: false,
-            errorSummaryMessage: "",
-
+            message: ""
           })
-        }} catch (error) {
-          console.log(error);
-          this.setState({
-            errorSummaryMessage: `Error with your ${error.location}. ${error.message}`,
-          })
-        }
+        }, 3000)
+      }
     };
 
  render() {
@@ -153,7 +152,7 @@ class CreateAccount extends React.Component {
         <button role="button" type="submit" id="create-profile-button" className="button">
             Create Profile
           </button>
-       <div className="error-message-container"> {this.state.errorSummaryMessage} </div>
+       <div className="error-message-container"> {this.state.message} </div>
       </fieldset>
     )} {/*closes ternary*/}
     </form>

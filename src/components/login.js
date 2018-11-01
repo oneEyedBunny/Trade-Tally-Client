@@ -9,7 +9,7 @@ class Login extends React.Component {
   state = {
     username: "Massage",
     password: "testing0101",
-    errorSummaryMessage: "",
+    message: "",
   };
 
   setInput = (event, key) => {
@@ -23,13 +23,18 @@ class Login extends React.Component {
     let credentials = this.state;
     try {
       await this.props.login(credentials);
-
+      this.props.onHideForm();
     } catch (error) {
+      console.log("error=", error);
       this.setState({
-        errorSummaryMessage: `Your login credentials for ${error.location} failed`,
+        message: `Your login credentials for ${error.location} failed`,
       })
+      setTimeout(() => {
+        this.setState({
+          message: ""
+        })
+      }, 3000)
     }
-    this.props.onHideForm();
   };
 
   render() {
@@ -50,7 +55,7 @@ class Login extends React.Component {
             value={this.state.username}
             onChange={e => {
               this.setInput(e, "username")
-              this.setState({errorSummaryMessage:""})
+              this.setState({message:""})
             }}
           />
           <label>Password:</label>
@@ -71,7 +76,7 @@ class Login extends React.Component {
             <h5 className="demo-credentials user"> u: demoDanny</h5>
             <h5 className="demo-credentials password"> p: demoFun111</h5>
           </div>
-          <div className="error-message-container"> {this.state.errorSummaryMessage} </div>
+          <div className="error-message-container"> {this.state.message} </div>
         </fieldset>
       </form>
     );
