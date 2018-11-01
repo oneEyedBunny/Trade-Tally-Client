@@ -7,13 +7,12 @@
   padding: 10px;
   background-color: blue;
   color: white;
-  font-size: 14px;
 }
 
 .trade-balance {
   display: inline-block;
   font-weight: bold;
-  margin-top: 15px;
+  margin-top: 75px;
 }
 
 .total {

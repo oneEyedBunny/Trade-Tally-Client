@@ -1,6 +1,6 @@
 
 .table-data-summary {
-  font-size: 14px;
+  font-size: 2.2vh;
 }
 
 table, tbody {
@@ -18,5 +18,4 @@ tr:nth-child(even) {
 #see-trade-history-button {
   text-align: center;
   text-decoration: none;
-  font-size: 12px;
 }

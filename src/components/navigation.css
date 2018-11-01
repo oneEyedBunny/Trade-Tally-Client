@@ -1,6 +1,5 @@
 /******************************* Navigation ********************************/
 .navigation-container {
-  /* width: 100%; */
   margin-bottom: 50px;
 }
 
@@ -9,22 +8,17 @@ nav {
 }
 
 .right-nav-container {
-  /* margin-right: 10px; */
   flex: 2;
-  /* display: inline-block; */
-  /* float: right; */
 }
 
 .left-nav-container {
-  /* display: inline-block; */
   flex: 3;
-  /* margin-top: -10px; */
-  /* margin-left: 5px; */
 }
 
 .logo {
   text-decoration: none;
   color: black;
+  font-size: 3vh;
 }
 
 .link {
@@ -39,26 +33,7 @@ nav {
 }
 
 /************Media queries*****************/
-@media only screen and (min-width: 500px) {
-  .login-button {
-    font-size: 15px;
-  }
-}
 
 @media only screen and (min-width: 550px) {
-  .login-button {
-    font-size: 17px;
-  }
-  .logo {
-    font-size: 20px
-  }
-}
 
-@media only screen and (min-width: 650px) {
-  .login-button {
-    font-size: 20px;
-  }
-  .logo {
-    font-size: 25px
-  }
 }
