@@ -34,21 +34,21 @@ class CreateAccount extends React.Component {
       let userInfo = this.state;
       try {
       //frontend validation
-      //   if (hasWhiteSpace(userInfo.username)) {
-      //     this.setState({
-      //       usernameValidate: "Username cannot contain spaces"
-      //     })
-      //   } else if (hasWhiteSpace(userInfo.password)) {
-      //     this.setState({
-      //       passwordValidate: "Password cannot contain spaces"
-      //     })
-      //   } else if (userInfo.password.length < 8) {
-      //     this.setState({
-      //       passwordValidate: "Password must be at least 8 characters"
-      //     })
-      //   }
-      // //if all inputs are valid, dispatch addNewUser action creator w/userInfo from state (set by onChange in inputs)
-      //   else {
+        if (hasWhiteSpace(userInfo.username)) {
+          this.setState({
+            usernameValidate: "Username cannot contain spaces"
+          })
+        } else if (hasWhiteSpace(userInfo.password)) {
+          this.setState({
+            passwordValidate: "Password cannot contain spaces"
+          })
+        } else if (userInfo.password.length < 8) {
+          this.setState({
+            passwordValidate: "Password must be at least 8 characters"
+          })
+        }
+      //if all inputs are valid, dispatch addNewUser action creator w/userInfo from state (set by onChange in inputs)
+        else {
           await this.props.addNewUser(userInfo);
           //this.props.history.push("/trade-summary");
           this.setState({
@@ -64,7 +64,7 @@ class CreateAccount extends React.Component {
             errorSummaryMessage: "",
 
           })
-        } catch (error) {
+        }} catch (error) {
           console.log(error);
           this.setState({
             errorSummaryMessage: `Error with your ${error.location}. ${error.message}`,
