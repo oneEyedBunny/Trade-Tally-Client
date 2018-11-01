@@ -24,7 +24,7 @@ class InviteFriendForm extends React.Component {
         event.preventDefault();
         let friendInfo = this.state;
         try {
-          await fetch(`${API_BASE_URL}/invite`, {
+          const res = await fetch(`${API_BASE_URL}/invite`, {
             method: "POST",
             body: JSON.stringify(friendInfo),
             headers: {
@@ -32,19 +32,24 @@ class InviteFriendForm extends React.Component {
                Authorization: `Bearer ${this.props.user.authToken}`
             }
           })
+          if (!res.ok) {
+            console.log(res);
+            this.setState({
+              errorSummaryMessage: "Your request failed"
+            });
+            setTimeout(() => {
+              this.setState({
+                errorSummaryMessage: ""
+              })
+            }, 4000)
+          } else {
+              this.props.clearInviteForm()
+          }
         } catch (error) {
             console.log("error=",error);
             this.setState({
               errorSummaryMessage: error.message
             })
-          } finally {
-            this.setState({
-              userFullName: this.props.user.fullName,
-              firstName: "",
-              phone: "",
-              errorSummaryMessage: ""
-            })
-             this.props.clearInviteForm()
           }
       };
 
