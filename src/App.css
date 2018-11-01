@@ -225,7 +225,7 @@ input, select, textarea {
 }
 
 .what-to-do-gif {
-  max-width: 25px;
+  max-width: 4vh;
   margin: -15px;
 }
 
@@ -302,9 +302,6 @@ input, select, textarea {
   }
   .how-it-works-text {
     margin: 30px;
-  }
-  .what-to-do-gif {
-    max-width: 30px;
   }
 }
 

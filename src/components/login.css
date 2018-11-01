@@ -1,3 +1,7 @@
+#display-login-form {
+    margin: 25px 2px 10px 45px;
+}
+
 #login-user-form {
   position: fixed;
   top: 0;

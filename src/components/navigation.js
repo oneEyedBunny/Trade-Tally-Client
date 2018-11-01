@@ -36,7 +36,7 @@ export class Navigation extends React.Component {
           <div className="right-nav-container">
             {this.props.user.isLoggedin ? <Logout onHideForm= {() => this.hideForm()} /> :
               <div>
-                <button id="display-login-form" className="button login-button"
+                <button id="display-login-form" className="button"
                   onClick={() => this.displayForm()}>
                   Login
                 </button>
@@ -60,3 +60,12 @@ const mapStateToProps = state => {
   };
 };
 export default withRouter(connect(mapStateToProps)(Navigation));
+
+// <div>
+//   <button id="display-login-form login-user-button" className="button"
+//     onClick={() => this.displayForm()}>
+//     Login
+//   </button>
+//   {this.state.displayLoginForm && <Login onHideForm={() => this.hideForm()}/>}
+//   {/*checks if both are true, if they are, render them. Login will always true */}
+// </div>
