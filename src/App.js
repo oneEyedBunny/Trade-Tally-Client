@@ -19,6 +19,26 @@ class App extends React.Component {
     new WOW().init();
   }
 
+  //chevron scroll function
+  //   setScroll() {
+  //     var x = 20; //increment amount to scroll down
+  //     while (x < 540) {
+  //     setInterval(function() {
+  //       window.scroll(0, x);
+  //       x = x + 5;
+  //     }, 6);
+  //   }
+  // }
+
+  setScroll() {
+    var x = 20; //increment amount to scroll down
+
+    setInterval(function() {
+      window.scroll(0, x);
+      x = x + 5;
+    }, 6);
+  }
+
   newAccountForm() {
     this.setState({ createAccountDisplay: true });
   }
@@ -37,7 +57,7 @@ class App extends React.Component {
           </p>
         </div>
 
-        <div className="chevron-container">
+        <div className="chevron-container" onClick={() => this.setScroll()} >
           <div className="chevron"></div>
           <div className="chevron"></div>
           <div className="chevron"></div>
@@ -98,3 +118,10 @@ const mapStateToProps = state => {
   };
 };
 export default connect(mapStateToProps)(App);
+
+//onClick={() => {window.scrollBy(0,580)} }
+// setScroll() {
+//   setInterval( () => {
+//     window.scroll(0, 400);
+// }, 2000);
+// }

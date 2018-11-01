@@ -1,10 +1,11 @@
 .invite-tt {
   text-align: center;
+  margin-bottom: -15px;
 }
 
 .invite-tt h4 {
-  width: 65%;
-  margin: 0 auto;
+  margin-top: 40px;
+  padding: 10px;
 }
 
 #invite-friend-form {

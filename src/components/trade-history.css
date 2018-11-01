@@ -1,6 +1,14 @@
+#trade-history-header {
+  margin-bottom: 10px;
+}
+
+#trade-partner-name {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
 
 .table-data-history {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 tr:nth-child(even) {
@@ -8,10 +16,5 @@ tr:nth-child(even) {
 }
 
 #delete-trade, #edit-trade {
-  font-size: 12px;
-  display: inline-block;
-}
-
-#delete-trade, #edit-trade {
-  max-width: 25px;
+  max-width: 14px;
 }

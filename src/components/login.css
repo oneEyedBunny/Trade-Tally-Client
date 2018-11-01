@@ -1,7 +1,8 @@
 #login-user-form {
-  position: absolute;
+  position: fixed;
   top: 0;
-  left: 160px;
+  right: 0;
+  width: 50%;
   border-radius: 10px;
   background-color: #D3D3D3;
   animation-duration: .5s;
@@ -24,32 +25,23 @@
  border: none;
 }
 
-#login-user-form label {
-  font-size: 14px;
-  float: left;
-  /* width: 10em; */
-  margin-right: 1em;
-}
-
 .login-form-fields {
-  margin: 5px;
-  border: 1px solid #DBDBDB;
-  border-radius: 4px;
   font-size: 12px;
   text-indent: 5px;
 }
 
 .demo-info {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: bold;
   display: inline-block;
   margin: 6px 0 0;
   color: blue;
 }
 
-.login {
-  margin: 6px;
-  font-size: 12px;
+.demo-credentials {
+  font-size: 13px;
+  color: blue;
+  margin: 0 6px;
 }
 
 /************Media queries*****************/

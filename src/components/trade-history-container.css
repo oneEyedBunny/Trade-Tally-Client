@@ -12,6 +12,8 @@
 
 .trade-balance {
   display: inline-block;
+  font-weight: bold;
+  margin-top: 15px;
 }
 
 .total {

@@ -33,9 +33,9 @@ class InviteFriendForm extends React.Component {
             }
           })
         } catch (error) {
-            console.log(error);
+            console.log("error=",error);
             this.setState({
-              errorSummaryMessage: `Error with your ${error.location}. ${error.message}`,
+              errorSummaryMessage: error.message
             })
           } finally {
             this.setState({
