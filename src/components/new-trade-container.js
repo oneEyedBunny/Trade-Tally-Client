@@ -41,9 +41,13 @@ class NewTradeContainer extends React.Component {
         <NewTrade />
         <div className="invite-tt">
           <h4>Don't see your trade partner, invite them to join Trade Tally</h4>
-          <a href ="#invite-friend-form">
+        </div>
+        <div className="invite-tt">
+          <a href ="#invite-button">
             <img src="../images/text.png" alt="text me" id="text-me" onClick={() => this.generateInviteForm()}/></a>
-            {this.state.editForm && <InviteFriendForm clearInviteForm = {() => this.clearInviteForm()} /> }
+        </div>
+        <div className="invite-tt-container">
+          {this.state.editForm && <InviteFriendForm clearInviteForm = {() => this.clearInviteForm()} /> }
         </div>
         <div className="error-message-container">{this.state.successMessage}</div>
       </div>

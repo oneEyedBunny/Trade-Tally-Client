@@ -67,9 +67,9 @@ class Login extends React.Component {
             Login
           </button>
           <div id="demo-container">
-            <h5 className="demo-info"> For demo account use:</h5>
-            <h5 className="demo-info login"> u: demoDanny</h5>
-            <h5 className="demo-info login"> p: demoFun111</h5>
+            <h5 className="demo-info"> Demo it:</h5>
+            <h5 className="demo-credentials user"> u: demoDanny</h5>
+            <h5 className="demo-credentials password"> p: demoFun111</h5>
           </div>
           <div className="error-message-container"> {this.state.errorSummaryMessage} </div>
         </fieldset>

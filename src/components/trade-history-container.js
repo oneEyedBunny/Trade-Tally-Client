@@ -81,10 +81,10 @@ class TradeHistoryContainer extends React.Component {
       <div className="app">
         <Navigation tradeHistoryContainer = {true}  />
         <div>
-          <h2>
+          <h2 id="trade-history-header">
             Trade History
           </h2>
-          <h6>with {actualTradePartner ?
+          <h6 id="trade-partner-name">with {actualTradePartner ?
               actualTradePartner.fullName : "" }
           </h6>
         </div>
@@ -98,8 +98,9 @@ class TradeHistoryContainer extends React.Component {
           </thead>
             <tbody>{trades}</tbody>
         </table>
-        <div className="trade-balance">Balance</div>
-        <div className="trade-balance total">${balance}</div>
+        <div className="trade-balance" >Balance</div>
+        <div className="trade-balance total"
+          style={{color: isNegative? "red": "black"}}>${balance}</div>
 
         <div className="edit-form-container">
             {this.state.editForm &&
