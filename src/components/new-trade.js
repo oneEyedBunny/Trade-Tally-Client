@@ -74,7 +74,7 @@ class NewTrade extends React.Component {
       <form id="new-trade-form" onSubmit={this.submitTrade}>
         <fieldset id="new-trade-fieldset" className="fieldset">
           <legend>Trade Info</legend>
-          <div className="form-row-container">
+          <div className="form-row-container new-trade-row-container">
             <label>Trade Partner: </label>
             <select
               className="new-trade-fields"
@@ -89,7 +89,7 @@ class NewTrade extends React.Component {
                 {userDropDown}
             </select>
             </div>
-            <div className="form-row-container">
+            <div className="form-row-container new-trade-row-container">
             <label>Date: </label>
             <input
               className="new-trade-fields"
@@ -101,7 +101,7 @@ class NewTrade extends React.Component {
               required
             />
             </div>
-            <div className="form-row-container">
+            <div className="form-row-container new-trade-row-container">
             <label>Description: </label>
             <textarea
               className="new-trade-fields"
@@ -113,7 +113,7 @@ class NewTrade extends React.Component {
               required
             />
             </div>
-            <div className="form-row-container">
+            <div className="form-row-container new-trade-row-container">
             <label>Amount: </label>
             <input
               className="new-trade-fields"
