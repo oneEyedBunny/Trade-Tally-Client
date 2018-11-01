@@ -8,7 +8,6 @@
   padding: 10px;
   background-color: blue;
   color: white;
-  font-size: 14px;
 }
 
 .link-new-trade {
@@ -19,4 +18,5 @@
 
 #see-trade-history-button {
   color: black;
+  font-size: 2vh;
 }

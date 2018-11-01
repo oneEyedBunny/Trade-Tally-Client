@@ -19,14 +19,17 @@ Currently I'm a hairstylist. I trade services with a variety of people: Chiropra
 - CSS
 
 # Pending items
-1. error handling for twilio not working (switch Twilio accout as well to paid)
-1. Any 500 error handling??s
-1. Fix functions so they're arrow/ES6
-
-1. CSS- window formatting for delete confirmation
-1. CSS- non mobile css
-
+1. test twilio error handling
 1. Test cases for reducers & actions
+1. Create acct success message gets cleared before displayed to user
+
+#Code clean up
+1. remove unneeded requires
+1. Arrow functions everywhere
+1. quotes
+1. indents
+1. console.logs or misc commented out code
+1. useful comments to explain code
 
 
 
@@ -36,5 +39,5 @@ Currently I'm a hairstylist. I trade services with a variety of people: Chiropra
 1. Add ability for trades to be confirmed by the recieving partner
 1. Make the fields in the history table editable, add a dot drop down on left that lets you delete/edit
 1. Add autocomplete to new trade form drop down (https://alligator.io/react/react-autocomplete/_)
-1. Improve window confirm for delete button
+1. Improve window confirm for delete button formatting
 1. Create password reset feature
