@@ -1,6 +1,6 @@
-const { API_BASE_URL } = require("../config");
+const { API_BASE_URL } = require('../config');
 
-export const ADD_TRADE_SUCCESS = "ADD_TRADE_SUCCESS";
+export const ADD_TRADE_SUCCESS = 'ADD_TRADE_SUCCESS';
 export const addTradeSuccess = values => ({
   type: ADD_TRADE_SUCCESS,
   values
@@ -8,12 +8,12 @@ export const addTradeSuccess = values => ({
 
 export const addTrade = values => {
   return async dispatch => {
-    let authToken = localStorage.getItem("authToken");
+    let authToken = localStorage.getItem('authToken');
     const res = await fetch(`${API_BASE_URL}/trades`, {
-      method: "POST",
+      method: 'POST',
       body: JSON.stringify(values),
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${authToken}`
       }
     });
@@ -25,7 +25,7 @@ export const addTrade = values => {
   };
 };
 
-export const DELETE_TRADE_SUCCESS = "DELETE_TRADE_SUCCESS";
+export const DELETE_TRADE_SUCCESS = 'DELETE_TRADE_SUCCESS';
 export const deleteTradeSuccess = tradeId => ({
   type: DELETE_TRADE_SUCCESS,
   tradeId
@@ -33,11 +33,11 @@ export const deleteTradeSuccess = tradeId => ({
 
 export const deleteTrade = tradeId => {
   return async dispatch => {
-    let authToken = localStorage.getItem("authToken");
+    let authToken = localStorage.getItem('authToken');
     const res = await fetch(`${API_BASE_URL}/trades/${tradeId}`, {
-      method: "DELETE",
+      method: 'DELETE',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${authToken}`
       }
     });
@@ -48,19 +48,19 @@ export const deleteTrade = tradeId => {
   };
 };
 
-export const EDIT_TRADE_SUCCESS = "EDIT_TRADE_SUCCESS";
+export const EDIT_TRADE_SUCCESS = 'EDIT_TRADE_SUCCESS';
 export const editTradeSuccess = () => ({
   type: EDIT_TRADE_SUCCESS
 });
 
 export const editTrade = (state, userId) => {
   return async dispatch => {
-    let authToken = localStorage.getItem("authToken");
+    let authToken = localStorage.getItem('authToken');
     const res = await fetch(`${API_BASE_URL}/trades/${state.tradeId}`, {
-      method: "PUT",
+      method: 'PUT',
       body: JSON.stringify(state),
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${authToken}`
       }
     });
@@ -68,11 +68,11 @@ export const editTrade = (state, userId) => {
       throw new Error(res.statusText);
     }
     dispatch(editTradeSuccess());
-    dispatch(getTrades(userId))
+    dispatch(getTrades(userId));
   };
 };
 
-export const GET_TRADES_SUCCESS = "GET_TRADES_SUCCESS";
+export const GET_TRADES_SUCCESS = 'GET_TRADES_SUCCESS';
 export const getTradesSuccess = trades => ({
   type: GET_TRADES_SUCCESS,
   trades
@@ -80,11 +80,11 @@ export const getTradesSuccess = trades => ({
 
 export const getTrades = userId => {
   return async dispatch => {
-    let authToken = localStorage.getItem("authToken");
+    let authToken = localStorage.getItem('authToken');
     const res = await fetch(`${API_BASE_URL}/trades/user/${userId}`, {
-      method: "GET",
+      method: 'GET',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${authToken}`
       }
     });

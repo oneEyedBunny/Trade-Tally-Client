@@ -1,9 +1,9 @@
-import React from "react";
-import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import React from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
-import { logout } from "../actions/auth-users";
-import "./logout.css";
+import { logout } from '../actions/auth-users';
+import './logout.css';
 
 class Logout extends React.Component {
   state = {};
@@ -16,12 +16,11 @@ class Logout extends React.Component {
       console.log(error);
     }
     this.props.onHideForm();
-    // this.props.history.push("/");
   };
 
   render() {
     return (
-      <button role="button" id="logout-user-button" className="button" onClick={this.handleLogout}>
+      <button role='button' id='logout-user-button' className='button' onClick={this.handleLogout}>
         Logout
       </button>
     );
