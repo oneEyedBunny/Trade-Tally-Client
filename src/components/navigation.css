@@ -1,6 +1,6 @@
 /******************************* Navigation ********************************/
 .navigation-container {
-  margin-bottom: 50px;
+  padding-bottom: 50px;
 }
 
 nav {
@@ -18,14 +18,15 @@ nav {
 .logo {
   text-decoration: none;
   color: black;
-  font-size: 3vh;
+  font-size: calc(18px + (35 - 18) * ((100vw - 320px) / (1000 - 320)));
 }
 
 .link {
   display: inline-block;
   text-decoration: none;
   color: black;
-  font-size: 2.2vh;
+  font-size: calc(14px + (30 - 14) * ((100vw - 320px) / (1000 - 320)));
+  padding: 20px;
 }
 
 /************Media queries*****************/

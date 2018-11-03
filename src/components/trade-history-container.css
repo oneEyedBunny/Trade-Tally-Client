@@ -10,15 +10,12 @@
 }
 
 .trade-balance {
+  font-size: calc(16px + (30 - 16) * ((100vw - 320px) / (1000 - 320)));
   display: inline-block;
   font-weight: bold;
-  margin-top: 75px;
+  padding-top: 50px;
 }
 
-.total {
-  margin-left: 185px;
-}
-
-h6 {
-  margin: 5px;
+.total-amount {
+  padding-left: 125px;
 }

@@ -1,14 +1,17 @@
 .app {
-  margin: 20px;
-  /* width: 100%; */
-  font-size: 2.8vh;
+  padding: 20px;
+  /* font-size: 2.8vh; */
 }
 
-/******************************* General handling across all *********************************/
+.page-1-view {
+  height: 100vh;
+}
+
+/********************* General handling across all *********************/
 .button {
   border: 1px solid black;
   border-radius: 3px;
-  font-size: 2.2vh;
+  font-size: calc(14px + (30 - 14) * ((100vw - 320px) / (1000 - 320)));
   display: block;
   margin: 0 auto;
   padding: 6px 10px;
@@ -45,12 +48,11 @@ form {
 
 .form-row-container {
  display: flex;
- /* width: 90% */
 }
 
 label {
   flex: 2;
-  font-size: 2.4vh;
+  font-size: calc(14px + (30 - 14) * ((100vw - 320px) / (1000 - 320)));
 }
 
 input, select, textarea {
@@ -60,33 +62,30 @@ input, select, textarea {
   width: 85%;
   border: 1px solid #DBDBDB;
   border-radius: 4px;
-  font-size: 2.4vh;
+  font-size: calc(14px + (30 - 14) * ((100vw - 320px) / (1000 - 320)));
   resize: none;
 }
 
 /******************************* home *********************************/
 #welcome-message-container {
-  margin-top: 150px;
+  padding-top: 150px;
 }
 
 .welcome-quote {
   margin: 0 auto;
-  font-size: 3.5vh;
+  font-size: calc(20px + (50 - 20) * ((100vw - 320px) / (1000 - 320)));
 }
 
 .welcome-message {
-  margin: 50px 0 150px;
+  padding: 50px 0 130px;
 }
 
-/******************************* chevron animation *********************************/
+/**************************** chevron animation ***************************/
 .chevron-container {
  display: flex;
  justify-content: center;
  position: relative;
  align-items: center;
- /* width: 80%; */
- /* height: 100px; */
- margin-top: -70px;
 }
 
 .chevron {
@@ -145,20 +144,16 @@ input, select, textarea {
  }
 }
 
-/************gif image area*****************/
+/*******************gif image area***********************/
 .half-boxs-container {
  display: flex;
  justify-content: center;
- margin-top: 150px;
+ padding-top: 150px;
 }
 
 .person-gif {
   max-width: 20vh;
-  padding: 25px;
-}
-
-#person-gif-left {
-  padding-left: 10px;
+  padding: 20px;
 }
 
 .left-box {
@@ -173,19 +168,15 @@ input, select, textarea {
   background-color: #0000FF;
 }
 
-/***********3 boxes******************/
+/*************************3 boxes****************************/
 .options-container {
   display:flex;
   justify-content: space-around;
-  margin: 75px 0;
-  /*width: 100%;*/
+  padding: 75px 0;
   text-align: center;
 }
 
 .option-box {
-  /* display: inline-block;
-  width: 20%;
-  margin: 5px; */
   padding: 10px;
   background-color: gray;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -205,10 +196,10 @@ input, select, textarea {
   color: white;
 }
 
-/**************gray box***************/
+/******************************gray box*******************************/
 .how-it-works {
   background-color: gray;
-  margin-top: 135px;
+  margin-top: 100px;
   padding: 15px;
   text-align: center;
 }
@@ -230,84 +221,48 @@ input, select, textarea {
   margin: -15px;
 }
 
-/*****************************/
+/************************footer********************************/
 #footer {
   text-align: center;
 }
 
 .footer-info {
   display: inline-block;
-  margin: 65px 15px 5px;
-  font-size: 2.2vh;
+  padding: 25px 0 5px;
+  font-size: calc(12px + (22 - 12) * ((100vw - 320px) / (1000 - 320)));
 }
 
-/************Media queries*****************/
+/*************************Media queries***************************/
 
 @media only screen and (min-width: 410px) {
   .app {
-    margin: 22px;
-  }
-  #welcome-message-container {
-    margin-top: 175px;
-  }
-  #welcome-message-container {
-    margin-top: 225px;
+    padding: 22px;
   }
 }
 
 @media only screen and (min-width: 500px) {
   .app {
-    margin: 30px;
+    padding: 30px;
   }
 }
 
 @media only screen and (min-width: 600px) {
-  #welcome-message-container {
-    margin-top: 200px;
-  }
-  .chevron-container {
-    margin-top: -40px;
-  }
-  .welcome-message {
-    margin: 50px 60px 150px 0;
-  }
 }
 
 @media only screen and (min-width: 651px) {
   .app {
-    margin: 40px;
-  }
-  .chevron-container {
-    margin-top: 50px;
-  }
-  .chevron-container {
-    margin-top: -25px;
-  }
-  .footer-info {
-    margin-top: 85px;
+    padding: 40px;
   }
 }
 
 @media only screen and (min-width: 750px) {
   .app {
-    margin: 55px;
-  }
-  #welcome-message-container {
-    margin-top: 300px;
-  }
-  .chevron-container {
-    margin-top: 150px;
-  }
-  .how-it-works {
-    padding: 25px;
-  }
-  .how-it-works-text {
-    margin: 30px;
+    padding: 50px;
   }
 }
 
 @media only screen and (min-width: 855px) {
   .app {
-    margin: 85px;
+    margin: 60px;
   }
 }
