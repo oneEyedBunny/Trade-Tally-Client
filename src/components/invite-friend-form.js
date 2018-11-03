@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const { API_BASE_URL } = require('../config');
 import './invite-friend-form.css';
+const { API_BASE_URL } = require('../config');
 
 class InviteFriendForm extends React.Component {
 
