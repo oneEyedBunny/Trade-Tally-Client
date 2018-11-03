@@ -24,11 +24,9 @@ Currently I'm a hairstylist. I trade services with a variety of people: Chiropra
 1. Create acct success message gets cleared before displayed to user
 
 #Code clean up
-1. remove unneeded requires
-1. Arrow functions everywhere
-1. quotes
-1. indents
-1. console.logs or misc commented out code
+1. remove unneeded requires in components
+1. switch to Arrow functions everywhere
+1. console.logs or misc commented out code removed
 1. useful comments to explain code
 
 

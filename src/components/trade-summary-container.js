@@ -1,19 +1,19 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { store } from "../store.js";
+import { store } from '../store.js';
 
-import { TradeSummary } from "./trade-summary";
-import Navigation from "./navigation";
-import { getTrades } from "../actions/trades";
-import { getAllUsers } from "../actions/auth-users";
+import { TradeSummary } from './trade-summary';
+import Navigation from './navigation';
+import { getTrades } from '../actions/trades';
+import { getAllUsers } from '../actions/auth-users';
 import './trade-summary-container.css';
 
 class TradeSummaryContainer extends React.Component {
 
   componentDidMount() {
-      this.props.dispatch(getTrades(this.props.userId));
-      this.props.dispatch(getAllUsers());
+    this.props.dispatch(getTrades(this.props.userId));
+    this.props.dispatch(getAllUsers());
   }
 
   render() {
@@ -45,10 +45,10 @@ class TradeSummaryContainer extends React.Component {
       }
       //looks for logged in user and sets any trade amounts where they're the trade partner to negative
       (otherUserId === trade.userId) ? userSums[otherUserId] -= trade.amount:
-        userSums[otherUserId] += trade.amount;
+      userSums[otherUserId] += trade.amount;
     }); //close loop
 
-    console.log("state=", store.getState());
+    console.log('state=', store.getState());
 
     let trades = Object.entries(userSums).map(tradePartner=> {
       return (
@@ -57,31 +57,31 @@ class TradeSummaryContainer extends React.Component {
           tradePartnerProfession={userInfo[tradePartner[0]].profession}
           amount={tradePartner[1]}
           tradePartnerId= {tradePartner[0]}
-        />
+          />
       )
     });
     return (
-      <div className="app">
+      <div className='app'>
         <Navigation tradeSummaryContainer = {true} />
-        <h2 className="trade-summary-page-header">My Active Trades</h2>
+        <h2 className='trade-summary-page-header'>My Active Trades</h2>
         <div>
           <table>
             <thead>
-            <tr id="trade-summary-table-row-header">
-              <th className="trade-summary-table-header">Trade Partner</th>
-              <th className="trade-summary-table-header">Profession</th>
-              <th className="trade-summary-table-header">Trade Balance</th>
-            </tr>
+              <tr id='trade-summary-table-row-header'>
+                <th className='trade-summary-table-header'>Trade Partner</th>
+                <th className='trade-summary-table-header'>Profession</th>
+                <th className='trade-summary-table-header'>Trade Balance</th>
+              </tr>
             </thead>
-                <tbody>{trades}</tbody>
+            <tbody>{trades}</tbody>
           </table>
-          <div className="link-new-trade">
+          <div className='link-new-trade'>
             {!this.props.trades.length ?
               <h3>You don't have any recorded trades yet. Add one
-                <Link className="link-new-trade" to="/new-trade"> here.</Link>
+                <Link className='link-new-trade' to='/new-trade'> here.</Link>
               </h3>: <h3></h3>
-           }
-           </div>
+            }
+          </div>
         </div>
       </div>
     )
