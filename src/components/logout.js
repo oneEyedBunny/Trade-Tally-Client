@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 
 import { logout } from '../actions/auth-users';
 import './logout.css';
@@ -28,4 +27,4 @@ class Logout extends React.Component {
 }
 
 const mapDispatchToProps = { logout };
-export default withRouter(connect(undefined,mapDispatchToProps)(Logout));
+export default connect(undefined,mapDispatchToProps)(Logout);

@@ -8,7 +8,7 @@ import './new-trade.css';
 class NewTrade extends React.Component {
 
   componentDidMount() {
-    this.props.dispatch(getAllUsers());
+    this.props.getAllUsers();
   }
 
   state = {
@@ -33,7 +33,7 @@ class NewTrade extends React.Component {
     let newTrade = this.state;
     console.log('im the new trade data', newTrade);
     try {
-      await this.props.dispatch(addTrade(newTrade));
+      await this.props.addTrade(newTrade);
       this.setState({
         successMessage: `Your trade has been recorded`,
       })
@@ -144,4 +144,5 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(NewTrade);
+const mapDispatchToProps = { addTrade, getAllUsers };
+export default connect(mapStateToProps, mapDispatchToProps)(NewTrade);

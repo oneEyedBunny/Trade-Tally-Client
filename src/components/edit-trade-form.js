@@ -39,7 +39,7 @@ class EditTradeForm extends React.Component {
     event.preventDefault();
     console.log('edit ID=', this.props.tradeId);
     try {
-      await this.props.dispatch(editTrade(this.state, this.props.userId));
+      await this.props.editTrade(this.state, this.props.userId);
     } catch (error) {
       console.log(error);
     } finally {
@@ -110,4 +110,5 @@ class EditTradeForm extends React.Component {
     userId: state.user.userId
   });
 
-  export default connect(mapStateToProps)(EditTradeForm);
+  const mapDispatchToProps = {editTrade};
+  export default connect(mapStateToProps, mapDispatchToProps)(EditTradeForm);
