@@ -37,7 +37,7 @@ class App extends React.Component {
           </p>
         </div>
 
-        <div className='chevron-container' onClick={() => window.scroll({top: 540, left: 0, behavior: 'smooth'})} >
+        <div className='chevron-container' onClick={() => window.scroll({top: 670, left: 0, behavior: 'smooth'})} >
           <div className='chevron'></div>
           <div className='chevron'></div>
           <div className='chevron'></div>
@@ -84,7 +84,7 @@ class App extends React.Component {
           </section>
 
 
-          <footer role='contentinfo' id='footer'>
+          <footer role='contentinfo'>
             <h5 className='footer-info'>Built by <a href='http://www.linkedin.com/in/allyson-short/' target='_blank'>
               Allyson Short</a></h5>
           </footer>

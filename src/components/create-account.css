@@ -1,14 +1,7 @@
-
-.new-form-fields {
-
+#new-user-form {
+  max-width: 550px;
 }
 
 #create-profile-button {
   padding: 4px 10px;
-}
-
-
-/************Media queries*****************/
-@media only screen and (min-width: 500px) {
-
 }

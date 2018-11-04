@@ -3,5 +3,6 @@
 }
 
 #text-me {
-  width: 25px;
+  width: 100%;
+  height: auto;
 }

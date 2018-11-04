@@ -11,15 +11,15 @@
 
 .table-data-history {
   font-size: calc(14px + (24 - 14) * ((100vw - 320px) / (1000 - 320)));
+  width: 30px;
 }
 
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-
-
-/* NEED TO FIX */
 #delete-trade, #edit-trade {
-  max-width: 35px;
+  width: 100%;
+  padding: 5px;
+  border: none;
 }

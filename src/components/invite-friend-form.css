@@ -2,18 +2,20 @@
   text-align: center;
 }
 
+.invite-tt-image {
+  width: calc(22px + (35 - 22) * ((100vw - 320px) / (1000 - 320)));
+  margin: auto
+}
+
 .invite-tt h4 {
   padding-top: 40px;
   padding: 10px;
+  color: blue;
 }
 
 #invite-friend-form {
   width: 80%;
   padding-top: 35px;
-}
-
-#invite-friend-row {
-  width: 100%;
 }
 
 .invite-friend-fields {

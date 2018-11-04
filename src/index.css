@@ -9,6 +9,13 @@ body {
 html {
   box-sizing: border-box;
 }
+
 *, *:before, *:after {
   box-sizing: inherit;
+}
+
+@media only screen and (min-width: 1000px) {
+  body {
+   font-size: 30px
+  }
 }
