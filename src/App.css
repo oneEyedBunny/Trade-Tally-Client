@@ -13,7 +13,7 @@
   font-size: calc(14px + (25 - 14) * ((100vw - 320px) / (1000 - 320)));
   display: block;
   margin: 0 auto;
-  padding: 6px 10px;
+  padding: 6px;
   margin-top: 10px;
   margin-bottom: 10px;
   background-color: white;
