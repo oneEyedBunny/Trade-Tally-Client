@@ -1,20 +1,21 @@
 .invite-tt {
   text-align: center;
-  margin-bottom: -15px;
+}
+
+.invite-tt-image {
+  width: calc(22px + (35 - 22) * ((100vw - 320px) / (1000 - 320)));
+  margin: auto
 }
 
 .invite-tt h4 {
-  margin-top: 40px;
+  padding-top: 40px;
   padding: 10px;
+  color: blue;
 }
 
 #invite-friend-form {
   width: 80%;
-  margin-top: 35px;
-}
-
-#invite-friend-row {
-  width: 100%;
+  padding-top: 35px;
 }
 
 .invite-friend-fields {

@@ -99,7 +99,7 @@ class TradeHistoryContainer extends React.Component {
               <tbody>{trades}</tbody>
             </table>
             <div className='trade-balance' >Balance</div>
-            <div className='trade-balance total'
+            <div className='trade-balance total-amount'
               style={{color: isNegative? 'red': 'black'}}>${balance}</div>
 
             <div className='edit-form-container'>
