@@ -43,12 +43,18 @@ class TradeHistoryContainer extends React.Component {
       trade.userId === this.props.match.params.tradePartnerId;
     }, this);
 
+    //filters the trades by date ascending order
+    let sortedFilteredTrades = filteredTrades.sort((a,b) => {
+      return(
+        a.date > b.date ? -1 : a.date < b.date ? 1 : 0);
+    })
+
     //helps to determine if amounts should be displayed as negative
     let isNegative =(tradePartnerId) => {
       return this.props.userId === tradePartnerId
     }
 
-    let trades = filteredTrades.map(trade => {
+    let trades = sortedFilteredTrades.map(trade => {
       return (
         <TradeHistory
           tradeId={trade.tradeId}
