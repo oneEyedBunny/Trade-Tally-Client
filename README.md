@@ -19,7 +19,6 @@ Currently I'm a hairstylist. I trade services with a variety of people: Chiropra
 - CSS
 
 # Pending items
-1. test twilio error handling
 1. Test cases for reducers & actions
 1. Create acct success message gets cleared before displayed to user
 
