@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Redirect , withRouter} from 'react-router-dom';
+import { Link, withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Login from './login';
@@ -47,12 +47,14 @@ class Navigation extends React.Component {
             <Link className='link' to='/new-trade'>Enter Trade</Link> :
               this.props.newTradeContainer ?
               <Link className='link' to='/trade-summary'>Trades</Link> : <div></div>}
-              </div>
-            </nav>
-          </div>
-        );
-      }
-    }
+        </div>
+      </nav>
+    </div>
+  );
+ }
+}
+
+
 const mapStateToProps = state => {
   return {
     user: state.user

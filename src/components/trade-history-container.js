@@ -96,12 +96,14 @@ class TradeHistoryContainer extends React.Component {
                   <th className='trade-history-table-header'>Amount</th>
                 </tr>
               </thead>
-              <tbody>{trades}</tbody>
+              <tbody>{trades}
+               <tr>
+                  <td className='trade-balance' colspan="2">Balance</td>
+                  <td className='trade-balance total-amount'
+                    style={{color: isNegative? 'red': 'black'}}>${balance}</td>
+               </tr>
+              </tbody>
             </table>
-            <div className='trade-balance' >Balance</div>
-            <div className='trade-balance total'
-              style={{color: isNegative? 'red': 'black'}}>${balance}</div>
-
             <div className='edit-form-container'>
               {this.state.editForm &&
                 <EditTradeForm tradeId= {this.state.selectedTradeId}

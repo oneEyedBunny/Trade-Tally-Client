@@ -42,7 +42,7 @@ class NewTradeContainer extends React.Component {
         <div className='invite-tt'>
           <h4>Don't see your trade partner, invite them to join Trade Tally</h4>
         </div>
-        <div className='invite-tt'>
+        <div className='invite-tt invite-tt-image'>
           <a href ='#invite-button'>
             <img src='../images/text.png' alt='text me' id='text-me' onClick={() => this.generateInviteForm()}/></a>
         </div>

@@ -19,9 +19,3 @@ export function TradeSummary(props) {
     </tr>
   );
 }
-
-// TradeSummary.defaultProps = {
-//   tradePartner: '',
-//   profession: '',
-//   sumAmount: '',
-// };
