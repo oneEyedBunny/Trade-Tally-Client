@@ -19,12 +19,3 @@ export function TradeSummary(props) {
     </tr>
   );
 }
-
-TradeSummary.defaultProps = {
-  tradePartner: '',
-  profession: '',
-  sumAmount: '',
-};
-
-// const mapDispatchToProps = { getTrades };
-// export default withRouter(connect(undefined,mapDispatchToProps)(TradeSummary));

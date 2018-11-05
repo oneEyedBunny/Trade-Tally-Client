@@ -37,7 +37,7 @@ class App extends React.Component {
           </p>
         </div>
 
-        <div className='chevron-container' onClick={() => window.scroll({top: 670, left: 0, behavior: 'smooth'})} >
+        <div className='chevron-container' onClick={() => document.getElementById('section-2').scrollIntoView({ behavior: 'smooth' })} >
           <div className='chevron'></div>
           <div className='chevron'></div>
           <div className='chevron'></div>
@@ -51,6 +51,7 @@ class App extends React.Component {
           <div className='right-box wow zoomIn'>
             <img src='images/hairstylist.png' alt='hair-stylist' className='person-gif' id='person-gif-right' />
           </div>
+          <div id="section-2" />
         </section>
         <section className='options-container'>
           <div className='option-box'>

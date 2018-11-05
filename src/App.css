@@ -3,7 +3,7 @@
 }
 
 .page-1-view {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 /********************* General handling across all *********************/
@@ -68,13 +68,15 @@ input, select, textarea {
 }
 
 .welcome-message {
-  padding: 50px 0 130px;
+  padding: 50px 0;
 }
 
 /**************************** chevron animation ***************************/
 .chevron-container {
  display: flex;
  justify-content: center;
+ cursor: pointer;
+ height: 90px;
 }
 
 .chevron {
