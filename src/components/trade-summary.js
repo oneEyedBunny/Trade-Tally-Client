@@ -1,10 +1,10 @@
 import React from 'react';
-// import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 import './trade-summary.css';
 
 export function TradeSummary(props) {
+
   const isNegative = props.amount < 0;
 
   return (

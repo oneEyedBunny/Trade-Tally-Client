@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 
 import { login } from '../actions/auth-users';
 import './login.css';
@@ -86,4 +85,4 @@ class Login extends React.Component {
 }
 
 const mapDispatchToProps = { login };
-export default withRouter(connect(undefined,mapDispatchToProps)(Login));
+export default connect(undefined,mapDispatchToProps)(Login);

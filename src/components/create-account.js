@@ -1,13 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 
 import { addNewUser } from '../actions/auth-users';
 import './create-account.css';
-
-function hasWhiteSpace(string) {
-  return string.indexOf(' ') >= 0;
-}
 
 class CreateAccount extends React.Component {
   state = {
@@ -20,55 +15,72 @@ class CreateAccount extends React.Component {
           message: ''
     };
 
+    //facilitates front end form validation
+    hasWhiteSpace = string => string.indexOf(' ') >= 0;
+
+    //clears component state message
+    clearMessage = () => {
+      setTimeout(() => {
+      this.setState({
+        message: ''
+       })
+      }, 3000)
+    }
+
+    //sets the inputs into state as the user types them into the form
     setInput(event, key) {
       this.setState({
         [key]: event.target.value
       })
     }
 
+   //performs font end validation then dispatches action which is ajax call to server
     handleSubmit = async (event) => {
       event.preventDefault();
       let userInfo = this.state;
       try {
       //frontend validation
-        if (hasWhiteSpace(userInfo.username)) {
+        if (this.hasWhiteSpace(userInfo.username)) {
           this.setState({
             message: 'Username cannot contain spaces'
-          })
-        } else if (hasWhiteSpace(userInfo.password)) {
+          });
+          this.clearMessage();
+        } else if (this.hasWhiteSpace(userInfo.password)) {
           this.setState({
             message: 'Password cannot contain spaces'
-          })
+          });
+          this.clearMessage();
         } else if (userInfo.password.length < 8) {
           this.setState({
             message: 'Password must be at least 8 characters'
-          })
+          });
+          this.clearMessage();
         }
       //if all inputs are valid, dispatch addNewUser action creator w/userInfo from state (set by onChange in inputs)
         else {
           await this.props.addNewUser(userInfo);
           this.setState({
             message: 'Your account was created successfully!',
-          })
+          });
+          setTimeout(() => {
+            this.setState({
+              firstName: '',
+              lastName: '',
+              email: '',
+              profession: '',
+              username: '',
+              password: '',
+              message: ''
+            })
+          }, 3000)
         }
       } catch (error) {
           console.log(error);
           this.setState({
             message: `Error with your ${error.location}. ${error.message}`,
           });
-        } finally {
-        setTimeout(() => {
-          this.setState({
-            firstName: '',
-            lastName: '',
-            email: '',
-            profession: '',
-            username: '',
-            password: '',
-            message: ''
-          })
-        }, 3000)
-      }
+          this.clearMessage();
+        }
     };
 
  render() {
@@ -168,4 +180,4 @@ const mapStateToProps = state => {
 
 //provides component access to action creator addNewUser, connects CreateAccount in with react router history
 const mapDispatchToProps = {addNewUser};
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CreateAccount));
+export default connect(mapStateToProps, mapDispatchToProps)(CreateAccount);

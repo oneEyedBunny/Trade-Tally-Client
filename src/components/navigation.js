@@ -6,7 +6,7 @@ import Login from './login';
 import Logout from './logout';
 import './navigation.css';
 
-export class Navigation extends React.Component {
+class Navigation extends React.Component {
   state = {
     displayLoginForm: false
   };

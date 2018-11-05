@@ -12,8 +12,8 @@ import './trade-summary-container.css';
 class TradeSummaryContainer extends React.Component {
 
   componentDidMount() {
-    this.props.dispatch(getTrades(this.props.userId));
-    this.props.dispatch(getAllUsers());
+    this.props.getTrades(this.props.userId);
+    this.props.getAllUsers();
   }
 
   render() {
@@ -94,4 +94,6 @@ const mapStateToProps = state => ({
   userId: state.user.userId
 });
 
-export default connect(mapStateToProps)(TradeSummaryContainer);
+const mapDispatchToProps = { getTrades, getAllUsers }
+
+export default connect(mapStateToProps, mapDispatchToProps)(TradeSummaryContainer);
