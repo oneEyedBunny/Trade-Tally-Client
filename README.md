@@ -19,22 +19,21 @@ Currently I'm a hairstylist. I trade services with a variety of people: Chiropra
 - CSS
 
 # Pending items
-1. Test cases for reducers & actions
+1. History data sorted by date
+1. Capitalize profession
+1. Remove own name from drop down list
+1. ReadMe Images
 1. Create acct success message gets cleared before displayed to user
 
 #Code clean up
-1. remove unneeded requires in components
-1. switch to Arrow functions everywhere
 1. console.logs or misc commented out code removed
-1. useful comments to explain code
-
-
 
 
 # Future 2.0 features:
 1. Add location feature, so logic will search names by location of person
-1. Add ability for trades to be confirmed by the recieving partner
+1. Add ability for trades to be confirmed by the receiving partner
 1. Make the fields in the history table editable, add a dot drop down on left that lets you delete/edit
 1. Add autocomplete to new trade form drop down (https://alligator.io/react/react-autocomplete/_)
 1. Improve window confirm for delete button formatting
 1. Create password reset feature
+1. Test cases for reducers & actions
