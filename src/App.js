@@ -78,12 +78,28 @@ class App extends React.Component {
             </p>
             {this.state.createAccountDisplay && <CreateAccount />}
             {/*checks if both are true, if they are, render them. CreateAccount will always true */}
-            <img src='images/searchblu.png' alt='enter a trade' className='what-to-do-gif' />
-            <p className='how-it-works-text'> Find the people you trade with & enter your trades when they happen</p>
-            <img src='images/trkblu.png' alt='see your trades' className='what-to-do-gif' />
-            <p className='how-it-works-text'> Then see your trade history with all your partners as well as the details of the individual trades so you know who owes who </p>
+            {!this.props.user.isLoggedin ?
+            <div>
+              <a href='#display-login-form'>
+                <img src='images/searchblu.png' alt='enter a trade' className='what-to-do-gif'/></a>
+              <p className='how-it-works-text'> Find the people you trade with & enter your trades when they happen</p>
+                <a href='#display-login-form'>
+                <img src='images/trkblu.png' alt='see your trades' className='what-to-do-gif' /></a>
+              <p className='how-it-works-text'> Then see your trade history with all your partners as well
+                as the details of the individual trades so you know who owes who </p>
+            </div>:
+            <div>
+              <Link to='/new-trade' >
+                <img src='images/searchblu.png' alt='enter a trade' className='what-to-do-gif'/>
+              </Link>
+              <p className='how-it-works-text'> Find the people you trade with & enter your trades when they happen</p>
+              <Link to='/trade-summary' >
+                <img src='images/trkblu.png' alt='see your trades' className='what-to-do-gif' />
+              </Link>
+              <p className='how-it-works-text'> Then see your trade history with all your partners as well
+                as the details of the individual trades so you know who owes who </p>
+            </div> }
           </section>
-
 
           <footer role='contentinfo'>
             <h5 className='footer-info'>Built by <a href='http://www.linkedin.com/in/allyson-short/' target='_blank'>
