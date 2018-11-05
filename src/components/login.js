@@ -7,8 +7,8 @@ import './login.css';
 
 class Login extends React.Component {
   state = {
-    username: 'Massage',
-    password: 'testing0101',
+    username: '',
+    password: '',
     message: '',
   };
 
