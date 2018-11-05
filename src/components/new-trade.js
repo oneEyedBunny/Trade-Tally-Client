@@ -64,13 +64,18 @@ class NewTrade extends React.Component {
         profession: ''
       })
 
+      //finds the logged in users index position and removes them from the list
+      let userIndex = sortedUsers.findIndex((user, state) =>
+        user.id === this.state.userId
+      )
+      sortedUsers.splice(userIndex, 1);
+
+      //creates a list of user first/last names for drop down list in form
       let userDropDown = sortedUsers.map((user) => {
         return(<option value={user.id}>{user.fullName}
         </option>
       )}
-    )
-    console.log('sortedUsers =', sortedUsers)
-    console.log('userDropDown =', userDropDown)
+    );
 
     return (
       <form id='new-trade-form' onSubmit={this.submitTrade}>

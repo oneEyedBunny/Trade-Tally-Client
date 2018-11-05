@@ -19,9 +19,6 @@ Currently I'm a hairstylist. I trade services with a variety of people: Chiropra
 - CSS
 
 # Pending items
-1. History data sorted by date
-1. Capitalize profession
-1. Remove own name from drop down list
 1. ReadMe Images
 1. Create acct success message gets cleared before displayed to user
 
