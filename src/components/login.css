@@ -21,8 +21,7 @@
   }
 }
 
-.login-button:hover {
-  cursor: pointer;
+#display-login-form:hover {
   border: 1px solid blue;
   background-color: blue;
   color: white;

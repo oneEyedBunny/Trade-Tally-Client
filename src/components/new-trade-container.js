@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { loginSuccess } from '../actions/auth-users'
+
 import NewTrade from './new-trade';
 import InviteFriendForm from './invite-friend-form';
 import Navigation from './navigation';
@@ -9,9 +11,17 @@ import './new-trade-container.css';
 
 class NewTradeContainer extends React.Component {
 
+  componentDidMount() {
+    this.props.dispatch(loginSuccess({
+      authToken: localStorage.getItem('authToken'),
+      userId: localStorage.getItem('userId'),
+      fullName: localStorage.getItem('fullName'),
+    }))
+  }
+
   state = {
     editForm: false,
-    successMessage: ''
+    message: ''
   }
 
   generateInviteForm = () => {
@@ -23,11 +33,11 @@ class NewTradeContainer extends React.Component {
   clearInviteForm() {
     this.setState({
       editForm: false,
-      successMessage: 'We texted your friend!'
+      message: 'We texted your friend!'
      });
      setTimeout(() => {
        this.setState({
-         successMessage: ''
+         message: ''
        })
      }, 4000)
   }
@@ -49,7 +59,7 @@ class NewTradeContainer extends React.Component {
         <div className='invite-tt-container'>
           {this.state.editForm && <InviteFriendForm clearInviteForm = {() => this.clearInviteForm()} /> }
         </div>
-        <div className='error-message-container'>{this.state.successMessage}</div>
+        <div className='error-message-container'>{this.state.message}</div>
       </div>
     );
   }

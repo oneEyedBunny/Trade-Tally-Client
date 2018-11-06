@@ -48,6 +48,9 @@ export const addNewUser = user => {
     const userInfo = await res.json();
     dispatch(addNewUserSuccess(userInfo));
     localStorage.setItem('authToken', userInfo.authToken);
+    localStorage.setItem('isLoggedin', true);
+    localStorage.setItem('userId', userInfo.userId);
+    localStorage.setItem('fullName', userInfo.fullName);
   };
 };
 
@@ -73,6 +76,9 @@ export const login = credentials => {
     const userInfo = await res.json();
     dispatch(loginSuccess(userInfo));
     localStorage.setItem('authToken', userInfo.authToken);
+    localStorage.setItem('isLoggedin', true);
+    localStorage.setItem('userId', userInfo.userId);
+    localStorage.setItem('fullName', userInfo.fullName);
   };
 };
 
@@ -82,6 +88,6 @@ export const logoutSuccess = () => ({
 });
 
 export const logout = () => (dispatch) => {
-  localStorage.removeItem('authToken');
+  localStorage.clear();
   dispatch(logoutSuccess());
 };

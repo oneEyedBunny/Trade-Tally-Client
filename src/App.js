@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { WOW } from 'wowjs';
+import { loginSuccess } from './actions/auth-users'
 //import components
 import Navigation from './components/navigation';
 import CreateAccount  from './components/create-account';
@@ -16,6 +17,13 @@ class App extends React.Component {
 
   componentDidMount() {
     new WOW().init();
+    if(localStorage.getItem('isLoggedin')) {
+    this.props.dispatch(loginSuccess({
+      authToken: localStorage.getItem('authToken'),
+      userId: localStorage.getItem('userId'),
+      fullName: localStorage.getItem('fullName'),
+    }))
+   }
   }
 
   newAccountForm() {
@@ -51,8 +59,8 @@ class App extends React.Component {
           <div className='right-box wow zoomIn'>
             <img src='images/hairstylist.png' alt='hair-stylist' className='person-gif' id='person-gif-right' />
           </div>
-          <div id="section-2" />
         </section>
+        <div id="section-2" />
         <section className='options-container'>
           <div className='option-box'>
             <a href='#how-it-works-summary' className='option-box-text'>How it works</a>

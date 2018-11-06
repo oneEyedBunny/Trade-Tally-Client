@@ -6,14 +6,20 @@ import { store } from '../store.js';
 import { TradeSummary } from './trade-summary';
 import Navigation from './navigation';
 import { getTrades } from '../actions/trades';
-import { getAllUsers } from '../actions/auth-users';
+import { getAllUsers, loginSuccess } from '../actions/auth-users'
 import './trade-summary-container.css';
 
 class TradeSummaryContainer extends React.Component {
 
   componentDidMount() {
+    this.props.loginSuccess({
+      authToken: localStorage.getItem('authToken'),
+      userId: localStorage.getItem('userId'),
+      fullName: localStorage.getItem('fullName'),
+    })
     this.props.getTrades(this.props.userId);
     this.props.getAllUsers();
+
   }
 
   render() {
@@ -91,9 +97,9 @@ class TradeSummaryContainer extends React.Component {
 const mapStateToProps = state => ({
   trades: state.trades.trades,
   users: state.user.users,
-  userId: state.user.userId
+  userId: state.user.userId || localStorage.getItem('userId'),
 });
 
-const mapDispatchToProps = { getTrades, getAllUsers }
+const mapDispatchToProps = { getTrades, getAllUsers, loginSuccess }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TradeSummaryContainer);

@@ -6,3 +6,18 @@
   width: 100%;
   height: auto;
 }
+
+
+/*************************Media queries***************************/
+
+@media only screen and (min-width: 700px) {
+  #new-trade-form {
+    width: 75%
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  #new-trade-form {
+    width: 65%
+  }
+}

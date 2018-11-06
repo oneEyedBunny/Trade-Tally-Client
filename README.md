@@ -18,12 +18,19 @@ Currently I'm a hairstylist. I trade services with a variety of people: Chiropra
 - HTML
 - CSS
 
-# Pending items
-1. ReadMe Images
-1. Create acct success message gets cleared before displayed to user
+![](screenshots/main.png)
+![](screenshots/main_2.png)
+![](screenshots/trade-details.png)
 
-#Code clean up
+
+# Code clean up
 1. console.logs or misc commented out code removed
+
+
+
+
+
+
 
 
 # Future 2.0 features:
@@ -33,4 +40,6 @@ Currently I'm a hairstylist. I trade services with a variety of people: Chiropra
 1. Add autocomplete to new trade form drop down (https://alligator.io/react/react-autocomplete/_)
 1. Improve window confirm for delete button formatting
 1. Create password reset feature
+1. Date on new trade isn't populating on edit
 1. Test cases for reducers & actions
+1. Create acct success message gets cleared before displayed to user
