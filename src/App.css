@@ -44,7 +44,7 @@ form {
 
 label {
   flex: 2;
-  font-size: calc(14px + (26 - 14) * ((100vw - 320px) / (1000 - 320)));
+  font-size: calc(14px + (22 - 14) * ((100vw - 320px) / (1000 - 320)));
 }
 
 input, select, textarea {
@@ -54,7 +54,7 @@ input, select, textarea {
   width: 85%;
   border: 1px solid #DBDBDB;
   border-radius: 4px;
-  font-size: calc(14px + (25 - 14) * ((100vw - 320px) / (1000 - 320)));
+  font-size: calc(14px + (22 - 14) * ((100vw - 320px) / (1000 - 320)));
   resize: none;
 }
 

@@ -1,12 +1,14 @@
 #trade-history-header {
   padding-bottom: 10px;
   margin: 0;
+  text-align: center;
 }
 
 #trade-partner-name {
   font-size: calc(16px + (30 - 16) * ((100vw - 320px) / (1000 - 320)));
   padding-bottom: 30px;
   margin: 0;
+  text-align: center;
 }
 
 .table-data-history {
@@ -18,8 +20,32 @@ tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
+.date {
+  white-space: nowrap;
+}
+
 #delete-trade, #edit-trade {
-  width: 100%;
+  width: 250%;
   padding: 5px;
   border: none;
+  background-color: transparent;
+}
+
+/*************************Media queries***************************/
+
+@media only screen and (min-width: 550px) {
+  #delete-trade, #edit-trade {
+    width: 200%;
+  }
+}
+@media only screen and (min-width: 650px) {
+  #delete-trade, #edit-trade {
+    width: 175%;
+  }
+}
+
+@media only screen and (min-width: 750px) {
+  #delete-trade, #edit-trade {
+    width: 150%;
+  }
 }

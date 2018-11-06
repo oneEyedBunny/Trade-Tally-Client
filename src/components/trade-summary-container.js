@@ -70,7 +70,7 @@ class TradeSummaryContainer extends React.Component {
       <div className='app'>
         <Navigation tradeSummaryContainer = {true} />
         <h2 className='trade-summary-page-header'>My Active Trades</h2>
-        <div>
+        <div className= 'table-container'>
           <table>
             <thead>
               <tr id='trade-summary-table-row-header'>

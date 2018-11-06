@@ -12,12 +12,12 @@
 
 @media only screen and (min-width: 700px) {
   #new-trade-form {
-    width: 75%
+    width: 70%
   }
 }
 
 @media only screen and (min-width: 900px) {
   #new-trade-form {
-    width: 65%
+    width: 50%
   }
 }

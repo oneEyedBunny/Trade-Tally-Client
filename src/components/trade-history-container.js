@@ -106,6 +106,7 @@ class TradeHistoryContainer extends React.Component {
                 actualTradePartner.fullName : '' }
               </h6>
             </div>
+            <div className= 'table-container'>
             <table>
               <thead>
                 <tr id='trade-history-table-row-header'>
@@ -122,16 +123,17 @@ class TradeHistoryContainer extends React.Component {
                </tr>
               </tbody>
             </table>
+            </div>
             <div className='edit-form-container'>
               {this.state.editForm &&
                 <EditTradeForm tradeId= {this.state.selectedTradeId}
                   clearEditForm = {() => this.clearEditForm()}/>}
-                </div>
-                <div className='error-message-container'>{this.state.successMessage} </div>
-              </div>
-            )
-          }
-        }
+            </div>
+            <div className='error-message-container'>{this.state.successMessage} </div>
+          </div>
+        )
+      }
+    }
 
 const mapStateToProps = state => ({
   trades: state.trades.trades,
