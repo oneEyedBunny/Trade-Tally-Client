@@ -1,3 +1,12 @@
+.table-container {
+  display: flex;
+  justify-content: center;
+}
+
+tr, td {
+  padding: 10px;
+}
+
 #trade-history-table-row-header {
   text-align: left;
 }
@@ -10,17 +19,7 @@
 }
 
 .trade-balance {
-  font-size: calc(16px + (30 - 16) * ((100vw - 320px) / (1000 - 320)));
+  font-size: calc(16px + (27 - 16) * ((100vw - 320px) / (1000 - 320)));
   font-weight: bold;
   padding-top: 50px;
-}
-
-
-
-/*************************Media queries***************************/
-
-@media only screen and (min-width: 700px) {
-  table {
-    width: 75%;
-  }
 }

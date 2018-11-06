@@ -9,3 +9,18 @@
 .edit-trade-form label {
   flex: 1;
 }
+
+
+/*************************Media queries***************************/
+
+@media only screen and (min-width: 700px) {
+  #edit-trade-form {
+    width: 75%
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  #edit-trade-form {
+    width: 55%
+  }
+}

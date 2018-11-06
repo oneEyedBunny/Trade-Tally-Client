@@ -22,7 +22,7 @@ class TradeHistory extends React.Component {
 render () {
   return (
     <tr id='trade-history-data-row'>
-      <td  className='table-data-history'><Moment format='M-DD-YYYY'>{this.props.date}</Moment></td >
+      <td className='table-data-history date'><Moment format='M-DD-YYYY'>{this.props.date}</Moment></td >
         <td  className='table-data-history'>{this.props.serviceDescription}</td >
           <td  className='table-data-history' style={{color: this.isNegative? 'red': 'black'}}>${this.props.amount}</td >
             <td  className='table-data-history image-container'>
