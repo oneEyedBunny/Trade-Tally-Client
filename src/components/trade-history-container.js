@@ -4,11 +4,23 @@ import { store } from '../store.js';
 
 import TradeHistory from './trade-history';
 import Navigation from './navigation';
-import { editTrade } from '../actions/trades';
+import { editTrade, getTrades } from '../actions/trades';
+import { getAllUsers, loginSuccess } from '../actions/auth-users'
 import EditTradeForm from './edit-trade-form';
 import './trade-history-container.css';
 
 class TradeHistoryContainer extends React.Component {
+
+  componentDidMount() {
+    this.props.dispatch(loginSuccess({
+      authToken: localStorage.getItem('authToken'),
+      userId: localStorage.getItem('userId'),
+      fullName: localStorage.getItem('fullName'),
+    }))
+    this.props.dispatch(getTrades(this.props.userId))
+    this.props.dispatch(getAllUsers());
+  }
+
 
   state = {
     editForm: false,
@@ -123,7 +135,7 @@ class TradeHistoryContainer extends React.Component {
 
 const mapStateToProps = state => ({
   trades: state.trades.trades,
-  userId: state.user.userId,
+  userId: state.user.userId || localStorage.getItem('userId'),
   users: state.user.users
 });
 

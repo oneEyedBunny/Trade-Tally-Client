@@ -17,7 +17,7 @@ class NewTrade extends React.Component {
     date: '',
     serviceDescription: '',
     amount: '',
-    successMessage: ''
+    message: ''
   };
 
   //sets the inputs into state as the user types them into the form
@@ -35,8 +35,13 @@ class NewTrade extends React.Component {
     try {
       await this.props.addTrade(newTrade);
       this.setState({
-        successMessage: `Your trade has been recorded`,
-      })
+        message: `Your trade has been recorded`,
+      });
+      setTimeout(() => {
+        this.setState({
+          message: ''
+        })
+      }, 4000)
     } catch (error) {
       console.log(error);
     }
@@ -90,7 +95,7 @@ class NewTrade extends React.Component {
               value={this.state.tradePartnerId}
               onChange={e => {
                 this.setInput(e, 'tradePartnerId');
-                this.setState({successMessage: ''})
+                this.setState({message: ''})
               } }
               required>
               {userDropDown}
@@ -136,7 +141,7 @@ class NewTrade extends React.Component {
             className='button' >
             Create Trade
           </button>
-          <div className='error-message-container'>{this.state.successMessage} </div>
+          <div className='error-message-container'>{this.state.message} </div>
         </fieldset>
       </form>
     );
@@ -151,3 +156,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = { addTrade, getAllUsers };
 export default connect(mapStateToProps, mapDispatchToProps)(NewTrade);
+
+
+// {!this.state.message === '' ?
+// <div className='error-message-container'>{this.state.message} </div>
+// : "" }

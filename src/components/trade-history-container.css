@@ -14,3 +14,13 @@
   font-weight: bold;
   padding-top: 50px;
 }
+
+
+
+/*************************Media queries***************************/
+
+@media only screen and (min-width: 700px) {
+  table {
+    width: 75%;
+  }
+}
