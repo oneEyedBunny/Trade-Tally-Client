@@ -23,9 +23,6 @@ Currently I'm a hairstylist. I trade services with a variety of people: Chiropra
 ![](screenshots/trade-details.png)
 
 
-# Code clean up
-1. console.logs or misc commented out code removed
-
 
 
 

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { WOW } from 'wowjs';
 import { loginSuccess } from './actions/auth-users'
-//import components
+
 import Navigation from './components/navigation';
 import CreateAccount  from './components/create-account';
 import './App.css';
@@ -31,8 +31,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log('user =', this.props.user);
-    console.log('isLoggedin =', this.props.user.isLoggedin);
     return (
       <div className='app'>
         <div className="page-1-view">

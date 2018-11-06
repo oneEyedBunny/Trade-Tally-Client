@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { store } from '../store.js';
+// import { store } from '../store.js';
 
 import TradeHistory from './trade-history';
 import Navigation from './navigation';
@@ -79,15 +79,12 @@ class TradeHistoryContainer extends React.Component {
         );
       });
 
-      console.log('ft', filteredTrades);
-
       //gives grand total for bottom section of table
       let balance = 0;
       filteredTrades.forEach((trade) => {
         (this.props.userId === trade.tradePartnerId) ? balance -= trade.amount:
         balance += trade.amount;
       })
-      console.log('state in history=', store.getState());
 
       //creating full name to display
       let actualTradePartnerId= this.props.match.params.tradePartnerId;
