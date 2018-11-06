@@ -21,22 +21,3 @@ Currently I'm a hairstylist. I trade services with a variety of people: Chiropra
 ![](screenshots/main.png)
 ![](screenshots/main_2.png)
 ![](screenshots/trade-details.png)
-
-
-
-
-
-
-
-
-
-# Future 2.0 features:
-1. Add location feature, so logic will search names by location of person
-1. Add ability for trades to be confirmed by the receiving partner
-1. Make the fields in the history table editable, add a dot drop down on left that lets you delete/edit
-1. Add autocomplete to new trade form drop down (https://alligator.io/react/react-autocomplete/_)
-1. Improve window confirm for delete button formatting
-1. Create password reset feature
-1. Date on new trade isn't populating on edit
-1. Test cases for reducers & actions
-1. Create acct success message gets cleared before displayed to user
