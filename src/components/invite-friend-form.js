@@ -18,7 +18,6 @@ class InviteFriendForm extends React.Component {
     this.setState({
       [key]: event.target.value
     })
-    console.log('comp state=', this.state);
   }
 
   //dispatches action which is ajax call to server

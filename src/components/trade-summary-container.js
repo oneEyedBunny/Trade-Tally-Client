@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { store } from '../store.js';
+// import { store } from '../store.js';
 
 import { TradeSummary } from './trade-summary';
 import Navigation from './navigation';
@@ -52,9 +52,7 @@ class TradeSummaryContainer extends React.Component {
       //looks for logged in user and sets any trade amounts where they're the trade partner to negative
       (otherUserId === trade.userId) ? userSums[otherUserId] -= trade.amount:
       userSums[otherUserId] += trade.amount;
-    }); //close loop
-
-    console.log('state=', store.getState());
+    });
 
     let trades = Object.entries(userSums).map(tradePartner=> {
       return (

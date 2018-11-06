@@ -9,7 +9,6 @@ const initialState = {
 }
 
 export const authUserReducer = (state = initialState, action) => {
-  console.log(action);
 
   if (action.type === ADD_NEW_USER_SUCCESS || action.type === LOGIN_SUCCESS) {
     return Object.assign({}, state, {

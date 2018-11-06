@@ -31,7 +31,6 @@ class NewTrade extends React.Component {
   submitTrade = async event => {
     event.preventDefault();
     let newTrade = this.state;
-    console.log('im the new trade data', newTrade);
     try {
       await this.props.addTrade(newTrade);
       this.setState({
@@ -156,8 +155,3 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = { addTrade, getAllUsers };
 export default connect(mapStateToProps, mapDispatchToProps)(NewTrade);
-
-
-// {!this.state.message === '' ?
-// <div className='error-message-container'>{this.state.message} </div>
-// : "" }

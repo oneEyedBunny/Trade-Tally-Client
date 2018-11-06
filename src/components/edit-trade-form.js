@@ -37,7 +37,6 @@ class EditTradeForm extends React.Component {
 //dispatches action which is ajax call to server
   onEditTrade = async event => {
     event.preventDefault();
-    console.log('edit ID=', this.props.tradeId);
     try {
       await this.props.editTrade(this.state, this.props.userId);
     } catch (error) {
@@ -54,8 +53,6 @@ class EditTradeForm extends React.Component {
   };
 
   render() {
-    console.log('selectedTrade', this.selectedTrade);
-    console.log('state=', this.state);
     return (
       <form id='edit-trade-form' onSubmit={(e) =>this.onEditTrade(e)}>
         <fieldset id='edit-trade-fieldset' className='fieldset'>
