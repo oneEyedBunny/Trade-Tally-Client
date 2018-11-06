@@ -12,13 +12,13 @@ import './trade-history-container.css';
 class TradeHistoryContainer extends React.Component {
 
   componentDidMount() {
-    this.props.dispatch(loginSuccess({
+    this.props.loginSuccess({
       authToken: localStorage.getItem('authToken'),
       userId: localStorage.getItem('userId'),
       fullName: localStorage.getItem('fullName'),
-    }))
-    this.props.dispatch(getTrades(this.props.userId))
-    this.props.dispatch(getAllUsers());
+    });
+    this.props.getTrades(this.props.userId);
+    this.props.getAllUsers();
   }
 
 
@@ -138,4 +138,6 @@ const mapStateToProps = state => ({
   users: state.user.users
 });
 
-export default connect(mapStateToProps)(TradeHistoryContainer);
+const mapDispatchToProps = { getTrades, getAllUsers, loginSuccess }
+
+export default connect(mapStateToProps, mapDispatchToProps)(TradeHistoryContainer);
