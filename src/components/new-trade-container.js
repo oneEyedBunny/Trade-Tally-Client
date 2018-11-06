@@ -12,11 +12,11 @@ import './new-trade-container.css';
 class NewTradeContainer extends React.Component {
 
   componentDidMount() {
-    this.props.dispatch(loginSuccess({
+    this.props.loginSuccess({
       authToken: localStorage.getItem('authToken'),
       userId: localStorage.getItem('userId'),
       fullName: localStorage.getItem('fullName'),
-    }))
+    });
   }
 
   state = {
@@ -72,4 +72,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(NewTradeContainer);
+const mapDispatchToProps = { loginSuccess }
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewTradeContainer);

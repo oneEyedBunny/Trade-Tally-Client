@@ -18,11 +18,11 @@ class App extends React.Component {
   componentDidMount() {
     new WOW().init();
     if(localStorage.getItem('isLoggedin')) {
-    this.props.dispatch(loginSuccess({
+    this.props.loginSuccess({
       authToken: localStorage.getItem('authToken'),
       userId: localStorage.getItem('userId'),
       fullName: localStorage.getItem('fullName'),
-    }))
+    })
    }
   }
 
@@ -121,4 +121,6 @@ const mapStateToProps = state => {
     user: state.user
   };
 };
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = { loginSuccess }
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
